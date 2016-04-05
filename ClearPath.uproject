@@ -1,0 +1,13 @@
+{
+	"FileVersion": 3,
+	"EngineAssociation": "EE556BE1-9A43-4D57-9F22-F6965449DCED",
+	"Category": "",
+	"Description": "",
+	"Modules": [
+		{
+			"Name": "ClearPath",
+			"Type": "Runtime",
+			"LoadingPhase": "Default"
+		}
+	]
+}
