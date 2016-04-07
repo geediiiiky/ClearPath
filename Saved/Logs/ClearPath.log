@@ -1,0 +1,128 @@
+﻿[2016.04.07-15.39.25:637][  0]Log file open, 04/07/16 23:39:25
+[2016.04.07-15.39.25:637][  0]LogInit:Display: Running engine for game: ClearPath
+[2016.04.07-15.39.25:637][  0]LogPlatformFile: Not using cached read wrapper
+[2016.04.07-15.39.25:637][  0]LogInit:Display: RandInit(-335107472) SRandInit(-335107470).
+[2016.04.07-15.39.25:637][  0]LogTaskGraph: Started task graph with 4 named threads and 7 total threads.
+[2016.04.07-15.39.25:638][  0]LogStats: Stats thread started at 0.202364
+[2016.04.07-15.39.25:638][  0]LogInit: Version: 4.10.1-0+++directive
+[2016.04.07-15.39.25:638][  0]LogInit: API Version: 0
+[2016.04.07-15.39.25:638][  0]LogInit: Compiled (64-bit): Apr  6 2016 22:26:37
+[2016.04.07-15.39.25:638][  0]LogInit: Compiled with Visual C++: 19.00.23026.00
+[2016.04.07-15.39.25:638][  0]LogInit: Build Configuration: Debug
+[2016.04.07-15.39.25:638][  0]LogInit: Branch Name: ++directive
+[2016.04.07-15.39.25:638][  0]LogInit: Command line:  -debug
+[2016.04.07-15.39.25:638][  0]LogInit: Base directory: K:/UnrealEngine/Engine/Binaries/Win64/
+[2016.04.07-15.39.25:638][  0]LogInit: Rocket: 0
+[2016.04.07-15.39.25:664][  0]LogInit: Using libcurl 7.41.0
+[2016.04.07-15.39.25:664][  0]LogInit:  - built for x86_64-pc-win32
+[2016.04.07-15.39.25:664][  0]LogInit:  - supports SSL with WinSSL
+[2016.04.07-15.39.25:664][  0]LogInit:  - other features:
+[2016.04.07-15.39.25:664][  0]LogInit:      CURL_VERSION_SSL
+[2016.04.07-15.39.25:664][  0]LogInit:      CURL_VERSION_IPV6
+[2016.04.07-15.39.25:665][  0]LogInit:      CURL_VERSION_ASYNCHDNS
+[2016.04.07-15.39.25:665][  0]LogInit:      CURL_VERSION_LARGEFILE
+[2016.04.07-15.39.25:665][  0]LogInit:      CURL_VERSION_IDN
+[2016.04.07-15.39.25:665][  0]LogInit:  CurlRequestOptions (configurable via config and command line):
+[2016.04.07-15.39.25:665][  0]LogInit:  - bVerifyPeer = true  - Libcurl will verify peer certificate
+[2016.04.07-15.39.25:665][  0]LogInit:  - bUseHttpProxy = false  - Libcurl will NOT use HTTP proxy
+[2016.04.07-15.39.25:665][  0]LogInit:  - bDontReuseConnections = false  - Libcurl will reuse connections
+[2016.04.07-15.39.25:665][  0]LogInit:  - CertBundlePath = nullptr  - Libcurl will use whatever was configured at build time.
+[2016.04.07-15.39.25:688][  0]LogInit: Presizing for 0 objects not considered by GC, pre-allocating 0 bytes.
+[2016.04.07-15.39.25:708][  0]LogInit: Object subsystem initialized
+[2016.04.07-15.39.25:710][  0]LogInit: Selected Device Profile: [Windows]
+[2016.04.07-15.39.25:710][  0]LogInit: Applying CVar settings loaded from the selected device profile: [Windows]
+[2016.04.07-15.39.25:726][  0]LogInit: Computer: WANGSHIHA-PC
+[2016.04.07-15.39.25:726][  0]LogInit: User: WangShihai
+[2016.04.07-15.39.25:726][  0]LogInit: CPU Page size=4096, Cores=4
+[2016.04.07-15.39.25:726][  0]LogInit: High frequency timer resolution =3.312646 MHz
+[2016.04.07-15.39.25:727][  0]LogMemory: Memory total: Physical=15.9GB (16GB approx)
+[2016.04.07-15.39.25:727][  0]LogMemory: Platform Memory Stats for Windows
+[2016.04.07-15.39.25:727][  0]LogMemory: Process Physical Memory: 64.79 MB used, 64.79 MB peak
+[2016.04.07-15.39.25:727][  0]LogMemory: Process Virtual Memory: 59.36 MB used, 59.36 MB peak
+[2016.04.07-15.39.25:727][  0]LogMemory: Physical Memory: 6272.14 MB used, 16305.84 MB total
+[2016.04.07-15.39.25:727][  0]LogMemory: Virtual Memory: 488.61 MB used, 134217728.00 MB total
+[2016.04.07-15.39.25:781][  0]LogPhysics:Warning: PHYSX: ..\..\module\clothing\src\ModuleClothing.cpp (386) 2 : physx::apex::clothing::ModuleClothing::ModuleClothing: Failed to load the GPU dll 'APEX_ClothingGPUPROFILE_x64.dll'
+[2016.04.07-15.39.25:783][  0]LogTextLocalizationManager: No specific translations for ('en-US') exist, so ('en') translations will be used.
+[2016.04.07-15.39.26:542][  0]LogD3D11RHI: Found D3D11 adapter 0: NVIDIA GeForce GTX 660   (Feature Level 11_0)
+[2016.04.07-15.39.26:542][  0]LogD3D11RHI: Adapter has 1988MB of dedicated video memory, 0MB of dedicated system memory, and 8152MB of shared system memory, 2 output[s]
+[2016.04.07-15.39.26:545][  0]LogD3D11RHI: Found D3D11 adapter 1: Microsoft Basic Render Driver (Feature Level 11_0)
+[2016.04.07-15.39.26:545][  0]LogD3D11RHI: Adapter has 0MB of dedicated video memory, 0MB of dedicated system memory, and 8152MB of shared system memory, 0 output[s]
+[2016.04.07-15.39.26:545][  0]LogD3D11RHI: Chosen D3D11 Adapter Id = 0
+[2016.04.07-15.39.26:549][  0]LogD3D11RHI: !Direct3DDevice
+[2016.04.07-15.39.26:549][  0]LogRHI: Texture pool is 1361 MB (70% of 1945 MB)
+[2016.04.07-15.39.26:566][  0]LogD3D11RHI: Async texture creation enabled
+[2016.04.07-15.39.26:580][  0]LogShaderCompilers: Guid format shader working directory is 28 characters bigger than the processId version (../../../../ClearPath/Intermediate/Shaders/WorkingDirectory/5804/).
+[2016.04.07-15.39.26:580][  0]LogShaderCompilers: Cleaned the shader compiler working directory 'C:/Users/WANGSH~1/AppData/Local/Temp/UnrealShaderWorkingDir/F59B0F6F403BAFECB6E93FB3A61900F2/'.
+[2016.04.07-15.39.26:580][  0]LogShaderCompilers:Display: Using Local Shader Compiler.
+[2016.04.07-15.39.27:503][  0]LogTemp:Display: Loaded TP AllDesktopTargetPlatform
+[2016.04.07-15.39.27:519][  0]LogTemp:Display: Loaded TP WindowsClientTargetPlatform
+[2016.04.07-15.39.27:535][  0]LogTemp:Display: Loaded TP WindowsNoEditorTargetPlatform
+[2016.04.07-15.39.27:550][  0]LogTemp:Display: Loaded TP WindowsServerTargetPlatform
+[2016.04.07-15.39.27:565][  0]LogTemp:Display: Loaded TP WindowsTargetPlatform
+[2016.04.07-15.39.27:576][  0]LogTemp:Display: Loaded TP AndroidTargetPlatform
+[2016.04.07-15.39.27:588][  0]LogTemp:Display: Loaded TP Android_ASTCTargetPlatform
+[2016.04.07-15.39.27:599][  0]LogTemp:Display: Loaded TP Android_ATCTargetPlatform
+[2016.04.07-15.39.27:611][  0]LogTemp:Display: Loaded TP Android_DXTTargetPlatform
+[2016.04.07-15.39.27:623][  0]LogTemp:Display: Loaded TP Android_ETC1TargetPlatform
+[2016.04.07-15.39.27:636][  0]LogTemp:Display: Loaded TP Android_ETC2TargetPlatform
+[2016.04.07-15.39.27:661][  0]LogTemp:Display: Loaded TP Android_MultiTargetPlatform
+[2016.04.07-15.39.27:661][  0]LogTemp:Display: Loaded TP Android_PVRTCTargetPlatform
+[2016.04.07-15.39.27:666][  0]LogTemp:Display: Loaded TP HTML5TargetPlatform
+[2016.04.07-15.39.27:702][  0]LogTemp:Display: Loaded TP IOSTargetPlatform
+[2016.04.07-15.39.27:702][  0]LogTargetPlatformManager:Display: Building Assets For Windows
+[2016.04.07-15.39.27:895][  0]LogDerivedDataCache:Display: Max Cache Size: 512 MB
+[2016.04.07-15.39.27:979][  0]LogDerivedDataCache: Loaded boot cache 0.08s 99MB ../../../../ClearPath/DerivedDataCache/Boot.ddc.
+[2016.04.07-15.39.27:980][  0]LogDerivedDataCache:Display: Loaded Boot cache: ../../../../ClearPath/DerivedDataCache/Boot.ddc
+[2016.04.07-15.39.27:980][  0]LogDerivedDataCache: FDerivedDataBackendGraph:  Pak pak cache file ../../../../ClearPath/DerivedDataCache/DDC.ddp not found, will not use a pak cache.
+[2016.04.07-15.39.27:980][  0]LogDerivedDataCache: Unable to find inner node Pak for hierarchical cache Hierarchy.
+[2016.04.07-15.39.27:980][  0]LogDerivedDataCache: FDerivedDataBackendGraph:  EnginePak pak cache file ../../../Engine/DerivedDataCache/DDC.ddp not found, will not use a pak cache.
+[2016.04.07-15.39.27:980][  0]LogDerivedDataCache: Unable to find inner node EnginePak for hierarchical cache Hierarchy.
+[2016.04.07-15.39.27:993][  0]LogDerivedDataCache: Using Local data cache path ../../../Engine/DerivedDataCache: Writable
+[2016.04.07-15.39.27:993][  0]LogDerivedDataCache: Shared data cache path not found in *engine.ini, will not use an Shared cache.
+[2016.04.07-15.39.27:993][  0]LogDerivedDataCache: Unable to find inner node Shared for hierarchical cache Hierarchy.
+[2016.04.07-15.39.28:515][  0]LogInit: Selected Device Profile: [Windows]
+[2016.04.07-15.39.28:521][  0]LogContentStreaming: Texture pool size is 0.000000MB
+[2016.04.07-15.39.28:752][  0]LogMeshUtilities: No automatic mesh reduction module available
+[2016.04.07-15.39.28:752][  0]LogMeshUtilities: No automatic mesh merging module available
+[2016.04.07-15.39.29:169][  0]LogInit: WinSock: version 1.1 (2.2), MaxSocks=32767, MaxUdp=65467
+[2016.04.07-15.39.30:212][  0]UdpMessaging: Initializing bridge on interface 0.0.0.0:0 to multicast group 230.0.0.1:6666.
+[2016.04.07-15.39.30:380][  0]LogAssetRegistry: FAssetRegistry took 0.0125 seconds to start up
+[2016.04.07-15.39.30:825][  0]SourceControl: Info Source control is disabled
+[2016.04.07-15.39.30:826][  0]SourceControl: Info Source control is disabled
+[2016.04.07-15.39.30:844][  0]SourceControl: Info Source control is disabled
+[2016.04.07-15.39.30:867][  0]SourceControl: Info Source control is disabled
+[2016.04.07-15.39.31:284][  0]LogObj: 28630 objects as part of root set at end of initial load.
+[2016.04.07-15.39.31:284][  0]LogUObjectAllocator: 6100480 out of 0 bytes used by permanent object pool.
+[2016.04.07-15.39.31:447][  0]LogEngine: Initializing Engine...
+[2016.04.07-15.39.31:449][  0]LogHMD: Can't find Oculus library dev build: is proper Runtime installed? Version: 0.8.0.0
+[2016.04.07-15.39.31:455][  0]LogHMD: SteamVR failed to initialize.  Err: 110
+[2016.04.07-15.39.31:782][  0]LogAIModule: Creating AISystem for world NewWorld
+[2016.04.07-15.39.31:795][  0]LogInit: XAudio2 using 'Speakers (MUSILAND M-Sword Digital)' : 2 channels at 44.1 kHz using 32 bits per sample (channel mask 0x3)
+[2016.04.07-15.39.31:813][  0]LogInit: FAudioDevice initialized.
+[2016.04.07-15.39.31:858][  0]LogDerivedDataCache: Saved boot cache 0.04s 99MB ../../../../ClearPath/DerivedDataCache/Boot.ddc.
+[2016.04.07-15.39.31:866][  0]LogInit: Texture streaming: Enabled
+[2016.04.07-15.39.31:882][  0]LogInit: Transaction tracking system initialized
+[2016.04.07-15.39.31:959][  0]BlueprintLog: New page: Editor Load
+[2016.04.07-15.39.32:217][  0]LocalizationService: Info Localization service is disabled
+[2016.04.07-15.39.32:391][  0]LogConsoleResponse:Display: 
+[2016.04.07-15.39.32:615][  0]LogCook:Display: Done creating registry. It took  0.00s.
+[2016.04.07-15.39.32:756][  0]LogFileCache: Scanning file cache for directory 'K:/ClearPath/Content/' took 0.01s
+[2016.04.07-15.39.32:756][  0]SourceControl: Info Source control is disabled
+[2016.04.07-15.39.32:756][  0]Cmd: MAP LOAD FILE="../../../../ClearPath/Content/ClearPath/DefaultMap.umap" TEMPLATE=0 SHOWPROGRESS=1 FEATURELEVEL=3
+[2016.04.07-15.39.32:757][  0]LightingResults: New page: Lighting Build
+[2016.04.07-15.39.32:764][  0]MapCheck: New page: Map Check
+[2016.04.07-15.39.32:764][  0]LightingResults: New page: Lighting Build
+[2016.04.07-15.39.32:807][  0]LogParticles: Destroying 0 GPU particle simulations for FXSystem 0x0000006A8DC85580
+[2016.04.07-15.39.33:472][  0]LogAIModule: Creating AISystem for world DefaultMap
+[2016.04.07-15.39.33:482][  0]LogEditorServer: Finished looking for orphan Actors (0.000 secs)
+[2016.04.07-15.39.33:483][  0]Cmd: MAP CHECKDEP NOCLEARLOG
+[2016.04.07-15.39.33:539][  0]MapCheck: Info Map check complete: 0 Error(s), 0 Warning(s), took 54.791ms to complete.
+[2016.04.07-15.39.33:539][  0]LogFileHelpers: Loading map 'DefaultMap' took 0.783
+[2016.04.07-15.39.33:696][  0]LogCollectionManager: Loaded 0 collections in 0.002860 seconds
+[2016.04.07-15.39.33:745][  0]LogFileCache: Scanning file cache for directory 'K:/ClearPath/Saved/Collections/' took 0.01s
+[2016.04.07-15.39.33:745][  0]LogFileCache: Scanning file cache for directory 'K:/ClearPath/Content/Developers/WangShihai/Collections/' took 0.01s
+[2016.04.07-15.39.33:745][  0]LogFileCache: Scanning file cache for directory 'K:/ClearPath/Content/Collections/' took 0.01s
+[2016.04.07-15.39.33:745][  0]LogCollectionManager: Rebuilt the GUID cache for 0 collections in 0.000002 seconds
+[2016.04.07-15.39.33:773][  0]LogContentBrowser: Native class hierarchy populated in 0.0268 seconds. Added 1893 classes and 338 folders.
+[2016.04.07-15.39.33:784][  0]LogContentBrowser: Native class hierarchy updated for 'WidgetCarousel' in 0.0017 seconds. Added 0 classes and 0 folders.
+[2016.04.07-15.39.33:843][  0]LogContentBrowser: Native class hierarchy updated for 'AddContentDialog' in 0.0016 seconds. Added 0 classes and 0 folders
