@@ -20,9 +20,6 @@ UNavComponent::UNavComponent()
 void UNavComponent::BeginPlay()
 {
 	Super::BeginPlay();
-
-	location = GetOwner()->GetActorLocation();
-	
 }
 
 
@@ -31,9 +28,10 @@ void UNavComponent::TickComponent( float DeltaTime, ELevelTick TickType, FActorC
 {
 	Super::TickComponent( DeltaTime, TickType, ThisTickFunction );
 
-	FVector toTarget = targetLocation - location;
-	FVector velocity = toTarget.GetSafeNormal() * maxSpeed;
-
-	location = location + velocity * DeltaTime;
+	// get location from nav
 }
 
+void UNavComponent::CreateNavigator_Implementation(const FVector& newTargetLocation, float navRadius, float navMaxSpeed)
+{
+	nav = std::make_unique<Navigator>(newTargetLocation, navRadius, navMaxSpeed);
+}

@@ -3,8 +3,11 @@
 #pragma once
 
 #include "Components/ActorComponent.h"
-#include "NavComponent.generated.h"
+#include "Navigator.h"
 
+#include <memory>
+
+#include "NavComponent.generated.h"
 
 UCLASS( Blueprintable, ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
 class CLEARPATH_API UNavComponent : public UActorComponent
@@ -21,12 +24,9 @@ public:
 	// Called every frame
 	virtual void TickComponent( float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction ) override;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "NavComponent")
-	FVector targetLocation;
+	UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "NavComponent")
+	void CreateNavigator(const FVector& newTargetLocation, float navRadius, float navMaxSpeed);
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "NavComponent")
-	float maxSpeed;
-
-	UPROPERTY(BlueprintReadOnly, Category = "NavComponent")
-	FVector location;
+private:
+	std::unique_ptr<Navigator> nav;
 };
