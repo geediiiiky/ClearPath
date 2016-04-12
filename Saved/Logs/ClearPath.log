@@ -1,777 +1,376 @@
-﻿[2016.04.11-15.26.34:824][  0]Log file open, 04/11/16 23:26:34
-[2016.04.11-15.26.34:824][  0]LogInit:Display: Running engine for game: ClearPath
-[2016.04.11-15.26.34:824][  0]LogPlatformFile: Not using cached read wrapper
-[2016.04.11-15.26.34:824][  0]LogInit:Display: RandInit(-436589102) SRandInit(-436589099).
-[2016.04.11-15.26.34:824][  0]LogTaskGraph: Started task graph with 4 named threads and 7 total threads.
-[2016.04.11-15.26.34:824][  0]LogStats: Stats thread started at 3.771775
-[2016.04.11-15.26.34:824][  0]LogInit: Version: 4.10.1-0+++directive
-[2016.04.11-15.26.34:825][  0]LogInit: API Version: 0
-[2016.04.11-15.26.34:825][  0]LogInit: Compiled (64-bit): Apr  6 2016 22:26:37
-[2016.04.11-15.26.34:825][  0]LogInit: Compiled with Visual C++: 19.00.23026.00
-[2016.04.11-15.26.34:825][  0]LogInit: Build Configuration: Debug
-[2016.04.11-15.26.34:825][  0]LogInit: Branch Name: ++directive
-[2016.04.11-15.26.34:825][  0]LogInit: Command line:  -debug
-[2016.04.11-15.26.34:825][  0]LogInit: Base directory: K:/UnrealEngine/Engine/Binaries/Win64/
-[2016.04.11-15.26.34:825][  0]LogInit: Rocket: 0
-[2016.04.11-15.26.34:870][  0]LogInit: Using libcurl 7.41.0
-[2016.04.11-15.26.34:870][  0]LogInit:  - built for x86_64-pc-win32
-[2016.04.11-15.26.34:870][  0]LogInit:  - supports SSL with WinSSL
-[2016.04.11-15.26.34:871][  0]LogInit:  - other features:
-[2016.04.11-15.26.34:871][  0]LogInit:      CURL_VERSION_SSL
-[2016.04.11-15.26.34:871][  0]LogInit:      CURL_VERSION_IPV6
-[2016.04.11-15.26.34:871][  0]LogInit:      CURL_VERSION_ASYNCHDNS
-[2016.04.11-15.26.34:871][  0]LogInit:      CURL_VERSION_LARGEFILE
-[2016.04.11-15.26.34:871][  0]LogInit:      CURL_VERSION_IDN
-[2016.04.11-15.26.34:872][  0]LogInit:  CurlRequestOptions (configurable via config and command line):
-[2016.04.11-15.26.34:872][  0]LogInit:  - bVerifyPeer = true  - Libcurl will verify peer certificate
-[2016.04.11-15.26.34:872][  0]LogInit:  - bUseHttpProxy = false  - Libcurl will NOT use HTTP proxy
-[2016.04.11-15.26.34:872][  0]LogInit:  - bDontReuseConnections = false  - Libcurl will reuse connections
-[2016.04.11-15.26.34:872][  0]LogInit:  - CertBundlePath = nullptr  - Libcurl will use whatever was configured at build time.
-[2016.04.11-15.26.35:148][  0]LogInit: Presizing for 0 objects not considered by GC, pre-allocating 0 bytes.
-[2016.04.11-15.26.35:387][  0]LogInit: Object subsystem initialized
-[2016.04.11-15.26.35:603][  0]LogInit: Selected Device Profile: [Windows]
-[2016.04.11-15.26.35:613][  0]LogInit: Applying CVar settings loaded from the selected device profile: [Windows]
-[2016.04.11-15.26.35:720][  0]LogInit: Computer: WANGSHIHA-PC
-[2016.04.11-15.26.35:720][  0]LogInit: User: WangShihai
-[2016.04.11-15.26.35:720][  0]LogInit: CPU Page size=4096, Cores=4
-[2016.04.11-15.26.35:720][  0]LogInit: High frequency timer resolution =3.312646 MHz
-[2016.04.11-15.26.35:720][  0]LogMemory: Memory total: Physical=15.9GB (16GB approx)
-[2016.04.11-15.26.35:720][  0]LogMemory: Platform Memory Stats for Windows
-[2016.04.11-15.26.35:720][  0]LogMemory: Process Physical Memory: 64.75 MB used, 64.75 MB peak
-[2016.04.11-15.26.35:720][  0]LogMemory: Process Virtual Memory: 59.31 MB used, 59.31 MB peak
-[2016.04.11-15.26.35:720][  0]LogMemory: Physical Memory: 6267.87 MB used, 16305.84 MB total
-[2016.04.11-15.26.35:720][  0]LogMemory: Virtual Memory: 488.61 MB used, 134217728.00 MB total
-[2016.04.11-15.26.36:398][  0]LogPhysics:Warning: PHYSX: ..\..\module\clothing\src\ModuleClothing.cpp (386) 2 : physx::apex::clothing::ModuleClothing::ModuleClothing: Failed to load the GPU dll 'APEX_ClothingGPUPROFILE_x64.dll'
-[2016.04.11-15.26.36:680][  0]LogTextLocalizationManager: No specific translations for ('en-US') exist, so ('en') translations will be used.
-[2016.04.11-15.26.38:552][  0]LogD3D11RHI: Found D3D11 adapter 0: NVIDIA GeForce GTX 660   (Feature Level 11_0)
-[2016.04.11-15.26.38:552][  0]LogD3D11RHI: Adapter has 1988MB of dedicated video memory, 0MB of dedicated system memory, and 8152MB of shared system memory, 2 output[s]
-[2016.04.11-15.26.38:559][  0]LogD3D11RHI: Found D3D11 adapter 1: Microsoft Basic Render Driver (Feature Level 11_0)
-[2016.04.11-15.26.38:559][  0]LogD3D11RHI: Adapter has 0MB of dedicated video memory, 0MB of dedicated system memory, and 8152MB of shared system memory, 0 output[s]
-[2016.04.11-15.26.38:559][  0]LogD3D11RHI: Chosen D3D11 Adapter Id = 0
-[2016.04.11-15.26.38:564][  0]LogD3D11RHI: !Direct3DDevice
-[2016.04.11-15.26.38:565][  0]LogRHI: Texture pool is 1361 MB (70% of 1945 MB)
-[2016.04.11-15.26.38:586][  0]LogD3D11RHI: Async texture creation enabled
-[2016.04.11-15.26.38:986][  0]LogShaderCompilers: Guid format shader working directory is 28 characters bigger than the processId version (../../../../ClearPath/Intermediate/Shaders/WorkingDirectory/9880/).
-[2016.04.11-15.26.38:987][  0]LogShaderCompilers: Cleaned the shader compiler working directory 'C:/Users/WANGSH~1/AppData/Local/Temp/UnrealShaderWorkingDir/8676695547FB96BE0CE4098BF074F576/'.
-[2016.04.11-15.26.38:987][  0]LogShaderCompilers:Display: Using Local Shader Compiler.
-[2016.04.11-15.26.42:417][  0]LogTemp:Display: Loaded TP AllDesktopTargetPlatform
-[2016.04.11-15.26.42:498][  0]LogTemp:Display: Loaded TP WindowsClientTargetPlatform
-[2016.04.11-15.26.42:574][  0]LogTemp:Display: Loaded TP WindowsNoEditorTargetPlatform
-[2016.04.11-15.26.42:642][  0]LogTemp:Display: Loaded TP WindowsServerTargetPlatform
-[2016.04.11-15.26.42:725][  0]LogTemp:Display: Loaded TP WindowsTargetPlatform
-[2016.04.11-15.26.42:798][  0]LogTemp:Display: Loaded TP AndroidTargetPlatform
-[2016.04.11-15.26.42:864][  0]LogTemp:Display: Loaded TP Android_ASTCTargetPlatform
-[2016.04.11-15.26.42:936][  0]LogTemp:Display: Loaded TP Android_ATCTargetPlatform
-[2016.04.11-15.26.43:004][  0]LogTemp:Display: Loaded TP Android_DXTTargetPlatform
-[2016.04.11-15.26.43:072][  0]LogTemp:Display: Loaded TP Android_ETC1TargetPlatform
-[2016.04.11-15.26.43:144][  0]LogTemp:Display: Loaded TP Android_ETC2TargetPlatform
-[2016.04.11-15.26.43:292][  0]LogTemp:Display: Loaded TP Android_MultiTargetPlatform
-[2016.04.11-15.26.43:293][  0]LogTemp:Display: Loaded TP Android_PVRTCTargetPlatform
-[2016.04.11-15.26.43:352][  0]LogTemp:Display: Loaded TP HTML5TargetPlatform
-[2016.04.11-15.26.43:586][  0]LogTemp:Display: Loaded TP IOSTargetPlatform
-[2016.04.11-15.26.43:587][  0]LogTargetPlatformManager:Display: Building Assets For Windows
-[2016.04.11-15.26.44:968][  0]LogDerivedDataCache:Display: Max Cache Size: 512 MB
-[2016.04.11-15.26.45:039][  0]LogDerivedDataCache: Loaded boot cache 0.07s 99MB ../../../../ClearPath/DerivedDataCache/Boot.ddc.
-[2016.04.11-15.26.45:039][  0]LogDerivedDataCache:Display: Loaded Boot cache: ../../../../ClearPath/DerivedDataCache/Boot.ddc
-[2016.04.11-15.26.45:039][  0]LogDerivedDataCache: FDerivedDataBackendGraph:  Pak pak cache file ../../../../ClearPath/DerivedDataCache/DDC.ddp not found, will not use a pak cache.
-[2016.04.11-15.26.45:039][  0]LogDerivedDataCache: Unable to find inner node Pak for hierarchical cache Hierarchy.
-[2016.04.11-15.26.45:067][  0]LogDerivedDataCache: FDerivedDataBackendGraph:  EnginePak pak cache file ../../../Engine/DerivedDataCache/DDC.ddp not found, will not use a pak cache.
-[2016.04.11-15.26.45:067][  0]LogDerivedDataCache: Unable to find inner node EnginePak for hierarchical cache Hierarchy.
-[2016.04.11-15.26.45:080][  0]LogDerivedDataCache: Using Local data cache path ../../../Engine/DerivedDataCache: Writable
-[2016.04.11-15.26.45:080][  0]LogDerivedDataCache: Shared data cache path not found in *engine.ini, will not use an Shared cache.
-[2016.04.11-15.26.45:081][  0]LogDerivedDataCache: Unable to find inner node Shared for hierarchical cache Hierarchy.
-[2016.04.11-15.26.53:683][  0]LogInit: Selected Device Profile: [Windows]
-[2016.04.11-15.26.54:085][  0]LogContentStreaming: Texture pool size is 0.000000MB
-[2016.04.11-15.26.56:289][  0]LogMeshUtilities: No automatic mesh reduction module available
-[2016.04.11-15.26.56:289][  0]LogMeshUtilities: No automatic mesh merging module available
-[2016.04.11-15.27.01:991][  0]LogInit: WinSock: version 1.1 (2.2), MaxSocks=32767, MaxUdp=65467
-[2016.04.11-15.27.16:983][  0]UdpMessaging: Initializing bridge on interface 0.0.0.0:0 to multicast group 230.0.0.1:6666.
-[2016.04.11-15.27.18:038][  0]LogAssetRegistry: FAssetRegistry took 0.0171 seconds to start up
-[2016.04.11-15.27.21:941][  0]SourceControl: Info Source control is disabled
-[2016.04.11-15.27.21:986][  0]SourceControl: Info Source control is disabled
-[2016.04.11-15.27.22:199][  0]SourceControl: Info Source control is disabled
-[2016.04.11-15.27.22:403][  0]SourceControl: Info Source control is disabled
-[2016.04.11-15.27.25:809][  0]LogObj: 28635 objects as part of root set at end of initial load.
-[2016.04.11-15.27.25:826][  0]LogUObjectAllocator: 6101584 out of 0 bytes used by permanent object pool.
-[2016.04.11-15.27.27:253][  0]LogEngine: Initializing Engine...
-[2016.04.11-15.27.27:304][  0]LogHMD: Can't find Oculus library dev build: is proper Runtime installed? Version: 0.8.0.0
-[2016.04.11-15.27.27:354][  0]LogHMD: SteamVR failed to initialize.  Err: 110
-[2016.04.11-15.27.28:935][  0]LogAIModule: Creating AISystem for world NewWorld
-[2016.04.11-15.27.29:260][  0]LogInit: XAudio2 using 'Speakers (MUSILAND M-Sword Digital)' : 2 channels at 44.1 kHz using 32 bits per sample (channel mask 0x3)
-[2016.04.11-15.27.29:277][  0]LogInit: FAudioDevice initialized.
-[2016.04.11-15.27.29:349][  0]LogDerivedDataCache: Saved boot cache 0.07s 41MB ../../../../ClearPath/DerivedDataCache/Boot.ddc.
-[2016.04.11-15.27.29:371][  0]LogInit: Texture streaming: Enabled
-[2016.04.11-15.27.29:594][  0]LogInit: Transaction tracking system initialized
-[2016.04.11-15.27.30:313][  0]BlueprintLog: New page: Editor Load
-[2016.04.11-15.27.33:030][  0]LocalizationService: Info Localization service is disabled
-[2016.04.11-15.27.34:514][  0]LogConsoleResponse:Display: 
-[2016.04.11-15.27.36:405][  0]LogFileCache: Scanning file cache for directory 'K:/ClearPath/Content/' took 0.03s
-[2016.04.11-15.27.36:406][  0]LogCook:Display: Done creating registry. It took  0.00s.
-[2016.04.11-15.27.37:540][  0]SourceControl: Info Source control is disabled
-[2016.04.11-15.27.37:607][  0]Cmd: MAP LOAD FILE="../../../../ClearPath/Content/ClearPath/DefaultMap.umap" TEMPLATE=0 SHOWPROGRESS=1 FEATURELEVEL=3
-[2016.04.11-15.27.37:628][  0]LightingResults: New page: Lighting Build
-[2016.04.11-15.27.37:938][  0]MapCheck: New page: Map Check
-[2016.04.11-15.27.37:938][  0]LightingResults: New page: Lighting Build
-[2016.04.11-15.27.38:334][  0]LogParticles: Destroying 0 GPU particle simulations for FXSystem 0x000000A947266AC0
-[2016.04.11-15.27.40:822][  0]LogAIModule: Creating AISystem for world DefaultMap
-[2016.04.11-15.27.41:882][  0]LogEditorServer: Finished looking for orphan Actors (0.000 secs)
-[2016.04.11-15.27.41:955][  0]Cmd: MAP CHECKDEP NOCLEARLOG
-[2016.04.11-15.27.42:038][  0]MapCheck: Info Map check complete: 0 Error(s), 0 Warning(s), took 82.873ms to complete.
-[2016.04.11-15.27.42:038][  0]LogFileHelpers: Loading map 'DefaultMap' took 4.454
-[2016.04.11-15.27.43:179][  0]LogCollectionManager: Loaded 0 collections in 0.011755 seconds
-[2016.04.11-15.27.43:452][  0]LogFileCache: Scanning file cache for directory 'K:/ClearPath/Saved/Collections/' took 0.01s
-[2016.04.11-15.27.43:452][  0]LogFileCache: Scanning file cache for directory 'K:/ClearPath/Content/Developers/WangShihai/Collections/' took 0.01s
-[2016.04.11-15.27.43:452][  0]LogFileCache: Scanning file cache for directory 'K:/ClearPath/Content/Collections/' took 0.01s
-[2016.04.11-15.27.43:452][  0]LogCollectionManager: Rebuilt the GUID cache for 0 collections in 0.000006 seconds
-[2016.04.11-15.27.43:527][  0]LogContentBrowser: Native class hierarchy populated in 0.0722 seconds. Added 1894 classes and 338 folders.
-[2016.04.11-15.27.43:635][  0]LogContentBrowser: Native class hierarchy updated for 'WidgetCarousel' in 0.0013 seconds. Added 0 classes and 0 folders.
-[2016.04.11-15.27.45:287][  0]LogContentBrowser: Native class hierarchy updated for 'AddContentDialog' in 0.0023 seconds. Added 0 classes and 0 folders.
-[2016.04.11-15.27.45:508][  0]LogContentBrowser: Native class hierarchy updated for 'SceneOutliner' in 0.0014 seconds. Added 1 classes and 2 folders.
-[2016.04.11-15.27.46:882][  0]LogCrashTracker: Crashtracker disabled due to settings.
-[2016.04.11-15.27.47:160][  0]LogUObjectGlobals:Warning: Failed to find object 'Class None.'
-[2016.04.11-15.27.47:245][  0]LogLoad: Full Startup: 80.61 seconds (BP compile: 0.84 seconds)
-[2016.04.11-15.27.47:615][  0]LogOcInput: Can't find Oculus library dev build: is proper Runtime installed? Version: 0.8.0.0
-[2016.04.11-15.27.48:388][  0]LogContentStreaming: Texture pool size now 1000 MB
-[2016.04.11-15.27.49:390][  0]LogRenderer: Reallocating scene render targets to support 988x544 (Frame:2).
-[2016.04.11-15.27.52:098][  7]LogAssetRegistry: Asset discovery search completed in 34.0747 seconds
-[2016.04.11-15.27.52:098][  7]LogCollectionManager: Rebuilt the object cache for 0 collections in 0.000001 seconds (found 0 objects)
-[2016.04.11-15.27.52:099][  7]LogCollectionManager: Fixed up redirectors for 0 collections in 0.000196 seconds (updated 0 objects)
-[2016.04.11-15.29.01:108][306]LogPlayLevel: PlayLevel: No blueprints needed recompiling
-[2016.04.11-15.29.01:129][306]PIE: New page: PIE session: DefaultMap (Apr 12, 2016, 7:29:01 AM)
-[2016.04.11-15.29.01:130][306]LogPlayLevel: Creating play world package: /Game/ClearPath/UEDPIE_0_DefaultMap
-[2016.04.11-15.29.01:152][306]LogPlayLevel: PIE: StaticDuplicateObject took: (0.022363s)
-[2016.04.11-15.29.01:154][306]LogAIModule: Creating AISystem for world DefaultMap
-[2016.04.11-15.29.01:154][306]LogPlayLevel: PIE: World Init took: (0.001222s)
-[2016.04.11-15.29.01:155][306]LogPlayLevel: PIE: Created PIE world by copying editor world from /Game/ClearPath/DefaultMap.DefaultMap to /Game/ClearPath/UEDPIE_0_DefaultMap.DefaultMap (0.025469s)
-[2016.04.11-15.29.01:164][306]LogActorComponent: UnregisterComponent: (/Engine/Transient.Nav_GEN_VARIABLE) Not registered. Aborting.
-[2016.04.11-15.29.01:284][306]LogInit: XAudio2 using 'Speakers (MUSILAND M-Sword Digital)' : 2 channels at 44.1 kHz using 32 bits per sample (channel mask 0x3)
-[2016.04.11-15.29.01:288][306]LogInit: FAudioDevice initialized.
-[2016.04.11-15.29.01:526][306]LogWorld: Game class is 'ClearPathGameMode'
-[2016.04.11-15.29.01:588][306]LogWorld: Bringing World /Game/ClearPath/UEDPIE_0_DefaultMap.DefaultMap up for play (max tick rate 0) at 2016.04.11-23.29.01
-[2016.04.11-15.29.01:655][306]LogWorld: Bringing up level for play took: 0.069410
-[2016.04.11-15.29.01:814][306]PIE: Info Play in editor start time for /Game/ClearPath/UEDPIE_0_DefaultMap 0.668
-[2016.04.11-15.29.04:269][411]LogParticles: Destroying 0 GPU particle simulations for FXSystem 0x000000A958DF2840
-[2016.04.11-15.29.32:844][271]LogContentBrowser: Native class hierarchy updated for 'BlueprintGraph' in 0.0027 seconds. Added 107 classes and 0 folders.
-[2016.04.11-15.29.47:685][639]LogPlayLevel: PlayLevel: No blueprints needed recompiling
-[2016.04.11-15.29.47:685][639]PIE: New page: PIE session: DefaultMap (Apr 12, 2016, 7:29:47 AM)
-[2016.04.11-15.29.47:685][639]LogPlayLevel: Creating play world package: /Game/ClearPath/UEDPIE_0_DefaultMap
-[2016.04.11-15.29.47:690][639]LogPlayLevel: PIE: StaticDuplicateObject took: (0.004921s)
-[2016.04.11-15.29.47:691][639]LogAIModule: Creating AISystem for world DefaultMap
-[2016.04.11-15.29.47:692][639]LogPlayLevel: PIE: World Init took: (0.001211s)
-[2016.04.11-15.29.47:692][639]LogPlayLevel: PIE: Created PIE world by copying editor world from /Game/ClearPath/DefaultMap.DefaultMap to /Game/ClearPath/UEDPIE_0_DefaultMap.DefaultMap (0.006918s)
-[2016.04.11-15.29.47:692][639]LogActorComponent: UnregisterComponent: (/Engine/Transient.Nav_GEN_VARIABLE) Not registered. Aborting.
-[2016.04.11-15.29.47:817][639]LogInit: XAudio2 using 'Speakers (MUSILAND M-Sword Digital)' : 2 channels at 44.1 kHz using 32 bits per sample (channel mask 0x3)
-[2016.04.11-15.29.47:821][639]LogInit: FAudioDevice initialized.
-[2016.04.11-15.29.47:912][639]LogWorld: Game class is 'ClearPathGameMode'
-[2016.04.11-15.29.47:916][639]LogWorld: Bringing World /Game/ClearPath/UEDPIE_0_DefaultMap.DefaultMap up for play (max tick rate 0) at 2016.04.11-23.29.47
-[2016.04.11-15.29.47:917][639]LogWorld: Bringing up level for play took: 0.003526
-[2016.04.11-15.29.47:923][639]PIE: Info Play in editor start time for /Game/ClearPath/UEDPIE_0_DefaultMap 0.777
-[2016.04.11-15.30.10:639][ 34]LogParticles: Destroying 0 GPU particle simulations for FXSystem 0x000000A975C32980
-[2016.04.11-15.30.11:414][ 57]LogPlayLevel: PlayLevel: No blueprints needed recompiling
-[2016.04.11-15.30.11:415][ 57]PIE: New page: PIE session: DefaultMap (Apr 12, 2016, 7:30:11 AM)
-[2016.04.11-15.30.11:415][ 57]LogPlayLevel: Creating play world package: /Game/ClearPath/UEDPIE_0_DefaultMap
-[2016.04.11-15.30.11:420][ 57]LogPlayLevel: PIE: StaticDuplicateObject took: (0.004606s)
-[2016.04.11-15.30.11:421][ 57]LogAIModule: Creating AISystem for world DefaultMap
-[2016.04.11-15.30.11:421][ 57]LogPlayLevel: PIE: World Init took: (0.001205s)
-[2016.04.11-15.30.11:422][ 57]LogPlayLevel: PIE: Created PIE world by copying editor world from /Game/ClearPath/DefaultMap.DefaultMap to /Game/ClearPath/UEDPIE_0_DefaultMap.DefaultMap (0.006695s)
-[2016.04.11-15.30.11:521][ 57]LogInit: XAudio2 using 'Speakers (MUSILAND M-Sword Digital)' : 2 channels at 44.1 kHz using 32 bits per sample (channel mask 0x3)
-[2016.04.11-15.30.11:525][ 57]LogInit: FAudioDevice initialized.
-[2016.04.11-15.30.11:604][ 57]LogWorld: Game class is 'ClearPathGameMode'
-[2016.04.11-15.30.11:609][ 57]LogWorld: Bringing World /Game/ClearPath/UEDPIE_0_DefaultMap.DefaultMap up for play (max tick rate 0) at 2016.04.11-23.30.11
-[2016.04.11-15.30.11:611][ 57]LogWorld: Bringing up level for play took: 0.004100
-[2016.04.11-15.30.11:615][ 57]PIE: Info Play in editor start time for /Game/ClearPath/UEDPIE_0_DefaultMap 0.468
-[2016.04.11-15.30.15:342][177]LogParticles: Destroying 0 GPU particle simulations for FXSystem 0x000000A975763240
-[2016.04.11-15.30.34:899][833]BlueprintLog: New page: Compile Passenger
-[2016.04.11-15.30.35:262][833]LogActorComponent: UnregisterComponent: (/Engine/Transient.Nav_GEN_VARIABLE) Not registered. Aborting.
-[2016.04.11-15.30.35:404][833]BlueprintEditorCompileResults: Info [0248.77] Compile of Passenger successful! [in 504 ms]
-[2016.04.11-15.30.35:959][849]LogPlayLevel: PlayLevel: No blueprints needed recompiling
-[2016.04.11-15.30.35:960][849]PIE: New page: PIE session: DefaultMap (Apr 12, 2016, 7:30:35 AM)
-[2016.04.11-15.30.35:960][849]LogPlayLevel: Creating play world package: /Game/ClearPath/UEDPIE_0_DefaultMap
-[2016.04.11-15.30.35:966][849]LogPlayLevel: PIE: StaticDuplicateObject took: (0.006060s)
-[2016.04.11-15.30.35:967][849]LogAIModule: Creating AISystem for world DefaultMap
-[2016.04.11-15.30.35:968][849]LogPlayLevel: PIE: World Init took: (0.001259s)
-[2016.04.11-15.30.35:968][849]LogPlayLevel: PIE: Created PIE world by copying editor world from /Game/ClearPath/DefaultMap.DefaultMap to /Game/ClearPath/UEDPIE_0_DefaultMap.DefaultMap (0.008167s)
-[2016.04.11-15.30.35:968][849]LogActorComponent: UnregisterComponent: (/Engine/Transient.Nav_GEN_VARIABLE) Not registered. Aborting.
-[2016.04.11-15.30.36:070][849]LogInit: XAudio2 using 'Speakers (MUSILAND M-Sword Digital)' : 2 channels at 44.1 kHz using 32 bits per sample (channel mask 0x3)
-[2016.04.11-15.30.36:073][849]LogInit: FAudioDevice initialized.
-[2016.04.11-15.30.36:155][849]LogWorld: Game class is 'ClearPathGameMode'
-[2016.04.11-15.30.36:161][849]LogWorld: Bringing World /Game/ClearPath/UEDPIE_0_DefaultMap.DefaultMap up for play (max tick rate 0) at 2016.04.11-23.30.36
-[2016.04.11-15.30.36:162][849]LogWorld: Bringing up level for play took: 0.004959
-[2016.04.11-15.30.36:167][849]PIE: Info Play in editor start time for /Game/ClearPath/UEDPIE_0_DefaultMap 1.021
-[2016.04.11-15.30.38:822][928]LogParticles: Destroying 0 GPU particle simulations for FXSystem 0x000000A97BAA2F20
-[2016.04.11-15.30.56:080][528]LogPlayLevel: PlayLevel: No blueprints needed recompiling
-[2016.04.11-15.30.56:080][528]PIE: New page: PIE session: DefaultMap (Apr 12, 2016, 7:30:56 AM)
-[2016.04.11-15.30.56:080][528]LogPlayLevel: Creating play world package: /Game/ClearPath/UEDPIE_0_DefaultMap
-[2016.04.11-15.30.56:085][528]LogPlayLevel: PIE: StaticDuplicateObject took: (0.005072s)
-[2016.04.11-15.30.56:086][528]LogAIModule: Creating AISystem for world DefaultMap
-[2016.04.11-15.30.56:087][528]LogPlayLevel: PIE: World Init took: (0.001361s)
-[2016.04.11-15.30.56:087][528]LogPlayLevel: PIE: Created PIE world by copying editor world from /Game/ClearPath/DefaultMap.DefaultMap to /Game/ClearPath/UEDPIE_0_DefaultMap.DefaultMap (0.007342s)
-[2016.04.11-15.30.56:088][528]LogActorComponent: UnregisterComponent: (/Engine/Transient.Nav_GEN_VARIABLE) Not registered. Aborting.
-[2016.04.11-15.30.56:190][528]LogInit: XAudio2 using 'Speakers (MUSILAND M-Sword Digital)' : 2 channels at 44.1 kHz using 32 bits per sample (channel mask 0x3)
-[2016.04.11-15.30.56:194][528]LogInit: FAudioDevice initialized.
-[2016.04.11-15.30.56:272][528]LogWorld: Game class is 'ClearPathGameMode'
-[2016.04.11-15.30.56:277][528]LogWorld: Bringing World /Game/ClearPath/UEDPIE_0_DefaultMap.DefaultMap up for play (max tick rate 0) at 2016.04.11-23.30.56
-[2016.04.11-15.30.56:278][528]LogWorld: Bringing up level for play took: 0.003440
-[2016.04.11-15.30.56:281][528]PIE: Info Play in editor start time for /Game/ClearPath/UEDPIE_0_DefaultMap 1.135
-[2016.04.11-15.31.00:442][755]LogParticles: Destroying 0 GPU particle simulations for FXSystem 0x000000A97B1BA160
-[2016.04.11-15.31.05:672][ 93]BlueprintLog: New page: Compile Passenger
-[2016.04.11-15.31.05:859][ 93]LogActorComponent: UnregisterComponent: (/Engine/Transient.Nav_GEN_VARIABLE) Not registered. Aborting.
-[2016.04.11-15.31.05:963][ 93]BlueprintEditorCompileResults: Info [0279.32] Compile of Passenger successful! [in 290 ms]
-[2016.04.11-15.31.06:926][149]Cmd: OBJ SAVEPACKAGE PACKAGE="/Game/ClearPath/Passenger" FILE="../../../../ClearPath/Content/ClearPath/Passenger.uasset" SILENT=true
-[2016.04.11-15.31.07:135][149]LogSavePackage: Save=147.734772ms
-[2016.04.11-15.31.07:136][149]LogSavePackage: Moving '../../../../ClearPath/Saved/Passenger09CC128044933B477BC558B932A42F20.tmp' to '../../../../ClearPath/Content/ClearPath/Passenger.uasset'
-[2016.04.11-15.31.07:139][149]LogSavePackage: Total save time: 200.240232ms
-[2016.04.11-15.31.07:139][149]LogSavePackage:Display: Finished SavePackage ../../../../ClearPath/Content/ClearPath/Passenger.uasset
-[2016.04.11-15.31.07:714][185]LogPlayLevel: PlayLevel: No blueprints needed recompiling
-[2016.04.11-15.31.07:714][185]PIE: New page: PIE session: DefaultMap (Apr 12, 2016, 7:31:07 AM)
-[2016.04.11-15.31.07:714][185]LogPlayLevel: Creating play world package: /Game/ClearPath/UEDPIE_0_DefaultMap
-[2016.04.11-15.31.07:720][185]LogPlayLevel: PIE: StaticDuplicateObject took: (0.005137s)
-[2016.04.11-15.31.07:721][185]LogAIModule: Creating AISystem for world DefaultMap
-[2016.04.11-15.31.07:721][185]LogPlayLevel: PIE: World Init took: (0.001417s)
-[2016.04.11-15.31.07:722][185]LogPlayLevel: PIE: Created PIE world by copying editor world from /Game/ClearPath/DefaultMap.DefaultMap to /Game/ClearPath/UEDPIE_0_DefaultMap.DefaultMap (0.007423s)
-[2016.04.11-15.31.07:722][185]LogActorComponent: UnregisterComponent: (/Engine/Transient.Nav_GEN_VARIABLE) Not registered. Aborting.
-[2016.04.11-15.31.07:822][185]LogInit: XAudio2 using 'Speakers (MUSILAND M-Sword Digital)' : 2 channels at 44.1 kHz using 32 bits per sample (channel mask 0x3)
-[2016.04.11-15.31.07:827][185]LogInit: FAudioDevice initialized.
-[2016.04.11-15.31.07:945][185]LogWorld: Game class is 'ClearPathGameMode'
-[2016.04.11-15.31.07:949][185]LogWorld: Bringing World /Game/ClearPath/UEDPIE_0_DefaultMap.DefaultMap up for play (max tick rate 0) at 2016.04.11-23.31.07
-[2016.04.11-15.31.07:951][185]LogWorld: Bringing up level for play took: 0.003889
-[2016.04.11-15.31.08:023][185]PIE: Info Play in editor start time for /Game/ClearPath/UEDPIE_0_DefaultMap 0.877
-[2016.04.11-15.31.08:063][186]LogRenderer: Reallocating scene render targets to support 1280x720 (Frame:3389).
-[2016.04.11-15.31.11:707][366]LogParticles: Destroying 0 GPU particle simulations for FXSystem 0x000000A969FE3BA0
-[2016.04.11-15.33.07:622][331]Recompiling ClearPath...
-[2016.04.11-15.33.07:632][331]Building UnrealBuildTool...
-[2016.04.11-15.33.07:632][331]Building UnrealBuildTool in K:/UnrealEngine/...
-[2016.04.11-15.33.07:636][331]Running: C:\Windows\system32\cmd.exe /c "K:\UnrealEngine\Engine\Intermediate\Build\UnrealBuildTool\BuildUBT.bat"
-[2016.04.11-15.33.08:470][331]Launching UnrealBuildTool... [K:/UnrealEngine/Engine/Binaries/DotNET/UnrealBuildTool.exe ClearPath -ModuleWithSuffix ClearPath 8041 Win64 Debug -editorrecompile -canskiplink "K:/ClearPath/ClearPath.uproject"  -2015]
-[2016.04.11-15.33.08:472][331]Warning: Starting HotReload took  0.9s.
-[2016.04.11-15.33.58:648][982]CompilerResultsLog: New page: Compilation - Apr 12, 2016, 7:33:58 AM
-[2016.04.11-15.33.58:667][982]CompilerResultsLog: Info Compiling game modules for hot reload
-[2016.04.11-15.33.58:667][982]CompilerResultsLog: Info Parsing headers for ClearPathEditor
-[2016.04.11-15.33.58:667][982]CompilerResultsLog: Info   Running UnrealHeaderTool "K:/ClearPath/ClearPath.uproject" "K:\ClearPath\Intermediate\Build\Win64\ClearPathEditor\Debug\UnrealHeaderTool.manifest" -LogCmds="loginit warning, logexit warning, logdatabase error"
-[2016.04.11-15.33.58:667][982]CompilerResultsLog: Info Reflection code generated for ClearPathEditor in 8.2126614 seconds
-[2016.04.11-15.33.58:667][982]CompilerResultsLog: Info Performing 3 actions (4 in parallel)
-[2016.04.11-15.33.58:668][982]CompilerResultsLog: Info ClearPath.generated.cpp
-[2016.04.11-15.33.58:668][982]CompilerResultsLog: Info NavComponent.cpp
-[2016.04.11-15.33.58:668][982]CompilerResultsLog: Info [3/3] Link UE4Editor-ClearPath-8041-Win64-Debug.dll
-[2016.04.11-15.33.58:668][982]CompilerResultsLog: Info    Creating library K:\ClearPath\Intermediate/Build/Win64\UE4Editor\Debug\UE4Editor-ClearPath-8041-Win64-Debug.lib and object K:\ClearPath\Intermediate/Build/Win64\UE4Editor\Debug\UE4Editor-ClearPath-8041-Win64-Debug.exp
-[2016.04.11-15.33.58:668][982]CompilerResultsLog: Info -------- End Detailed Actions Stats -----------------------------------------------------------
-[2016.04.11-15.33.58:669][982]CompilerResultsLog: Info Total build time: 49.85 seconds
-[2016.04.11-15.33.58:669][982]LogMainFrame: MainFrame: Module compiling took 51.054 seconds
-[2016.04.11-15.33.58:669][982]LogActorComponent: UnregisterComponent: (/Engine/Transient.Nav_GEN_VARIABLE) Not registered. Aborting.
-[2016.04.11-15.33.58:798][982]LogClass: Could not find existing class NavComponent in package /Script/ClearPath for HotReload, assuming new class
-[2016.04.11-15.33.58:798][982]LogClass: Function SetTargetLocation is new.
-[2016.04.11-15.33.58:805][982]LogHotReload: Re-instancing NavComponent after hot-reload.
-[2016.04.11-15.33.59:061][982]LogContentBrowser: Native class hierarchy updated for 'ClearPath' in 0.0015 seconds. Added 2 classes and 2 folders.
-[2016.04.11-15.33.59:072][982]Warning: HotReload successful (0 functions remapped  0 scriptstructs remapped)
-[2016.04.11-15.34.00:394][982]LogContentBrowser: Native class hierarchy populated in 0.0262 seconds. Added 1895 classes and 340 folders.
-[2016.04.11-15.34.18:917][824]BlueprintLog: New page: Compile Passenger
-[2016.04.11-15.34.19:155][824]LogActorComponent: UnregisterComponent: (/Engine/Transient.Nav_GEN_VARIABLE) Not registered. Aborting.
-[2016.04.11-15.34.19:325][824]BlueprintEditorCompileResults: Info [0472.69] Compile of Passenger successful! [in 407 ms]
-[2016.04.11-15.34.19:878][857]Cmd: OBJ SAVEPACKAGE PACKAGE="/Game/ClearPath/Passenger" FILE="../../../../ClearPath/Content/ClearPath/Passenger.uasset" SILENT=true
-[2016.04.11-15.34.19:969][857]LogSavePackage: Save=87.928505ms
-[2016.04.11-15.34.19:969][857]LogSavePackage: Moving '../../../../ClearPath/Saved/Passenger4818D865475672C830F73092D7613956.tmp' to '../../../../ClearPath/Content/ClearPath/Passenger.uasset'
-[2016.04.11-15.34.19:972][857]LogSavePackage: Total save time: 92.321668ms
-[2016.04.11-15.34.19:972][857]LogSavePackage:Display: Finished SavePackage ../../../../ClearPath/Content/ClearPath/Passenger.uasset
-[2016.04.11-15.34.37:590][696]LogEditorViewport: Clicking Background
-[2016.04.11-15.34.38:710][764]LogEditorViewport: Clicking on Actor (LMB): Passenger_C (Passenger2)
-[2016.04.11-15.34.44:223][102]LogEditorViewport: Clicking on Actor (LMB): Passenger_C (Passenger)
-[2016.04.11-15.35.31:603][606]LogProperty:Warning: ObjectProperty /Script/Engine.EdGraphPin:LinkedTo.LinkedTo: unresolved reference to 'EdGraphPin'K2Node_VariableGet_75.EdGraphPin_36386''
-[2016.04.11-15.35.31:604][606]LogProperty:Warning: ObjectProperty /Script/Engine.EdGraphPin:LinkedTo.LinkedTo: unresolved reference to 'EdGraphPin'K2Node_CallFunction_4577.EdGraphPin_36387''
-[2016.04.11-15.35.54:365][455]BlueprintLog: New page: Compile DefaultMap
-[2016.04.11-15.35.54:576][455]LogActorComponent: UnregisterComponent: (/Engine/Transient.Nav_GEN_VARIABLE) Not registered. Aborting.
-[2016.04.11-15.35.54:703][455]BlueprintEditorCompileResults: Info [0568.06] Compile of DefaultMap successful! [in 337 ms]
-[2016.04.11-15.35.56:862][580]Cmd: OBJ SAVEPACKAGE PACKAGE="/Game/ClearPath/DefaultMap" FILE="../../../../ClearPath/Content/ClearPath/DefaultMap.umap" SILENT=true AUTOSAVING=false KEEPDIRTY=false
-[2016.04.11-15.35.57:350][580]LogSavePackage: Save=356.292206ms
-[2016.04.11-15.35.57:350][580]LogSavePackage: Moving '../../../../ClearPath/Saved/DefaultMapA2017FE74AA4128B494639BECD7E4C1A.tmp' to '../../../../ClearPath/Content/ClearPath/DefaultMap.umap'
-[2016.04.11-15.35.57:353][580]LogSavePackage: Total save time: 363.935657ms
-[2016.04.11-15.35.57:354][580]LogSavePackage:Display: Finished SavePackage ../../../../ClearPath/Content/ClearPath/DefaultMap.umap
-[2016.04.11-15.35.57:734][593]LogBlueprintUserMessages: Early PlayInEditor Detection: Level '/Game/ClearPath/DefaultMap.DefaultMap:PersistentLevel' has LevelScriptBlueprint '/Game/ClearPath/DefaultMap.DefaultMap:PersistentLevel.DefaultMap' with GeneratedClass '/Game/ClearPath/DefaultMap.DefaultMap_C' with ClassGeneratedBy '/Game/ClearPath/DefaultMap.DefaultMap:PersistentLevel.DefaultMap'
-[2016.04.11-15.35.57:734][593]LogPlayLevel: PlayLevel: No blueprints needed recompiling
-[2016.04.11-15.35.57:734][593]PIE: New page: PIE session: DefaultMap (Apr 12, 2016, 7:35:57 AM)
-[2016.04.11-15.35.57:735][593]LogPlayLevel: Creating play world package: /Game/ClearPath/UEDPIE_0_DefaultMap
-[2016.04.11-15.35.57:747][593]LogPlayLevel: PIE: StaticDuplicateObject took: (0.012707s)
-[2016.04.11-15.35.57:748][593]LogAIModule: Creating AISystem for world DefaultMap
-[2016.04.11-15.35.57:749][593]LogPlayLevel: PIE: World Init took: (0.001189s)
-[2016.04.11-15.35.57:749][593]LogPlayLevel: PIE: Created PIE world by copying editor world from /Game/ClearPath/DefaultMap.DefaultMap to /Game/ClearPath/UEDPIE_0_DefaultMap.DefaultMap (0.014744s)
-[2016.04.11-15.35.57:885][593]LogInit: XAudio2 using 'Speakers (MUSILAND M-Sword Digital)' : 2 channels at 44.1 kHz using 32 bits per sample (channel mask 0x3)
-[2016.04.11-15.35.57:889][593]LogInit: FAudioDevice initialized.
-[2016.04.11-15.35.57:967][593]LogWorld: Game class is 'ClearPathGameMode'
-[2016.04.11-15.35.57:972][593]LogWorld: Bringing World /Game/ClearPath/UEDPIE_0_DefaultMap.DefaultMap up for play (max tick rate 0) at 2016.04.11-23.35.57
-[2016.04.11-15.35.57:973][593]LogWorld: Bringing up level for play took: 0.003721
-[2016.04.11-15.35.57:976][593]PIE: Info Play in editor start time for /Game/ClearPath/UEDPIE_0_DefaultMap 0.83
-[2016.04.11-15.35.57:977][593]LogBlueprintUserMessages: Late PlayInEditor Detection: Level '/Game/ClearPath/DefaultMap.DefaultMap:PersistentLevel' has LevelScriptBlueprint '/Game/ClearPath/DefaultMap.DefaultMap:PersistentLevel.DefaultMap' with GeneratedClass '/Game/ClearPath/DefaultMap.DefaultMap_C' with ClassGeneratedBy '/Game/ClearPath/DefaultMap.DefaultMap:PersistentLevel.DefaultMap'
-[2016.04.11-15.36.02:256][850]LogBlueprintUserMessages: Early EndPlayMap Detection: Level '/Game/ClearPath/DefaultMap.DefaultMap:PersistentLevel' has LevelScriptBlueprint '/Game/ClearPath/DefaultMap.DefaultMap:PersistentLevel.DefaultMap' with GeneratedClass '/Game/ClearPath/DefaultMap.DefaultMap_C' with ClassGeneratedBy '/Game/ClearPath/DefaultMap.DefaultMap:PersistentLevel.DefaultMap'
-[2016.04.11-15.36.02:335][850]LogBlueprintUserMessages: Late EndPlayMap Detection: Level '/Game/ClearPath/DefaultMap.DefaultMap:PersistentLevel' has LevelScriptBlueprint '/Game/ClearPath/DefaultMap.DefaultMap:PersistentLevel.DefaultMap' with GeneratedClass '/Game/ClearPath/DefaultMap.DefaultMap_C' with ClassGeneratedBy '/Game/ClearPath/DefaultMap.DefaultMap:PersistentLevel.DefaultMap'
-[2016.04.11-15.36.02:465][850]LogParticles: Destroying 0 GPU particle simulations for FXSystem 0x000000A912FF6FC0
-[2016.04.11-15.36.43:471][344]LogActorComponent: UnregisterComponent: (/Engine/Transient.Nav_GEN_VARIABLE) Not registered. Aborting.
-[2016.04.11-15.36.48:228][645]LogActorComponent: UnregisterComponent: (/Engine/Transient.NavComponent_0) Not registered. Aborting.
-[2016.04.11-15.36.49:518][722]LogActorComponent: UnregisterComponent: (/Engine/Transient.NavComponent_1) Not registered. Aborting.
-[2016.04.11-15.36.50:636][789]BlueprintLog: New page: Compile Passenger
-[2016.04.11-15.36.50:977][789]LogActorComponent: UnregisterComponent: (/Engine/Transient.NavComponent_2) Not registered. Aborting.
-[2016.04.11-15.36.51:114][789]BlueprintEditorCompileResults: Info [0624.48] Compile of Passenger successful! [in 477 ms]
-[2016.04.11-15.36.51:660][815]Cmd: OBJ SAVEPACKAGE PACKAGE="/Game/ClearPath/Passenger" FILE="../../../../ClearPath/Content/ClearPath/Passenger.uasset" SILENT=true
-[2016.04.11-15.36.51:747][815]LogSavePackage: Save=80.771080ms
-[2016.04.11-15.36.51:747][815]LogSavePackage: Moving '../../../../ClearPath/Saved/Passenger958DAEA64FB5BEC4930D84A98FFFD514.tmp' to '../../../../ClearPath/Content/ClearPath/Passenger.uasset'
-[2016.04.11-15.36.51:749][815]LogSavePackage: Total save time: 87.111935ms
-[2016.04.11-15.36.51:749][815]LogSavePackage:Display: Finished SavePackage ../../../../ClearPath/Content/ClearPath/Passenger.uasset
-[2016.04.11-15.37.49:531][849]LogActorComponent: UnregisterComponent: (/Engine/Transient.Nav_GEN_VARIABLE) Not registered. Aborting.
-[2016.04.11-15.37.50:203][878]BlueprintLog: New page: Compile Passenger
-[2016.04.11-15.37.50:527][878]LogActorComponent: UnregisterComponent: (/Engine/Transient.NavComponent_3) Not registered. Aborting.
-[2016.04.11-15.37.50:659][878]BlueprintEditorCompileResults: Info [0684.02] Compile of Passenger successful! [in 455 ms]
-[2016.04.11-15.37.51:261][906]Cmd: OBJ SAVEPACKAGE PACKAGE="/Game/ClearPath/Passenger" FILE="../../../../ClearPath/Content/ClearPath/Passenger.uasset" SILENT=true
-[2016.04.11-15.37.51:342][906]LogSavePackage: Save=77.943130ms
-[2016.04.11-15.37.51:342][906]LogSavePackage: Moving '../../../../ClearPath/Saved/PassengerFD74B1C74D1A0DFA0B09638F3FDF8005.tmp' to '../../../../ClearPath/Content/ClearPath/Passenger.uasset'
-[2016.04.11-15.37.51:344][906]LogSavePackage: Total save time: 81.021331ms
-[2016.04.11-15.37.51:344][906]LogSavePackage:Display: Finished SavePackage ../../../../ClearPath/Content/ClearPath/Passenger.uasset
-[2016.04.11-15.37.54:200][ 73]LogActorComponent: UnregisterComponent: (/Engine/Transient.Nav_GEN_VARIABLE) Not registered. Aborting.
-[2016.04.11-15.37.55:720][162]BlueprintLog: New page: Compile Passenger
-[2016.04.11-15.37.55:960][162]LogActorComponent: UnregisterComponent: (/Engine/Transient.NavComponent_4) Not registered. Aborting.
-[2016.04.11-15.37.56:094][162]BlueprintEditorCompileResults: Info [0689.46] Compile of Passenger successful! [in 373 ms]
-[2016.04.11-15.38.29:727][750]BlueprintLog: New page: Compile Passenger
-[2016.04.11-15.38.29:966][750]LogActorComponent: UnregisterComponent: (/Engine/Transient.Nav_GEN_VARIABLE) Not registered. Aborting.
-[2016.04.11-15.38.30:101][750]BlueprintEditorCompileResults: Info [0723.46] Compile of Passenger successful! [in 374 ms]
-[2016.04.11-15.38.30:718][778]Cmd: OBJ SAVEPACKAGE PACKAGE="/Game/ClearPath/Passenger" FILE="../../../../ClearPath/Content/ClearPath/Passenger.uasset" SILENT=true
-[2016.04.11-15.38.30:802][778]LogSavePackage: Save=81.602142ms
-[2016.04.11-15.38.30:802][778]LogSavePackage: Moving '../../../../ClearPath/Saved/Passenger66409C18425E5A3A1E3A2ABDD33EA48D.tmp' to '../../../../ClearPath/Content/ClearPath/Passenger.uasset'
-[2016.04.11-15.38.30:804][778]LogSavePackage: Total save time: 84.368505ms
-[2016.04.11-15.38.30:804][778]LogSavePackage:Display: Finished SavePackage ../../../../ClearPath/Content/ClearPath/Passenger.uasset
-[2016.04.11-15.38.31:278][803]LogBlueprintUserMessages: Early PlayInEditor Detection: Level '/Game/ClearPath/DefaultMap.DefaultMap:PersistentLevel' has LevelScriptBlueprint '/Game/ClearPath/DefaultMap.DefaultMap:PersistentLevel.DefaultMap' with GeneratedClass '/Game/ClearPath/DefaultMap.DefaultMap_C' with ClassGeneratedBy '/Game/ClearPath/DefaultMap.DefaultMap:PersistentLevel.DefaultMap'
-[2016.04.11-15.38.31:278][803]LogPlayLevel: PlayLevel: No blueprints needed recompiling
-[2016.04.11-15.38.31:278][803]PIE: New page: PIE session: DefaultMap (Apr 12, 2016, 7:38:31 AM)
-[2016.04.11-15.38.31:278][803]LogPlayLevel: Creating play world package: /Game/ClearPath/UEDPIE_0_DefaultMap
-[2016.04.11-15.38.31:291][803]LogPlayLevel: PIE: StaticDuplicateObject took: (0.012340s)
-[2016.04.11-15.38.31:292][803]LogAIModule: Creating AISystem for world DefaultMap
-[2016.04.11-15.38.31:292][803]LogPlayLevel: PIE: World Init took: (0.001221s)
-[2016.04.11-15.38.31:293][803]LogPlayLevel: PIE: Created PIE world by copying editor world from /Game/ClearPath/DefaultMap.DefaultMap to /Game/ClearPath/UEDPIE_0_DefaultMap.DefaultMap (0.014341s)
-[2016.04.11-15.38.31:293][803]LogActorComponent: UnregisterComponent: (/Engine/Transient.Nav_GEN_VARIABLE) Not registered. Aborting.
-[2016.04.11-15.38.31:423][803]LogInit: XAudio2 using 'Speakers (MUSILAND M-Sword Digital)' : 2 channels at 44.1 kHz using 32 bits per sample (channel mask 0x3)
-[2016.04.11-15.38.31:428][803]LogInit: FAudioDevice initialized.
-[2016.04.11-15.38.31:524][803]LogWorld: Game class is 'ClearPathGameMode'
-[2016.04.11-15.38.31:528][803]LogWorld: Bringing World /Game/ClearPath/UEDPIE_0_DefaultMap.DefaultMap up for play (max tick rate 0) at 2016.04.11-23.38.31
-[2016.04.11-15.38.31:529][803]LogWorld: Bringing up level for play took: 0.003416
-[2016.04.11-15.38.31:597][803]PIE: Info Play in editor start time for /Game/ClearPath/UEDPIE_0_DefaultMap 0.45
-[2016.04.11-15.38.31:597][803]LogBlueprintUserMessages: Late PlayInEditor Detection: Level '/Game/ClearPath/DefaultMap.DefaultMap:PersistentLevel' has LevelScriptBlueprint '/Game/ClearPath/DefaultMap.DefaultMap:PersistentLevel.DefaultMap' with GeneratedClass '/Game/ClearPath/DefaultMap.DefaultMap_C' with ClassGeneratedBy '/Game/ClearPath/DefaultMap.DefaultMap:PersistentLevel.DefaultMap'
-[2016.04.11-15.38.33:855][908]LogBlueprintUserMessages: Early EndPlayMap Detection: Level '/Game/ClearPath/DefaultMap.DefaultMap:PersistentLevel' has LevelScriptBlueprint '/Game/ClearPath/DefaultMap.DefaultMap:PersistentLevel.DefaultMap' with GeneratedClass '/Game/ClearPath/DefaultMap.DefaultMap_C' with ClassGeneratedBy '/Game/ClearPath/DefaultMap.DefaultMap:PersistentLevel.DefaultMap'
-[2016.04.11-15.38.33:957][908]LogBlueprintUserMessages: Late EndPlayMap Detection: Level '/Game/ClearPath/DefaultMap.DefaultMap:PersistentLevel' has LevelScriptBlueprint '/Game/ClearPath/DefaultMap.DefaultMap:PersistentLevel.DefaultMap' with GeneratedClass '/Game/ClearPath/DefaultMap.DefaultMap_C' with ClassGeneratedBy '/Game/ClearPath/DefaultMap.DefaultMap:PersistentLevel.DefaultMap'
-[2016.04.11-15.38.34:078][908]LogParticles: Destroying 0 GPU particle simulations for FXSystem 0x000000A91FC76D40
-[2016.04.11-15.38.36:428][ 19]Cmd: OBJ SAVEPACKAGE PACKAGE="/Game/ClearPath/DefaultMap" FILE="../../../../ClearPath/Content/ClearPath/DefaultMap.umap" SILENT=true AUTOSAVING=false KEEPDIRTY=false
-[2016.04.11-15.38.36:892][ 19]LogSavePackage: Save=339.398468ms
-[2016.04.11-15.38.36:892][ 19]LogSavePackage: Moving '../../../../ClearPath/Saved/DefaultMap9662B1914B34C3214C8A6A8063705A6F.tmp' to '../../../../ClearPath/Content/ClearPath/DefaultMap.umap'
-[2016.04.11-15.38.36:894][ 19]LogSavePackage: Total save time: 342.847377ms
-[2016.04.11-15.38.36:894][ 19]LogSavePackage:Display: Finished SavePackage ../../../../ClearPath/Content/ClearPath/DefaultMap.umap
-[2016.04.11-15.38.37:508][ 42]LogEditorViewport: Clicking on Actor (LMB): Passenger_C (Passenger2)
-[2016.04.11-15.38.42:434][255]LogEditorViewport: Clicking on Actor (LMB): Passenger_C (Passenger)
-[2016.04.11-15.38.48:441][526]Cmd: OBJ SAVEPACKAGE PACKAGE="/Game/ClearPath/DefaultMap" FILE="../../../../ClearPath/Content/ClearPath/DefaultMap.umap" SILENT=true AUTOSAVING=false KEEPDIRTY=false
-[2016.04.11-15.38.48:916][526]LogSavePackage: Save=334.220428ms
-[2016.04.11-15.38.48:916][526]LogSavePackage: Moving '../../../../ClearPath/Saved/DefaultMap94B72A384BE5088A930CCBA719E3DE55.tmp' to '../../../../ClearPath/Content/ClearPath/DefaultMap.umap'
-[2016.04.11-15.38.48:918][526]LogSavePackage: Total save time: 337.063786ms
-[2016.04.11-15.38.48:918][526]LogSavePackage:Display: Finished SavePackage ../../../../ClearPath/Content/ClearPath/DefaultMap.umap
-[2016.04.11-15.38.49:443][545]LogBlueprintUserMessages: Early PlayInEditor Detection: Level '/Game/ClearPath/DefaultMap.DefaultMap:PersistentLevel' has LevelScriptBlueprint '/Game/ClearPath/DefaultMap.DefaultMap:PersistentLevel.DefaultMap' with GeneratedClass '/Game/ClearPath/DefaultMap.DefaultMap_C' with ClassGeneratedBy '/Game/ClearPath/DefaultMap.DefaultMap:PersistentLevel.DefaultMap'
-[2016.04.11-15.38.49:444][545]LogPlayLevel: PlayLevel: No blueprints needed recompiling
-[2016.04.11-15.38.49:444][545]PIE: New page: PIE session: DefaultMap (Apr 12, 2016, 7:38:49 AM)
-[2016.04.11-15.38.49:444][545]LogPlayLevel: Creating play world package: /Game/ClearPath/UEDPIE_0_DefaultMap
-[2016.04.11-15.38.49:457][545]LogPlayLevel: PIE: StaticDuplicateObject took: (0.012092s)
-[2016.04.11-15.38.49:458][545]LogAIModule: Creating AISystem for world DefaultMap
-[2016.04.11-15.38.49:458][545]LogPlayLevel: PIE: World Init took: (0.001236s)
-[2016.04.11-15.38.49:459][545]LogPlayLevel: PIE: Created PIE world by copying editor world from /Game/ClearPath/DefaultMap.DefaultMap to /Game/ClearPath/UEDPIE_0_DefaultMap.DefaultMap (0.014347s)
-[2016.04.11-15.38.49:590][545]LogInit: XAudio2 using 'Speakers (MUSILAND M-Sword Digital)' : 2 channels at 44.1 kHz using 32 bits per sample (channel mask 0x3)
-[2016.04.11-15.38.49:594][545]LogInit: FAudioDevice initialized.
-[2016.04.11-15.38.49:676][545]LogWorld: Game class is 'ClearPathGameMode'
-[2016.04.11-15.38.49:681][545]LogWorld: Bringing World /Game/ClearPath/UEDPIE_0_DefaultMap.DefaultMap up for play (max tick rate 0) at 2016.04.11-23.38.49
-[2016.04.11-15.38.49:682][545]LogWorld: Bringing up level for play took: 0.003495
-[2016.04.11-15.38.49:685][545]PIE: Info Play in editor start time for /Game/ClearPath/UEDPIE_0_DefaultMap 0.539
-[2016.04.11-15.38.49:685][545]LogBlueprintUserMessages: Late PlayInEditor Detection: Level '/Game/ClearPath/DefaultMap.DefaultMap:PersistentLevel' has LevelScriptBlueprint '/Game/ClearPath/DefaultMap.DefaultMap:PersistentLevel.DefaultMap' with GeneratedClass '/Game/ClearPath/DefaultMap.DefaultMap_C' with ClassGeneratedBy '/Game/ClearPath/DefaultMap.DefaultMap:PersistentLevel.DefaultMap'
-[2016.04.11-15.38.55:666][906]LogBlueprintUserMessages: Early EndPlayMap Detection: Level '/Game/ClearPath/DefaultMap.DefaultMap:PersistentLevel' has LevelScriptBlueprint '/Game/ClearPath/DefaultMap.DefaultMap:PersistentLevel.DefaultMap' with GeneratedClass '/Game/ClearPath/DefaultMap.DefaultMap_C' with ClassGeneratedBy '/Game/ClearPath/DefaultMap.DefaultMap:PersistentLevel.DefaultMap'
-[2016.04.11-15.38.55:739][906]LogBlueprintUserMessages: Late EndPlayMap Detection: Level '/Game/ClearPath/DefaultMap.DefaultMap:PersistentLevel' has LevelScriptBlueprint '/Game/ClearPath/DefaultMap.DefaultMap:PersistentLevel.DefaultMap' with GeneratedClass '/Game/ClearPath/DefaultMap.DefaultMap_C' with ClassGeneratedBy '/Game/ClearPath/DefaultMap.DefaultMap:PersistentLevel.DefaultMap'
-[2016.04.11-15.38.55:854][906]LogParticles: Destroying 0 GPU particle simulations for FXSystem 0x000000A9771C44A0
-[2016.04.11-15.38.57:601][980]LogEditorViewport: Clicking on Actor (LMB): Passenger_C (Passenger2)
-[2016.04.11-15.39.04:029][260]LogEditorViewport: Clicking on Actor (LMB): Passenger_C (Passenger)
-[2016.04.11-15.39.09:421][497]Cmd: OBJ SAVEPACKAGE PACKAGE="/Game/ClearPath/DefaultMap" FILE="../../../../ClearPath/Content/ClearPath/DefaultMap.umap" SILENT=true AUTOSAVING=false KEEPDIRTY=false
-[2016.04.11-15.39.09:875][497]LogSavePackage: Save=327.053070ms
-[2016.04.11-15.39.09:875][497]LogSavePackage: Moving '../../../../ClearPath/Saved/DefaultMap6EF5B3F74D273E97A2289AB52D53D076.tmp' to '../../../../ClearPath/Content/ClearPath/DefaultMap.umap'
-[2016.04.11-15.39.09:877][497]LogSavePackage: Total save time: 330.107108ms
-[2016.04.11-15.39.09:877][497]LogSavePackage:Display: Finished SavePackage ../../../../ClearPath/Content/ClearPath/DefaultMap.umap
-[2016.04.11-15.39.10:382][515]LogBlueprintUserMessages: Early PlayInEditor Detection: Level '/Game/ClearPath/DefaultMap.DefaultMap:PersistentLevel' has LevelScriptBlueprint '/Game/ClearPath/DefaultMap.DefaultMap:PersistentLevel.DefaultMap' with GeneratedClass '/Game/ClearPath/DefaultMap.DefaultMap_C' with ClassGeneratedBy '/Game/ClearPath/DefaultMap.DefaultMap:PersistentLevel.DefaultMap'
-[2016.04.11-15.39.10:382][515]LogPlayLevel: PlayLevel: No blueprints needed recompiling
-[2016.04.11-15.39.10:383][515]PIE: New page: PIE session: DefaultMap (Apr 12, 2016, 7:39:10 AM)
-[2016.04.11-15.39.10:383][515]LogPlayLevel: Creating play world package: /Game/ClearPath/UEDPIE_0_DefaultMap
-[2016.04.11-15.39.10:398][515]LogPlayLevel: PIE: StaticDuplicateObject took: (0.014562s)
-[2016.04.11-15.39.10:399][515]LogAIModule: Creating AISystem for world DefaultMap
-[2016.04.11-15.39.10:399][515]LogPlayLevel: PIE: World Init took: (0.001453s)
-[2016.04.11-15.39.10:400][515]LogPlayLevel: PIE: Created PIE world by copying editor world from /Game/ClearPath/DefaultMap.DefaultMap to /Game/ClearPath/UEDPIE_0_DefaultMap.DefaultMap (0.016917s)
-[2016.04.11-15.39.10:537][515]LogInit: XAudio2 using 'Speakers (MUSILAND M-Sword Digital)' : 2 channels at 44.1 kHz using 32 bits per sample (channel mask 0x3)
-[2016.04.11-15.39.10:541][515]LogInit: FAudioDevice initialized.
-[2016.04.11-15.39.10:632][515]LogWorld: Game class is 'ClearPathGameMode'
-[2016.04.11-15.39.10:636][515]LogWorld: Bringing World /Game/ClearPath/UEDPIE_0_DefaultMap.DefaultMap up for play (max tick rate 0) at 2016.04.11-23.39.10
-[2016.04.11-15.39.10:637][515]LogWorld: Bringing up level for play took: 0.003590
-[2016.04.11-15.39.10:640][515]PIE: Info Play in editor start time for /Game/ClearPath/UEDPIE_0_DefaultMap -0.506
-[2016.04.11-15.39.10:641][515]LogBlueprintUserMessages: Late PlayInEditor Detection: Level '/Game/ClearPath/DefaultMap.DefaultMap:PersistentLevel' has LevelScriptBlueprint '/Game/ClearPath/DefaultMap.DefaultMap:PersistentLevel.DefaultMap' with GeneratedClass '/Game/ClearPath/DefaultMap.DefaultMap_C' with ClassGeneratedBy '/Game/ClearPath/DefaultMap.DefaultMap:PersistentLevel.DefaultMap'
-[2016.04.11-15.39.13:937][715]LogBlueprintUserMessages: Early EndPlayMap Detection: Level '/Game/ClearPath/DefaultMap.DefaultMap:PersistentLevel' has LevelScriptBlueprint '/Game/ClearPath/DefaultMap.DefaultMap:PersistentLevel.DefaultMap' with GeneratedClass '/Game/ClearPath/DefaultMap.DefaultMap_C' with ClassGeneratedBy '/Game/ClearPath/DefaultMap.DefaultMap:PersistentLevel.DefaultMap'
-[2016.04.11-15.39.14:015][715]LogBlueprintUserMessages: Late EndPlayMap Detection: Level '/Game/ClearPath/DefaultMap.DefaultMap:PersistentLevel' has LevelScriptBlueprint '/Game/ClearPath/DefaultMap.DefaultMap:PersistentLevel.DefaultMap' with GeneratedClass '/Game/ClearPath/DefaultMap.DefaultMap_C' with ClassGeneratedBy '/Game/ClearPath/DefaultMap.DefaultMap:PersistentLevel.DefaultMap'
-[2016.04.11-15.39.14:122][715]LogParticles: Destroying 0 GPU particle simulations for FXSystem 0x000000A91FE6CF40
-[2016.04.11-15.39.15:659][778]LogEditorViewport: Clicking on Actor (LMB): PlayerStart (Player Start)
-[2016.04.11-15.40.00:360][803]Cmd: OBJ SAVEPACKAGE PACKAGE="/Game/ClearPath/DefaultMap" FILE="../../../../ClearPath/Content/ClearPath/DefaultMap.umap" SILENT=true AUTOSAVING=false KEEPDIRTY=false
-[2016.04.11-15.40.00:858][803]LogSavePackage: Save=352.063873ms
-[2016.04.11-15.40.00:858][803]LogSavePackage: Moving '../../../../ClearPath/Saved/DefaultMap1FABD45A4770B6B8A46E2E92524F96DA.tmp' to '../../../../ClearPath/Content/ClearPath/DefaultMap.umap'
-[2016.04.11-15.40.00:860][803]LogSavePackage: Total save time: 354.926541ms
-[2016.04.11-15.40.00:860][803]LogSavePackage:Display: Finished SavePackage ../../../../ClearPath/Content/ClearPath/DefaultMap.umap
-[2016.04.11-15.40.01:440][825]LogEditorViewport: Clicking on Actor (LMB): Passenger_C (Passenger2)
-[2016.04.11-15.40.06:283][ 29]Cmd: OBJ SAVEPACKAGE PACKAGE="/Game/ClearPath/DefaultMap" FILE="../../../../ClearPath/Content/ClearPath/DefaultMap.umap" SILENT=true AUTOSAVING=false KEEPDIRTY=false
-[2016.04.11-15.40.06:769][ 29]LogSavePackage: Save=351.550079ms
-[2016.04.11-15.40.06:769][ 29]LogSavePackage: Moving '../../../../ClearPath/Saved/DefaultMapB49DF4FF4E0677F09F5F51AAC6311EAE.tmp' to '../../../../ClearPath/Content/ClearPath/DefaultMap.umap'
-[2016.04.11-15.40.06:771][ 29]LogSavePackage: Total save time: 354.549807ms
-[2016.04.11-15.40.06:771][ 29]LogSavePackage:Display: Finished SavePackage ../../../../ClearPath/Content/ClearPath/DefaultMap.umap
-[2016.04.11-15.40.07:615][ 61]LogBlueprintUserMessages: Early PlayInEditor Detection: Level '/Game/ClearPath/DefaultMap.DefaultMap:PersistentLevel' has LevelScriptBlueprint '/Game/ClearPath/DefaultMap.DefaultMap:PersistentLevel.DefaultMap' with GeneratedClass '/Game/ClearPath/DefaultMap.DefaultMap_C' with ClassGeneratedBy '/Game/ClearPath/DefaultMap.DefaultMap:PersistentLevel.DefaultMap'
-[2016.04.11-15.40.07:615][ 61]LogPlayLevel: PlayLevel: No blueprints needed recompiling
-[2016.04.11-15.40.07:615][ 61]PIE: New page: PIE session: DefaultMap (Apr 12, 2016, 7:40:07 AM)
-[2016.04.11-15.40.07:615][ 61]LogPlayLevel: Creating play world package: /Game/ClearPath/UEDPIE_0_DefaultMap
-[2016.04.11-15.40.07:628][ 61]LogPlayLevel: PIE: StaticDuplicateObject took: (0.012567s)
-[2016.04.11-15.40.07:629][ 61]LogAIModule: Creating AISystem for world DefaultMap
-[2016.04.11-15.40.07:629][ 61]LogPlayLevel: PIE: World Init took: (0.001177s)
-[2016.04.11-15.40.07:630][ 61]LogPlayLevel: PIE: Created PIE world by copying editor world from /Game/ClearPath/DefaultMap.DefaultMap to /Game/ClearPath/UEDPIE_0_DefaultMap.DefaultMap (0.014766s)
-[2016.04.11-15.40.07:764][ 61]LogInit: XAudio2 using 'Speakers (MUSILAND M-Sword Digital)' : 2 channels at 44.1 kHz using 32 bits per sample (channel mask 0x3)
-[2016.04.11-15.40.07:768][ 61]LogInit: FAudioDevice initialized.
-[2016.04.11-15.40.07:854][ 61]LogWorld: Game class is 'ClearPathGameMode'
-[2016.04.11-15.40.07:859][ 61]LogWorld: Bringing World /Game/ClearPath/UEDPIE_0_DefaultMap.DefaultMap up for play (max tick rate 0) at 2016.04.11-23.40.07
-[2016.04.11-15.40.07:860][ 61]LogWorld: Bringing up level for play took: 0.003910
-[2016.04.11-15.40.07:863][ 61]PIE: Info Play in editor start time for /Game/ClearPath/UEDPIE_0_DefaultMap 0.716
-[2016.04.11-15.40.07:863][ 61]LogBlueprintUserMessages: Late PlayInEditor Detection: Level '/Game/ClearPath/DefaultMap.DefaultMap:PersistentLevel' has LevelScriptBlueprint '/Game/ClearPath/DefaultMap.DefaultMap:PersistentLevel.DefaultMap' with GeneratedClass '/Game/ClearPath/DefaultMap.DefaultMap_C' with ClassGeneratedBy '/Game/ClearPath/DefaultMap.DefaultMap:PersistentLevel.DefaultMap'
-[2016.04.11-15.40.10:168][194]LogBlueprintUserMessages: Early EndPlayMap Detection: Level '/Game/ClearPath/DefaultMap.DefaultMap:PersistentLevel' has LevelScriptBlueprint '/Game/ClearPath/DefaultMap.DefaultMap:PersistentLevel.DefaultMap' with GeneratedClass '/Game/ClearPath/DefaultMap.DefaultMap_C' with ClassGeneratedBy '/Game/ClearPath/DefaultMap.DefaultMap:PersistentLevel.DefaultMap'
-[2016.04.11-15.40.10:242][194]LogBlueprintUserMessages: Late EndPlayMap Detection: Level '/Game/ClearPath/DefaultMap.DefaultMap:PersistentLevel' has LevelScriptBlueprint '/Game/ClearPath/DefaultMap.DefaultMap:PersistentLevel.DefaultMap' with GeneratedClass '/Game/ClearPath/DefaultMap.DefaultMap_C' with ClassGeneratedBy '/Game/ClearPath/DefaultMap.DefaultMap:PersistentLevel.DefaultMap'
-[2016.04.11-15.40.10:360][194]LogParticles: Destroying 0 GPU particle simulations for FXSystem 0x000000A915F2C400
-[2016.04.11-15.40.12:310][276]LogBlueprintUserMessages: Early PlayInEditor Detection: Level '/Game/ClearPath/DefaultMap.DefaultMap:PersistentLevel' has LevelScriptBlueprint '/Game/ClearPath/DefaultMap.DefaultMap:PersistentLevel.DefaultMap' with GeneratedClass '/Game/ClearPath/DefaultMap.DefaultMap_C' with ClassGeneratedBy '/Game/ClearPath/DefaultMap.DefaultMap:PersistentLevel.DefaultMap'
-[2016.04.11-15.40.12:311][276]LogPlayLevel: PlayLevel: No blueprints needed recompiling
-[2016.04.11-15.40.12:311][276]PIE: New page: PIE session: DefaultMap (Apr 12, 2016, 7:40:12 AM)
-[2016.04.11-15.40.12:312][276]LogPlayLevel: Creating play world package: /Game/ClearPath/UEDPIE_0_DefaultMap
-[2016.04.11-15.40.12:324][276]LogPlayLevel: PIE: StaticDuplicateObject took: (0.012575s)
-[2016.04.11-15.40.12:325][276]LogAIModule: Creating AISystem for world DefaultMap
-[2016.04.11-15.40.12:326][276]LogPlayLevel: PIE: World Init took: (0.001269s)
-[2016.04.11-15.40.12:326][276]LogPlayLevel: PIE: Created PIE world by copying editor world from /Game/ClearPath/DefaultMap.DefaultMap to /Game/ClearPath/UEDPIE_0_DefaultMap.DefaultMap (0.014753s)
-[2016.04.11-15.40.12:465][276]LogInit: XAudio2 using 'Speakers (MUSILAND M-Sword Digital)' : 2 channels at 44.1 kHz using 32 bits per sample (channel mask 0x3)
-[2016.04.11-15.40.12:469][276]LogInit: FAudioDevice initialized.
-[2016.04.11-15.40.12:551][276]LogWorld: Game class is 'ClearPathGameMode'
-[2016.04.11-15.40.12:556][276]LogWorld: Bringing World /Game/ClearPath/UEDPIE_0_DefaultMap.DefaultMap up for play (max tick rate 0) at 2016.04.11-23.40.12
-[2016.04.11-15.40.12:557][276]LogWorld: Bringing up level for play took: 0.003651
-[2016.04.11-15.40.12:560][276]PIE: Info Play in editor start time for /Game/ClearPath/UEDPIE_0_DefaultMap -0.586
-[2016.04.11-15.40.12:561][276]LogBlueprintUserMessages: Late PlayInEditor Detection: Level '/Game/ClearPath/DefaultMap.DefaultMap:PersistentLevel' has LevelScriptBlueprint '/Game/ClearPath/DefaultMap.DefaultMap:PersistentLevel.DefaultMap' with GeneratedClass '/Game/ClearPath/DefaultMap.DefaultMap_C' with ClassGeneratedBy '/Game/ClearPath/DefaultMap.DefaultMap:PersistentLevel.DefaultMap'
-[2016.04.11-15.40.18:248][612]LogBlueprintUserMessages: Early EndPlayMap Detection: Level '/Game/ClearPath/DefaultMap.DefaultMap:PersistentLevel' has LevelScriptBlueprint '/Game/ClearPath/DefaultMap.DefaultMap:PersistentLevel.DefaultMap' with GeneratedClass '/Game/ClearPath/DefaultMap.DefaultMap_C' with ClassGeneratedBy '/Game/ClearPath/DefaultMap.DefaultMap:PersistentLevel.DefaultMap'
-[2016.04.11-15.40.18:327][612]LogBlueprintUserMessages: Late EndPlayMap Detection: Level '/Game/ClearPath/DefaultMap.DefaultMap:PersistentLevel' has LevelScriptBlueprint '/Game/ClearPath/DefaultMap.DefaultMap:PersistentLevel.DefaultMap' with GeneratedClass '/Game/ClearPath/DefaultMap.DefaultMap_C' with ClassGeneratedBy '/Game/ClearPath/DefaultMap.DefaultMap:PersistentLevel.DefaultMap'
-[2016.04.11-15.40.18:517][613]LogParticles: Destroying 0 GPU particle simulations for FXSystem 0x000000A9130140E0
-[2016.04.11-15.40.19:637][660]LogBlueprintUserMessages: Early PlayInEditor Detection: Level '/Game/ClearPath/DefaultMap.DefaultMap:PersistentLevel' has LevelScriptBlueprint '/Game/ClearPath/DefaultMap.DefaultMap:PersistentLevel.DefaultMap' with GeneratedClass '/Game/ClearPath/DefaultMap.DefaultMap_C' with ClassGeneratedBy '/Game/ClearPath/DefaultMap.DefaultMap:PersistentLevel.DefaultMap'
-[2016.04.11-15.40.19:637][660]LogPlayLevel: PlayLevel: No blueprints needed recompiling
-[2016.04.11-15.40.19:637][660]PIE: New page: PIE session: DefaultMap (Apr 12, 2016, 7:40:19 AM)
-[2016.04.11-15.40.19:637][660]LogPlayLevel: Creating play world package: /Game/ClearPath/UEDPIE_0_DefaultMap
-[2016.04.11-15.40.19:650][660]LogPlayLevel: PIE: StaticDuplicateObject took: (0.012749s)
-[2016.04.11-15.40.19:651][660]LogAIModule: Creating AISystem for world DefaultMap
-[2016.04.11-15.40.19:652][660]LogPlayLevel: PIE: World Init took: (0.001107s)
-[2016.04.11-15.40.19:652][660]LogPlayLevel: PIE: Created PIE world by copying editor world from /Game/ClearPath/DefaultMap.DefaultMap to /Game/ClearPath/UEDPIE_0_DefaultMap.DefaultMap (0.014609s)
-[2016.04.11-15.40.19:786][660]LogInit: XAudio2 using 'Speakers (MUSILAND M-Sword Digital)' : 2 channels at 44.1 kHz using 32 bits per sample (channel mask 0x3)
-[2016.04.11-15.40.19:790][660]LogInit: FAudioDevice initialized.
-[2016.04.11-15.40.19:877][660]LogWorld: Game class is 'ClearPathGameMode'
-[2016.04.11-15.40.19:881][660]LogWorld: Bringing World /Game/ClearPath/UEDPIE_0_DefaultMap.DefaultMap up for play (max tick rate 0) at 2016.04.11-23.40.19
-[2016.04.11-15.40.19:882][660]LogWorld: Bringing up level for play took: 0.003578
-[2016.04.11-15.40.19:885][660]PIE: Info Play in editor start time for /Game/ClearPath/UEDPIE_0_DefaultMap 0.739
-[2016.04.11-15.40.19:886][660]LogBlueprintUserMessages: Late PlayInEditor Detection: Level '/Game/ClearPath/DefaultMap.DefaultMap:PersistentLevel' has LevelScriptBlueprint '/Game/ClearPath/DefaultMap.DefaultMap:PersistentLevel.DefaultMap' with GeneratedClass '/Game/ClearPath/DefaultMap.DefaultMap_C' with ClassGeneratedBy '/Game/ClearPath/DefaultMap.DefaultMap:PersistentLevel.DefaultMap'
-[2016.04.11-15.40.20:926][722]LogBlueprintUserMessages: Early EndPlayMap Detection: Level '/Game/ClearPath/DefaultMap.DefaultMap:PersistentLevel' has LevelScriptBlueprint '/Game/ClearPath/DefaultMap.DefaultMap:PersistentLevel.DefaultMap' with GeneratedClass '/Game/ClearPath/DefaultMap.DefaultMap_C' with ClassGeneratedBy '/Game/ClearPath/DefaultMap.DefaultMap:PersistentLevel.DefaultMap'
-[2016.04.11-15.40.21:001][722]LogBlueprintUserMessages: Late EndPlayMap Detection: Level '/Game/ClearPath/DefaultMap.DefaultMap:PersistentLevel' has LevelScriptBlueprint '/Game/ClearPath/DefaultMap.DefaultMap:PersistentLevel.DefaultMap' with GeneratedClass '/Game/ClearPath/DefaultMap.DefaultMap_C' with ClassGeneratedBy '/Game/ClearPath/DefaultMap.DefaultMap:PersistentLevel.DefaultMap'
-[2016.04.11-15.40.21:190][723]LogParticles: Destroying 0 GPU particle simulations for FXSystem 0x000000A97829F380
-[2016.04.11-15.40.23:092][804]LogEditorViewport: Clicking on Actor (LMB): PlayerStart (Player Start)
-[2016.04.11-15.40.28:147][ 28]LogBlueprintUserMessages: Early PlayInEditor Detection: Level '/Game/ClearPath/DefaultMap.DefaultMap:PersistentLevel' has LevelScriptBlueprint '/Game/ClearPath/DefaultMap.DefaultMap:PersistentLevel.DefaultMap' with GeneratedClass '/Game/ClearPath/DefaultMap.DefaultMap_C' with ClassGeneratedBy '/Game/ClearPath/DefaultMap.DefaultMap:PersistentLevel.DefaultMap'
-[2016.04.11-15.40.28:148][ 28]LogPlayLevel: PlayLevel: No blueprints needed recompiling
-[2016.04.11-15.40.28:148][ 28]PIE: New page: PIE session: DefaultMap (Apr 12, 2016, 7:40:28 AM)
-[2016.04.11-15.40.28:148][ 28]LogPlayLevel: Creating play world package: /Game/ClearPath/UEDPIE_0_DefaultMap
-[2016.04.11-15.40.28:161][ 28]LogPlayLevel: PIE: StaticDuplicateObject took: (0.012129s)
-[2016.04.11-15.40.28:162][ 28]LogAIModule: Creating AISystem for world DefaultMap
-[2016.04.11-15.40.28:162][ 28]LogPlayLevel: PIE: World Init took: (0.001485s)
-[2016.04.11-15.40.28:163][ 28]LogPlayLevel: PIE: Created PIE world by copying editor world from /Game/ClearPath/DefaultMap.DefaultMap to /Game/ClearPath/UEDPIE_0_DefaultMap.DefaultMap (0.014649s)
-[2016.04.11-15.40.28:310][ 28]LogInit: XAudio2 using 'Speakers (MUSILAND M-Sword Digital)' : 2 channels at 44.1 kHz using 32 bits per sample (channel mask 0x3)
-[2016.04.11-15.40.28:315][ 28]LogInit: FAudioDevice initialized.
-[2016.04.11-15.40.28:394][ 28]LogWorld: Game class is 'ClearPathGameMode'
-[2016.04.11-15.40.28:399][ 28]LogWorld: Bringing World /Game/ClearPath/UEDPIE_0_DefaultMap.DefaultMap up for play (max tick rate 0) at 2016.04.11-23.40.28
-[2016.04.11-15.40.28:400][ 28]LogWorld: Bringing up level for play took: 0.003655
-[2016.04.11-15.40.28:403][ 28]PIE: Info Play in editor start time for /Game/ClearPath/UEDPIE_0_DefaultMap -0.743
-[2016.04.11-15.40.28:403][ 28]LogBlueprintUserMessages: Late PlayInEditor Detection: Level '/Game/ClearPath/DefaultMap.DefaultMap:PersistentLevel' has LevelScriptBlueprint '/Game/ClearPath/DefaultMap.DefaultMap:PersistentLevel.DefaultMap' with GeneratedClass '/Game/ClearPath/DefaultMap.DefaultMap_C' with ClassGeneratedBy '/Game/ClearPath/DefaultMap.DefaultMap:PersistentLevel.DefaultMap'
-[2016.04.11-15.40.29:596][ 94]LogBlueprintUserMessages: Early EndPlayMap Detection: Level '/Game/ClearPath/DefaultMap.DefaultMap:PersistentLevel' has LevelScriptBlueprint '/Game/ClearPath/DefaultMap.DefaultMap:PersistentLevel.DefaultMap' with GeneratedClass '/Game/ClearPath/DefaultMap.DefaultMap_C' with ClassGeneratedBy '/Game/ClearPath/DefaultMap.DefaultMap:PersistentLevel.DefaultMap'
-[2016.04.11-15.40.29:676][ 94]LogBlueprintUserMessages: Late EndPlayMap Detection: Level '/Game/ClearPath/DefaultMap.DefaultMap:PersistentLevel' has LevelScriptBlueprint '/Game/ClearPath/DefaultMap.DefaultMap:PersistentLevel.DefaultMap' with GeneratedClass '/Game/ClearPath/DefaultMap.DefaultMap_C' with ClassGeneratedBy '/Game/ClearPath/DefaultMap.DefaultMap:PersistentLevel.DefaultMap'
-[2016.04.11-15.40.29:865][ 95]LogParticles: Destroying 0 GPU particle simulations for FXSystem 0x000000A978A76A20
-[2016.04.11-15.40.33:409][250]LogActorFactory: Actor Factory created Cube
-[2016.04.11-15.40.34:940][316]LogActorFactory: Actor Factory created Cube
-[2016.04.11-15.40.35:898][352]LogBlueprintUserMessages: Early PlayInEditor Detection: Level '/Game/ClearPath/DefaultMap.DefaultMap:PersistentLevel' has LevelScriptBlueprint '/Game/ClearPath/DefaultMap.DefaultMap:PersistentLevel.DefaultMap' with GeneratedClass '/Game/ClearPath/DefaultMap.DefaultMap_C' with ClassGeneratedBy '/Game/ClearPath/DefaultMap.DefaultMap:PersistentLevel.DefaultMap'
-[2016.04.11-15.40.35:898][352]LogPlayLevel: PlayLevel: No blueprints needed recompiling
-[2016.04.11-15.40.35:898][352]PIE: New page: PIE session: DefaultMap (Apr 12, 2016, 7:40:35 AM)
-[2016.04.11-15.40.35:899][352]LogPlayLevel: Creating play world package: /Game/ClearPath/UEDPIE_0_DefaultMap
-[2016.04.11-15.40.35:912][352]LogPlayLevel: PIE: StaticDuplicateObject took: (0.012949s)
-[2016.04.11-15.40.35:913][352]LogAIModule: Creating AISystem for world DefaultMap
-[2016.04.11-15.40.35:913][352]LogPlayLevel: PIE: World Init took: (0.001246s)
-[2016.04.11-15.40.35:914][352]LogPlayLevel: PIE: Created PIE world by copying editor world from /Game/ClearPath/DefaultMap.DefaultMap to /Game/ClearPath/UEDPIE_0_DefaultMap.DefaultMap (0.015080s)
-[2016.04.11-15.40.35:914][352]LogActorComponent: UnregisterComponent: (/Engine/Transient.Nav_GEN_VARIABLE) Not registered. Aborting.
-[2016.04.11-15.40.36:055][352]LogInit: XAudio2 using 'Speakers (MUSILAND M-Sword Digital)' : 2 channels at 44.1 kHz using 32 bits per sample (channel mask 0x3)
-[2016.04.11-15.40.36:059][352]LogInit: FAudioDevice initialized.
-[2016.04.11-15.40.36:139][352]LogWorld: Game class is 'ClearPathGameMode'
-[2016.04.11-15.40.36:145][352]LogWorld: Bringing World /Game/ClearPath/UEDPIE_0_DefaultMap.DefaultMap up for play (max tick rate 0) at 2016.04.11-23.40.36
-[2016.04.11-15.40.36:146][352]LogWorld: Bringing up level for play took: 0.005219
-[2016.04.11-15.40.36:149][352]PIE: Info Play in editor start time for /Game/ClearPath/UEDPIE_0_DefaultMap 1.003
-[2016.04.11-15.40.36:150][352]LogBlueprintUserMessages: Late PlayInEditor Detection: Level '/Game/ClearPath/DefaultMap.DefaultMap:PersistentLevel' has LevelScriptBlueprint '/Game/ClearPath/DefaultMap.DefaultMap:PersistentLevel.DefaultMap' with GeneratedClass '/Game/ClearPath/DefaultMap.DefaultMap_C' with ClassGeneratedBy '/Game/ClearPath/DefaultMap.DefaultMap:PersistentLevel.DefaultMap'
-[2016.04.11-15.40.40:408][602]LogBlueprintUserMessages: Early EndPlayMap Detection: Level '/Game/ClearPath/DefaultMap.DefaultMap:PersistentLevel' has LevelScriptBlueprint '/Game/ClearPath/DefaultMap.DefaultMap:PersistentLevel.DefaultMap' with GeneratedClass '/Game/ClearPath/DefaultMap.DefaultMap_C' with ClassGeneratedBy '/Game/ClearPath/DefaultMap.DefaultMap:PersistentLevel.DefaultMap'
-[2016.04.11-15.40.40:514][602]LogBlueprintUserMessages: Late EndPlayMap Detection: Level '/Game/ClearPath/DefaultMap.DefaultMap:PersistentLevel' has LevelScriptBlueprint '/Game/ClearPath/DefaultMap.DefaultMap:PersistentLevel.DefaultMap' with GeneratedClass '/Game/ClearPath/DefaultMap.DefaultMap_C' with ClassGeneratedBy '/Game/ClearPath/DefaultMap.DefaultMap:PersistentLevel.DefaultMap'
-[2016.04.11-15.40.40:712][603]LogParticles: Destroying 0 GPU particle simulations for FXSystem 0x000000A975C30180
-[2016.04.11-15.40.41:971][655]Cmd: OBJ SAVEPACKAGE PACKAGE="/Game/ClearPath/DefaultMap" FILE="../../../../ClearPath/Content/ClearPath/DefaultMap.umap" SILENT=true AUTOSAVING=false KEEPDIRTY=false
-[2016.04.11-15.40.42:420][655]LogSavePackage: Save=324.383575ms
-[2016.04.11-15.40.42:420][655]LogSavePackage: Moving '../../../../ClearPath/Saved/DefaultMapD7AE72E54FB75E08654BB89F92C38DBB.tmp' to '../../../../ClearPath/Content/ClearPath/DefaultMap.umap'
-[2016.04.11-15.40.42:422][655]LogSavePackage: Total save time: 327.952638ms
-[2016.04.11-15.40.42:422][655]LogSavePackage:Display: Finished SavePackage ../../../../ClearPath/Content/ClearPath/DefaultMap.umap
-[2016.04.11-15.46.41:341][101]Recompiling ClearPath...
-[2016.04.11-15.46.41:342][101]Launching UnrealBuildTool... [K:/UnrealEngine/Engine/Binaries/DotNET/UnrealBuildTool.exe ClearPath -ModuleWithSuffix ClearPath 1110 Win64 Debug -editorrecompile -canskiplink "K:/ClearPath/ClearPath.uproject"  -2015]
-[2016.04.11-15.46.41:343][101]Warning: Starting HotReload took  0.0s.
-[2016.04.11-15.46.53:827][521]CompilerResultsLog: New page: Compilation - Apr 12, 2016, 7:46:53 AM
-[2016.04.11-15.46.53:828][521]CompilerResultsLog: Info Creating makefile for hot reloading ClearPath (game project files are newer)
-[2016.04.11-15.46.53:828][521]CompilerResultsLog: Info Compiling game modules for hot reload
-[2016.04.11-15.46.53:828][521]CompilerResultsLog: Info Building UnrealHeaderTool...
-[2016.04.11-15.46.53:828][521]CompilerResultsLog: Info Target is up to date.
-[2016.04.11-15.46.53:828][521]CompilerResultsLog: Info Parsing headers for ClearPathEditor
-[2016.04.11-15.46.53:828][521]CompilerResultsLog: Info   Running UnrealHeaderTool "K:/ClearPath/ClearPath.uproject" "K:\ClearPath\Intermediate\Build\Win64\ClearPathEditor\Debug\UnrealHeaderTool.manifest" -LogCmds="loginit warning, logexit warning, logdatabase error"
-[2016.04.11-15.46.53:829][521]CompilerResultsLog: Info Reflection code generated for ClearPathEditor in 3.811959 seconds
-[2016.04.11-15.46.53:829][521]CompilerResultsLog: Info Performing 4 actions (4 in parallel)
-[2016.04.11-15.46.53:829][521]CompilerResultsLog: Info NavComponent.cpp
-[2016.04.11-15.46.53:829][521]CompilerResultsLog: Info Navigator.cpp
-[2016.04.11-15.46.53:829][521]CompilerResultsLog: Info ClearPath.generated.cpp
-[2016.04.11-15.46.53:829][521]CompilerResultsLog: Info [4/4] Link UE4Editor-ClearPath-1110-Win64-Debug.dll
-[2016.04.11-15.46.53:829][521]CompilerResultsLog: Info    Creating library K:\ClearPath\Intermediate/Build/Win64\UE4Editor\Debug\UE4Editor-ClearPath-1110-Win64-Debug.lib and object K:\ClearPath\Intermediate/Build/Win64\UE4Editor\Debug\UE4Editor-ClearPath-1110-Win64-Debug.exp
-[2016.04.11-15.46.53:829][521]CompilerResultsLog: Info -------- End Detailed Actions Stats -----------------------------------------------------------
-[2016.04.11-15.46.53:830][521]CompilerResultsLog: Info Total build time: 12.27 seconds
-[2016.04.11-15.46.53:830][521]LogMainFrame: MainFrame: Module compiling took 12.496 seconds
-[2016.04.11-15.46.54:037][521]LogClass: Could not find existing class NavComponent in package /Script/ClearPath for HotReload, assuming new class
-[2016.04.11-15.46.54:038][521]LogClass: Function SetTargetLocation is new.
-[2016.04.11-15.46.54:048][521]LogHotReload: Re-instancing NavComponent after hot-reload.
-[2016.04.11-15.46.54:048][521]LogUObjectGlobals:Warning: Guid is in use by HOTRELOADED_NavComponent_1 /Game/ClearPath/DefaultMap.DefaultMap:PersistentLevel.Passenger_C_2.HOTRELOADED_NavComponent_6 and NavComponent /Game/ClearPath/DefaultMap.DefaultMap:PersistentLevel.Passenger_C_2.Nav, which should never happen in the editor but could happen at runtime with duplicate level loading or PIE
-[2016.04.11-15.46.54:049][521]LogUObjectGlobals:Warning: Guid is in use by HOTRELOADED_NavComponent_1 /Game/ClearPath/DefaultMap.DefaultMap:PersistentLevel.Passenger_C_3.HOTRELOADED_NavComponent_7 and NavComponent /Game/ClearPath/DefaultMap.DefaultMap:PersistentLevel.Passenger_C_3.Nav, which should never happen in the editor but could happen at runtime with duplicate level loading or PIE
-[2016.04.11-15.46.54:365][521]LogContentBrowser: Native class hierarchy updated for 'ClearPath' in 0.0018 seconds. Added 2 classes and 2 folders.
-[2016.04.11-15.46.54:382][521]Warning: HotReload successful (0 functions remapped  0 scriptstructs remapped)
-[2016.04.11-15.46.56:373][521]LogContentBrowser: Native class hierarchy populated in 0.0348 seconds. Added 1895 classes and 340 folders.
-[2016.04.11-15.55.48:734][840]Recompiling ClearPath...
-[2016.04.11-15.55.48:734][840]Launching UnrealBuildTool... [K:/UnrealEngine/Engine/Binaries/DotNET/UnrealBuildTool.exe ClearPath -ModuleWithSuffix ClearPath 2378 Win64 Debug -editorrecompile -canskiplink "K:/ClearPath/ClearPath.uproject"  -2015]
-[2016.04.11-15.55.48:785][840]Warning: Starting HotReload took  0.1s.
-[2016.04.11-15.55.59:767][933]CompilerResultsLog: New page: Compilation - Apr 12, 2016, 7:55:59 AM
-[2016.04.11-15.55.59:768][933]CompilerResultsLog: Info Creating makefile for hot reloading ClearPath (game project files are newer)
-[2016.04.11-15.55.59:768][933]CompilerResultsLog: Info Compiling game modules for hot reload
-[2016.04.11-15.55.59:768][933]CompilerResultsLog: Info Building UnrealHeaderTool...
-[2016.04.11-15.55.59:768][933]CompilerResultsLog: Info Target is up to date.
-[2016.04.11-15.55.59:769][933]CompilerResultsLog: Info Parsing headers for ClearPathEditor
-[2016.04.11-15.55.59:769][933]CompilerResultsLog: Info   Running UnrealHeaderTool "K:/ClearPath/ClearPath.uproject" "K:\ClearPath\Intermediate\Build\Win64\ClearPathEditor\Debug\UnrealHeaderTool.manifest" -LogCmds="loginit warning, logexit warning, logdatabase error"
-[2016.04.11-15.55.59:769][933]CompilerResultsLog:Error: Error K:/ClearPath/Source/ClearPath/NavComponent.h(28)  : Unrecognized type 'Directive' - type must be a UCLASS, USTRUCT or UENUM
-[2016.04.11-15.55.59:769][933]CompilerResultsLog:Error: Error Error: Failed to generate code for ClearPathEditor - error code: OtherCompilationError (5) 
-[2016.04.11-15.55.59:769][933]CompilerResultsLog: Info UnrealHeaderTool failed for target 'ClearPathEditor' (platform: Win64, module info: K:\ClearPath\Intermediate\Build\Win64\ClearPathEditor\Debug\UnrealHeaderTool.manifest).
-[2016.04.11-15.55.59:770][933]LogMainFrame: MainFrame: Module compiling took 11.043 seconds
-[2016.04.11-15.55.59:770][933]Warning: HotReload failed, recompile failed
-[2016.04.11-15.56.23:593][413]LogActorComponent: UnregisterComponent: (/Engine/Transient.Nav_GEN_VARIABLE) Not registered. Aborting.
-[2016.04.11-15.56.24:124][413]LogWindowsTextInputMethodSystem:Display: IME system now deactivated.
-[2016.04.11-15.56.24:451][414]Cmd: QUIT_EDITOR
-[2016.04.11-15.56.24:863][414]LogExit: Preparing to exit.
-[2016.04.11-15.56.26:092][414]LogExit: Editor shut down
-[2016.04.11-15.56.26:094][414]LogExit: Transaction tracking system shut down
-[2016.04.11-15.56.26:135][414]LogParticles: Destroying 0 GPU particle simulations for FXSystem 0x000000A93885AFC0
-[2016.04.11-15.56.26:136][414]LogParticles: Destroying 0 GPU particle simulations for FXSystem 0x000000A958FEEF20
-[2016.04.11-15.56.26:142][414]LogParticles: Destroying 0 GPU particle simulations for FXSystem 0x000000A955303CE0
-[2016.04.11-15.56.26:142][414]LogParticles: Destroying 0 GPU particle simulations for FXSystem 0x000000A958DF0EA0
-[2016.04.11-15.56.26:166][414]LogParticles: Destroying 0 GPU particle simulations for FXSystem 0x000000A97345EAC0
-[2016.04.11-15.56.26:167][414]LogParticles: Destroying 0 GPU particle simulations for FXSystem 0x000000A913715120
-[2016.04.11-15.56.27:645][414]LogParticles: Destroying 0 GPU particle simulations for FXSystem 0x000000A9771C6980
-[2016.04.11-15.56.27:645][414]LogExit: Object subsystem successfully closed.
-[2016.04.11-15.56.27:783][414]LogD3D11RHI: Shutdown
-[2016.04.11-15.56.27:783][414]LogD3D11RHI: CleanupD3DDevice
-[2016.04.11-15.56.27:887][414]LogD3D11RHI: ~FD3D11DynamicRHI
-[2016.04.11-15.56.28:164][414]LogModuleManager: Shutting down and abandoning module CookingStats (194)
-[2016.04.11-15.56.28:165][414]LogModuleManager: Shutting down and abandoning module BlueprintGraph (193)
-[2016.04.11-15.56.28:165][414]LogModuleManager: Shutting down and abandoning module CrashTracker (192)
-[2016.04.11-15.56.28:165][414]LogModuleManager: Shutting down and abandoning module SceneOutliner (191)
-[2016.04.11-15.56.28:165][414]LogModuleManager: Shutting down and abandoning module SuperSearch (190)
-[2016.04.11-15.56.28:165][414]LogModuleManager: Shutting down and abandoning module WidgetCarousel (189)
-[2016.04.11-15.56.28:165][414]LogModuleManager: Shutting down and abandoning module AddContentDialog (188)
-[2016.04.11-15.56.28:168][414]LogModuleManager: Shutting down and abandoning module EditorWidgets (187)
-[2016.04.11-15.56.28:168][414]LogModuleManager: Shutting down and abandoning module CollectionManager (186)
-[2016.04.11-15.56.28:174][414]LogModuleManager: Shutting down and abandoning module StatsViewer (185)
-[2016.04.11-15.56.28:183][414]LogModuleManager: Shutting down and abandoning module FoliageEdit (184)
-[2016.04.11-15.56.28:183][414]LogModuleManager: Shutting down and abandoning module LandscapeEditor (183)
-[2016.04.11-15.56.28:184][414]LogModuleManager: Shutting down and abandoning module ActorPickerMode (182)
-[2016.04.11-15.56.28:184][414]LogModuleManager: Shutting down and abandoning module GeometryMode (181)
-[2016.04.11-15.56.28:184][414]LogModuleManager: Shutting down and abandoning module TextureAlignMode (180)
-[2016.04.11-15.56.28:184][414]LogModuleManager: Shutting down and abandoning module BspMode (179)
-[2016.04.11-15.56.28:185][414]LogModuleManager: Shutting down and abandoning module PlacementMode (178)
-[2016.04.11-15.56.28:185][414]LogModuleManager: Shutting down and abandoning module AutomationWorker (177)
-[2016.04.11-15.56.28:185][414]LogModuleManager: Shutting down and abandoning module CharacterAI (176)
-[2016.04.11-15.56.28:185][414]LogModuleManager: Shutting down and abandoning module SmartSnapping (175)
-[2016.04.11-15.56.28:185][414]LogModuleManager: Shutting down and abandoning module ViewportSnapping (174)
-[2016.04.11-15.56.28:185][414]LogModuleManager: Shutting down and abandoning module LogVisualizer (173)
-[2016.04.11-15.56.28:197][414]LogModuleManager: Shutting down and abandoning module GameProjectGeneration (172)
-[2016.04.11-15.56.28:203][414]LogModuleManager: Shutting down and abandoning module IntroTutorials (171)
-[2016.04.11-15.56.28:205][414]LogModuleManager: Shutting down and abandoning module EditorLiveStreaming (170)
-[2016.04.11-15.56.28:206][414]LogModuleManager: Shutting down and abandoning module IOSPlatformEditor (169)
-[2016.04.11-15.56.28:206][414]LogModuleManager: Shutting down and abandoning module HTML5PlatformEditor (168)
-[2016.04.11-15.56.28:206][414]LogModuleManager: Shutting down and abandoning module AndroidDeviceDetection (167)
-[2016.04.11-15.56.28:830][414]LogModuleManager: Shutting down and abandoning module AndroidPlatformEditor (166)
-[2016.04.11-15.56.28:831][414]LogModuleManager: Shutting down and abandoning module IOSRuntimeSettings (165)
-[2016.04.11-15.56.28:831][414]LogModuleManager: Shutting down and abandoning module AndroidRuntimeSettings (164)
-[2016.04.11-15.56.28:831][414]LogModuleManager: Shutting down and abandoning module MergeActors (163)
-[2016.04.11-15.56.28:832][414]LogModuleManager: Shutting down and abandoning module SizeMap (162)
-[2016.04.11-15.56.28:832][414]LogModuleManager: Shutting down and abandoning module TreeMap (161)
-[2016.04.11-15.56.28:832][414]LogModuleManager: Shutting down and abandoning module ReferenceViewer (160)
-[2016.04.11-15.56.28:832][414]LogModuleManager: Shutting down and abandoning module LocalizationService (159)
-[2016.04.11-15.56.28:832][414]LogModuleManager: Shutting down and abandoning module LocalizationDashboard (158)
-[2016.04.11-15.56.28:852][414]LogModuleManager: Shutting down and abandoning module HardwareTargeting (157)
-[2016.04.11-15.56.28:852][414]LogModuleManager: Shutting down and abandoning module DeviceProfileEditor (156)
-[2016.04.11-15.56.28:852][414]LogModuleManager: Shutting down and abandoning module UndoHistory (155)
-[2016.04.11-15.56.28:852][414]LogModuleManager: Shutting down and abandoning module GameplayTagsEditor (154)
-[2016.04.11-15.56.28:853][414]LogModuleManager: Shutting down and abandoning module UserFeedback (153)
-[2016.04.11-15.56.28:853][414]LogModuleManager: Shutting down and abandoning module XmlParser (152)
-[2016.04.11-15.56.28:853][414]LogModuleManager: Shutting down and abandoning module Blutility (151)
-[2016.04.11-15.56.28:853][414]LogModuleManager: Shutting down and abandoning module ProjectTargetPlatformEditor (150)
-[2016.04.11-15.56.28:854][414]LogModuleManager: Shutting down and abandoning module ProjectSettingsViewer (149)
-[2016.04.11-15.56.28:854][414]LogModuleManager: Shutting down and abandoning module InputBindingEditor (148)
-[2016.04.11-15.56.28:854][414]LogModuleManager: Shutting down and abandoning module EditorSettingsViewer (147)
-[2016.04.11-15.56.28:855][414]LogModuleManager: Shutting down and abandoning module SettingsEditor (146)
-[2016.04.11-15.56.28:862][414]LogModuleManager: Shutting down and abandoning module ProjectLauncher (145)
-[2016.04.11-15.56.28:863][414]LogModuleManager: Shutting down and abandoning module SessionFrontend (144)
-[2016.04.11-15.56.28:863][414]LogModuleManager: Shutting down and abandoning module ProfilerClient (143)
-[2016.04.11-15.56.28:872][414]LogModuleManager: Shutting down and abandoning module TargetDeviceServices (142)
-[2016.04.11-15.56.28:873][414]LogModuleManager: Shutting down and abandoning module DeviceManager (141)
-[2016.04.11-15.56.28:881][414]LogModuleManager: Shutting down and abandoning module AutomationController (140)
-[2016.04.11-15.56.28:881][414]LogModuleManager: Shutting down and abandoning module AutomationWindow (139)
-[2016.04.11-15.56.28:895][414]LogModuleManager: Shutting down and abandoning module Layers (138)
-[2016.04.11-15.56.28:907][414]LogModuleManager: Shutting down and abandoning module ComponentVisualizers (137)
-[2016.04.11-15.56.28:907][414]LogModuleManager: Shutting down and abandoning module DetailCustomizations (136)
-[2016.04.11-15.56.28:922][414]LogModuleManager: Shutting down and abandoning module PackagesDialog (135)
-[2016.04.11-15.56.28:923][414]LogModuleManager: Shutting down and abandoning module Persona (134)
-[2016.04.11-15.56.28:930][414]LogModuleManager: Shutting down and abandoning module Kismet (133)
-[2016.04.11-15.56.28:930][414]LogModuleManager: Shutting down and abandoning module GraphEditor (132)
-[2016.04.11-15.56.28:931][414]LogModuleManager: Shutting down and abandoning module ClassViewer (131)
-[2016.04.11-15.56.28:931][414]LogModuleManager: Shutting down and abandoning module Toolbox (130)
-[2016.04.11-15.56.28:931][414]LogModuleManager: Shutting down and abandoning module ModuleUI (129)
-[2016.04.11-15.56.28:931][414]LogModuleManager: Shutting down and abandoning module MovieSceneTools (128)
-[2016.04.11-15.56.28:932][414]LogModuleManager: Shutting down and abandoning module OutputLog (127)
-[2016.04.11-15.56.28:932][414]LogModuleManager: Shutting down and abandoning module GammaUI (126)
-[2016.04.11-15.56.28:932][414]LogModuleManager: Shutting down and abandoning module Documentation (125)
-[2016.04.11-15.56.28:932][414]LogModuleManager: Shutting down and abandoning module GameLiveStreaming (124)
-[2016.04.11-15.56.28:932][414]LogModuleManager: Shutting down and abandoning module StreamingPauseRendering (123)
-[2016.04.11-15.56.28:933][414]LogModuleManager: Shutting down and abandoning module AITestSuite (122)
-[2016.04.11-15.56.28:933][414]LogModuleManager: Shutting down and abandoning module GameplayDebugger (121)
-[2016.04.11-15.56.28:933][414]LogModuleManager: Shutting down and abandoning module AIModule (120)
-[2016.04.11-15.56.28:933][414]LogModuleManager: Shutting down and abandoning module ProfilerService (119)
-[2016.04.11-15.56.29:008][414]LogModuleManager: Shutting down and abandoning module TaskGraph (118)
-[2016.04.11-15.56.29:020][414]LogModuleManager: Shutting down and abandoning module SlateRemote (117)
-[2016.04.11-15.56.29:021][414]LogModuleManager: Shutting down and abandoning module SteamVRController (116)
-[2016.04.11-15.56.29:021][414]LogModuleManager: Shutting down and abandoning module SteamVR (115)
-[2016.04.11-15.56.29:021][414]LogModuleManager: Shutting down and abandoning module ProceduralMeshComponent (114)
-[2016.04.11-15.56.29:021][414]LogModuleManager: Shutting down and abandoning module OculusLibrary (113)
-[2016.04.11-15.56.29:021][414]LogModuleManager: Shutting down and abandoning module OculusInput (112)
-[2016.04.11-15.56.29:021][414]LogModuleManager: Shutting down and abandoning module LeapMotionController (111)
-[2016.04.11-15.56.29:075][414]LogModuleManager: Shutting down and abandoning module CustomMeshComponent (110)
-[2016.04.11-15.56.29:075][414]LogModuleManager: Shutting down and abandoning module CableComponent (109)
-[2016.04.11-15.56.29:076][414]LogModuleManager: Shutting down and abandoning module ArchVisCharacter (108)
-[2016.04.11-15.56.29:076][414]LogModuleManager: Shutting down and abandoning module MessagingDebugger (107)
-[2016.04.11-15.56.29:087][414]LogModuleManager: Shutting down and abandoning module MediaPlayerEditor (106)
-[2016.04.11-15.56.29:087][414]LogModuleManager: Shutting down and abandoning module HTML5Networking (105)
-[2016.04.11-15.56.29:087][414]LogModuleManager: Shutting down and abandoning module SpeedTreeImporter (104)
-[2016.04.11-15.56.29:087][414]LogModuleManager: Shutting down and abandoning module PluginBrowser (103)
-[2016.04.11-15.56.29:088][414]LogModuleManager: Shutting down and abandoning module EpicSurvey (102)
-[2016.04.11-15.56.29:089][414]LogModuleManager: Shutting down and abandoning module DesktopPlatform (101)
-[2016.04.11-15.56.29:089][414]LogModuleManager: Shutting down and abandoning module VisualStudioSourceCodeAccess (100)
-[2016.04.11-15.56.29:089][414]LogModuleManager: Shutting down and abandoning module UObjectPlugin (99)
-[2016.04.11-15.56.29:089][414]LogModuleManager: Shutting down and abandoning module SubversionSourceControl (98)
-[2016.04.11-15.56.29:089][414]LogModuleManager: Shutting down and abandoning module PerforceSourceControl (97)
-[2016.04.11-15.56.29:090][414]LogModuleManager: Shutting down and abandoning module SourceControl (96)
-[2016.04.11-15.56.29:090][414]LogModuleManager: Shutting down and abandoning module GitSourceControl (95)
-[2016.04.11-15.56.29:090][414]LogModuleManager: Shutting down and abandoning module LightPropagationVolumeEditor (94)
-[2016.04.11-15.56.29:090][414]LogModuleManager: Shutting down and abandoning module PaperTiledImporter (93)
-[2016.04.11-15.56.29:090][414]LogModuleManager: Shutting down and abandoning module PaperSpriteSheetImporter (92)
-[2016.04.11-15.56.29:090][414]LogModuleManager: Shutting down and abandoning module MeshPaint (91)
-[2016.04.11-15.56.29:091][414]LogModuleManager: Shutting down and abandoning module SlateReflector (90)
-[2016.04.11-15.56.29:091][414]LogModuleManager: Shutting down and abandoning module HotReload (89)
-[2016.04.11-15.56.29:091][414]LogModuleManager: Shutting down and abandoning module MainFrame (88)
-[2016.04.11-15.56.29:092][414]LogModuleManager: Shutting down and abandoning module LevelEditor (87)
-[2016.04.11-15.56.29:094][414]LogModuleManager: Shutting down and abandoning module DirectoryWatcher (86)
-[2016.04.11-15.56.29:096][414]LogModuleManager: Shutting down and abandoning module AssetRegistry (85)
-[2016.04.11-15.56.29:209][414]LogModuleManager: Shutting down and abandoning module ContentBrowser (84)
-[2016.04.11-15.56.29:212][414]LogModuleManager: Shutting down and abandoning module Paper2DEditor (83)
-[2016.04.11-15.56.29:226][414]LogModuleManager: Shutting down and abandoning module ClearPath (82)
-[2016.04.11-15.56.29:226][414]LogModuleManager: Shutting down and abandoning module UdpMessaging (81)
-[2016.04.11-15.56.29:327][414]LogModuleManager: Shutting down and abandoning module LightPropagationVolumeRuntime (80)
-[2016.04.11-15.56.29:327][414]LogModuleManager: Shutting down and abandoning module Paper2D (79)
-[2016.04.11-15.56.29:339][414]LogModuleManager: Shutting down and abandoning module WindowsMoviePlayer (78)
-[2016.04.11-15.56.29:345][414]LogModuleManager: Shutting down and abandoning module Media (77)
-[2016.04.11-15.56.29:346][414]LogModuleManager: Shutting down and abandoning module WmfMedia (76)
-[2016.04.11-15.56.29:346][414]LogModuleManager: Shutting down and abandoning module OnlineBlueprintSupport (75)
-[2016.04.11-15.56.29:346][414]LogModuleManager: Shutting down and abandoning module GameplayTasksEditor (74)
-[2016.04.11-15.56.29:346][414]LogModuleManager: Shutting down and abandoning module PropertyEditor (73)
-[2016.04.11-15.56.29:346][414]LogModuleManager: Shutting down and abandoning module BehaviorTreeEditor (72)
-[2016.04.11-15.56.29:360][414]LogModuleManager: Shutting down and abandoning module FunctionalTesting (71)
-[2016.04.11-15.56.29:360][414]LogModuleManager: Shutting down and abandoning module CollisionAnalyzer (70)
-[2016.04.11-15.56.29:360][414]LogModuleManager: Shutting down and abandoning module WorkspaceMenuStructure (69)
-[2016.04.11-15.56.29:361][414]LogModuleManager: Shutting down and abandoning module MessageLog (68)
-[2016.04.11-15.56.29:361][414]LogModuleManager: Shutting down and abandoning module Sequencer (67)
-[2016.04.11-15.56.29:388][414]LogModuleManager: Shutting down and abandoning module AssetTools (66)
-[2016.04.11-15.56.29:416][414]LogModuleManager: Shutting down and abandoning module UMGEditor (65)
-[2016.04.11-15.56.29:433][414]LogModuleManager: Shutting down and abandoning module UMG (64)
-[2016.04.11-15.56.29:453][414]LogModuleManager: Shutting down and abandoning module Slate (63)
-[2016.04.11-15.56.29:453][414]LogModuleManager: Shutting down and abandoning module EditorStyle (62)
-[2016.04.11-15.56.29:458][414]LogModuleManager: Shutting down and abandoning module SessionServices (61)
-[2016.04.11-15.56.29:458][414]LogModuleManager: Shutting down and abandoning module SourceCodeAccess (60)
-[2016.04.11-15.56.29:458][414]LogModuleManager: Shutting down and abandoning module HeadMountedDisplay (59)
-[2016.04.11-15.56.29:458][414]LogModuleManager: Shutting down and abandoning module XAudio2 (58)
-[2016.04.11-15.56.29:458][414]LogModuleManager: Shutting down and abandoning module Networking (56)
-[2016.04.11-15.56.29:458][414]LogModuleManager: Shutting down and abandoning module Core (55)
-[2016.04.11-15.56.29:459][414]LogModuleManager: Shutting down and abandoning module KismetCompiler (54)
-[2016.04.11-15.56.29:459][414]LogModuleManager: Shutting down and abandoning module PhysXFormats (53)
-[2016.04.11-15.56.29:459][414]LogModuleManager: Shutting down and abandoning module MeshUtilities (52)
-[2016.04.11-15.56.29:468][414]LogModuleManager: Shutting down and abandoning module DerivedDataCache (51)
-[2016.04.11-15.56.29:498][414]LogDerivedDataCache: Shutdown
-[2016.04.11-15.56.29:498][414]LogModuleManager: Shutting down and abandoning module ShaderFormatOpenGL (50)
-[2016.04.11-15.56.29:512][414]LogModuleManager: Shutting down and abandoning module ShaderFormatD3D (49)
-[2016.04.11-15.56.29:520][414]LogModuleManager: Shutting down and abandoning module MetalShaderFormat (48)
-[2016.04.11-15.56.29:534][414]LogModuleManager: Shutting down and abandoning module TextureFormatUncompressed (47)
-[2016.04.11-15.56.29:534][414]LogModuleManager: Shutting down and abandoning module TextureFormatPVR (46)
-[2016.04.11-15.56.29:534][414]LogModuleManager: Shutting down and abandoning module TextureFormatIntelISPCTexComp (45)
-[2016.04.11-15.56.29:535][414]LogModuleManager: Shutting down and abandoning module TextureFormatDXT (44)
-[2016.04.11-15.56.29:535][414]LogModuleManager: Shutting down and abandoning module ImageWrapper (43)
-[2016.04.11-15.56.29:536][414]LogModuleManager: Shutting down and abandoning module TextureFormatASTC (42)
-[2016.04.11-15.56.29:536][414]LogModuleManager: Shutting down and abandoning module AudioFormatOpus (41)
-[2016.04.11-15.56.29:536][414]LogModuleManager: Shutting down and abandoning module AudioFormatOgg (40)
-[2016.04.11-15.56.29:536][414]LogModuleManager: Shutting down and abandoning module AudioFormatADPCM (39)
-[2016.04.11-15.56.29:536][414]LogModuleManager: Shutting down and abandoning module Messaging (38)
-[2016.04.11-15.56.29:536][414]LogModuleManager: Shutting down and abandoning module IOSTargetPlatform (37)
-[2016.04.11-15.56.29:536][414]LogModuleManager: Shutting down and abandoning module HTML5TargetPlatform (36)
-[2016.04.11-15.56.29:536][414]LogModuleManager: Shutting down and abandoning module Android_PVRTCTargetPlatform (35)
-[2016.04.11-15.56.29:536][414]LogModuleManager: Shutting down and abandoning module Android_MultiTargetPlatform (34)
-[2016.04.11-15.56.29:536][414]LogModuleManager: Shutting down and abandoning module Android_ETC2TargetPlatform (33)
-[2016.04.11-15.56.29:536][414]LogModuleManager: Shutting down and abandoning module Android_ETC1TargetPlatform (32)
-[2016.04.11-15.56.29:536][414]LogModuleManager: Shutting down and abandoning module Android_DXTTargetPlatform (31)
-[2016.04.11-15.56.29:536][414]LogModuleManager: Shutting down and abandoning module Android_ATCTargetPlatform (30)
-[2016.04.11-15.56.29:536][414]LogModuleManager: Shutting down and abandoning module Android_ASTCTargetPlatform (29)
-[2016.04.11-15.56.29:536][414]LogModuleManager: Shutting down and abandoning module AndroidTargetPlatform (28)
-[2016.04.11-15.56.29:536][414]LogModuleManager: Shutting down and abandoning module WindowsTargetPlatform (27)
-[2016.04.11-15.56.29:536][414]LogModuleManager: Shutting down and abandoning module WindowsServerTargetPlatform (26)
-[2016.04.11-15.56.29:536][414]LogModuleManager: Shutting down and abandoning module WindowsNoEditorTargetPlatform (25)
-[2016.04.11-15.56.29:536][414]LogModuleManager: Shutting down and abandoning module WindowsClientTargetPlatform (24)
-[2016.04.11-15.56.29:537][414]LogModuleManager: Shutting down and abandoning module AllDesktopTargetPlatform (23)
-[2016.04.11-15.56.29:537][414]LogModuleManager: Shutting down and abandoning module TargetPlatform (22)
-[2016.04.11-15.56.29:537][414]LogModuleManager: Shutting down and abandoning module InputCore (21)
-[2016.04.11-15.56.29:537][414]LogModuleManager: Shutting down and abandoning module Settings (20)
-[2016.04.11-15.56.29:537][414]LogModuleManager: Shutting down and abandoning module OnlineSubsystem (18)
-[2016.04.11-15.56.29:537][414]LogModuleManager: Shutting down and abandoning module HTTP (17)
-[2016.04.11-15.56.29:538][414]LogModuleManager: Shutting down and abandoning module OculusRift (16)
-[2016.04.11-15.56.29:538][414]LogModuleManager: Shutting down and abandoning module ExampleDeviceProfileSelector (15)
-[2016.04.11-15.56.29:538][414]LogModuleManager: Shutting down and abandoning module TextureCompressor (14)
-[2016.04.11-15.56.29:539][414]LogModuleManager: Shutting down and abandoning module ShaderCore (13)
-[2016.04.11-15.56.29:539][414]LogModuleManager: Shutting down and abandoning module Landscape (12)
-[2016.04.11-15.56.29:539][414]LogModuleManager: Shutting down and abandoning module SlateRHIRenderer (11)
-[2016.04.11-15.56.29:542][414]LogModuleManager: Shutting down and abandoning module OpenGLDrv (10)
-[2016.04.11-15.56.29:554][414]LogModuleManager: Shutting down and abandoning module D3D11RHI (9)
-[2016.04.11-15.56.29:554][414]LogModuleManager: Shutting down and abandoning module AnimGraphRuntime (8)
-[2016.04.11-15.56.29:554][414]LogModuleManager: Shutting down and abandoning module Renderer (7)
-[2016.04.11-15.56.29:554][414]LogModuleManager: Shutting down and abandoning module Engine (6)
-[2016.04.11-15.56.29:554][414]LogModuleManager: Shutting down and abandoning module CoreUObject (5)
-[2016.04.11-15.56.29:554][414]LogModuleManager: Shutting down and abandoning module NetworkFile (4)
-[2016.04.11-15.56.29:566][414]LogModuleManager: Shutting down and abandoning module StreamingFile (3)
-[2016.04.11-15.56.29:566][414]LogModuleManager: Shutting down and abandoning module SandboxFile (2)
-[2016.04.11-15.56.29:578][414]LogModuleManager: Shutting down and abandoning module PakFile (1)
-[2016.04.11-15.56.29:608][414]LogExit: Exiting.
-[2016.04.11-15.56.29:610][414]Log file closed, 04/11/16 23:56:29
+﻿[2016.04.12-14.51.39:620][  0]Log file open, 04/12/16 22:51:39
+[2016.04.12-14.51.39:627][  0]LogInit:Display: Running engine for game: ClearPath
+[2016.04.12-14.51.39:627][  0]LogPlatformFile: Not using cached read wrapper
+[2016.04.12-14.51.39:627][  0]LogInit:Display: RandInit(-323984085) SRandInit(-323984080).
+[2016.04.12-14.51.39:627][  0]LogTaskGraph: Started task graph with 4 named threads and 7 total threads.
+[2016.04.12-14.51.39:627][  0]LogStats: Stats thread started at 3.857825
+[2016.04.12-14.51.39:627][  0]LogInit: Version: 4.10.1-0+++directive
+[2016.04.12-14.51.39:627][  0]LogInit: API Version: 0
+[2016.04.12-14.51.39:627][  0]LogInit: Compiled (64-bit): Apr  6 2016 22:26:37
+[2016.04.12-14.51.39:628][  0]LogInit: Compiled with Visual C++: 19.00.23026.00
+[2016.04.12-14.51.39:628][  0]LogInit: Build Configuration: Debug
+[2016.04.12-14.51.39:628][  0]LogInit: Branch Name: ++directive
+[2016.04.12-14.51.39:628][  0]LogInit: Command line:  -debug
+[2016.04.12-14.51.39:628][  0]LogInit: Base directory: K:/UnrealEngine/Engine/Binaries/Win64/
+[2016.04.12-14.51.39:628][  0]LogInit: Rocket: 0
+[2016.04.12-14.51.39:665][  0]LogInit: Using libcurl 7.41.0
+[2016.04.12-14.51.39:665][  0]LogInit:  - built for x86_64-pc-win32
+[2016.04.12-14.51.39:665][  0]LogInit:  - supports SSL with WinSSL
+[2016.04.12-14.51.39:665][  0]LogInit:  - other features:
+[2016.04.12-14.51.39:665][  0]LogInit:      CURL_VERSION_SSL
+[2016.04.12-14.51.39:665][  0]LogInit:      CURL_VERSION_IPV6
+[2016.04.12-14.51.39:665][  0]LogInit:      CURL_VERSION_ASYNCHDNS
+[2016.04.12-14.51.39:665][  0]LogInit:      CURL_VERSION_LARGEFILE
+[2016.04.12-14.51.39:665][  0]LogInit:      CURL_VERSION_IDN
+[2016.04.12-14.51.39:666][  0]LogInit:  CurlRequestOptions (configurable via config and command line):
+[2016.04.12-14.51.39:666][  0]LogInit:  - bVerifyPeer = true  - Libcurl will verify peer certificate
+[2016.04.12-14.51.39:666][  0]LogInit:  - bUseHttpProxy = false  - Libcurl will NOT use HTTP proxy
+[2016.04.12-14.51.39:666][  0]LogInit:  - bDontReuseConnections = false  - Libcurl will reuse connections
+[2016.04.12-14.51.39:666][  0]LogInit:  - CertBundlePath = nullptr  - Libcurl will use whatever was configured at build time.
+[2016.04.12-14.51.40:018][  0]LogInit: Presizing for 0 objects not considered by GC, pre-allocating 0 bytes.
+[2016.04.12-14.51.40:248][  0]LogInit: Object subsystem initialized
+[2016.04.12-14.51.40:545][  0]LogInit: Selected Device Profile: [Windows]
+[2016.04.12-14.51.40:545][  0]LogInit: Applying CVar settings loaded from the selected device profile: [Windows]
+[2016.04.12-14.51.40:700][  0]LogInit: Computer: WANGSHIHA-PC
+[2016.04.12-14.51.40:700][  0]LogInit: User: WangShihai
+[2016.04.12-14.51.40:700][  0]LogInit: CPU Page size=4096, Cores=4
+[2016.04.12-14.51.40:700][  0]LogInit: High frequency timer resolution =3.312646 MHz
+[2016.04.12-14.51.40:701][  0]LogMemory: Memory total: Physical=15.9GB (16GB approx)
+[2016.04.12-14.51.40:701][  0]LogMemory: Platform Memory Stats for Windows
+[2016.04.12-14.51.40:701][  0]LogMemory: Process Physical Memory: 64.74 MB used, 64.74 MB peak
+[2016.04.12-14.51.40:701][  0]LogMemory: Process Virtual Memory: 59.30 MB used, 59.30 MB peak
+[2016.04.12-14.51.40:701][  0]LogMemory: Physical Memory: 6437.95 MB used, 16305.84 MB total
+[2016.04.12-14.51.40:701][  0]LogMemory: Virtual Memory: 488.61 MB used, 134217728.00 MB total
+[2016.04.12-14.51.41:460][  0]LogPhysics:Warning: PHYSX: ..\..\module\clothing\src\ModuleClothing.cpp (386) 2 : physx::apex::clothing::ModuleClothing::ModuleClothing: Failed to load the GPU dll 'APEX_ClothingGPUPROFILE_x64.dll'
+[2016.04.12-14.51.41:614][  0]LogTextLocalizationManager: No specific translations for ('en-US') exist, so ('en') translations will be used.
+[2016.04.12-14.51.43:568][  0]LogD3D11RHI: Found D3D11 adapter 0: NVIDIA GeForce GTX 660   (Feature Level 11_0)
+[2016.04.12-14.51.43:568][  0]LogD3D11RHI: Adapter has 1988MB of dedicated video memory, 0MB of dedicated system memory, and 8152MB of shared system memory, 2 output[s]
+[2016.04.12-14.51.43:574][  0]LogD3D11RHI: Found D3D11 adapter 1: Microsoft Basic Render Driver (Feature Level 11_0)
+[2016.04.12-14.51.43:574][  0]LogD3D11RHI: Adapter has 0MB of dedicated video memory, 0MB of dedicated system memory, and 8152MB of shared system memory, 0 output[s]
+[2016.04.12-14.51.43:574][  0]LogD3D11RHI: Chosen D3D11 Adapter Id = 0
+[2016.04.12-14.51.43:579][  0]LogD3D11RHI: !Direct3DDevice
+[2016.04.12-14.51.43:579][  0]LogRHI: Texture pool is 1361 MB (70% of 1945 MB)
+[2016.04.12-14.51.43:598][  0]LogD3D11RHI: Async texture creation enabled
+[2016.04.12-14.51.44:014][  0]LogShaderCompilers: Guid format shader working directory is 27 characters bigger than the processId version (../../../../ClearPath/Intermediate/Shaders/WorkingDirectory/12496/).
+[2016.04.12-14.51.44:014][  0]LogShaderCompilers: Cleaned the shader compiler working directory 'C:/Users/WANGSH~1/AppData/Local/Temp/UnrealShaderWorkingDir/35428779418EC3EC03F7AB90306FAD6F/'.
+[2016.04.12-14.51.44:015][  0]LogShaderCompilers:Display: Using Local Shader Compiler.
+[2016.04.12-14.51.47:967][  0]LogTemp:Display: Loaded TP AllDesktopTargetPlatform
+[2016.04.12-14.51.48:068][  0]LogTemp:Display: Loaded TP WindowsClientTargetPlatform
+[2016.04.12-14.51.48:200][  0]LogTemp:Display: Loaded TP WindowsNoEditorTargetPlatform
+[2016.04.12-14.51.48:287][  0]LogTemp:Display: Loaded TP WindowsServerTargetPlatform
+[2016.04.12-14.51.48:369][  0]LogTemp:Display: Loaded TP WindowsTargetPlatform
+[2016.04.12-14.51.48:442][  0]LogTemp:Display: Loaded TP AndroidTargetPlatform
+[2016.04.12-14.51.48:509][  0]LogTemp:Display: Loaded TP Android_ASTCTargetPlatform
+[2016.04.12-14.51.48:574][  0]LogTemp:Display: Loaded TP Android_ATCTargetPlatform
+[2016.04.12-14.51.48:690][  0]LogTemp:Display: Loaded TP Android_DXTTargetPlatform
+[2016.04.12-14.51.48:798][  0]LogTemp:Display: Loaded TP Android_ETC1TargetPlatform
+[2016.04.12-14.51.48:877][  0]LogTemp:Display: Loaded TP Android_ETC2TargetPlatform
+[2016.04.12-14.51.49:090][  0]LogTemp:Display: Loaded TP Android_MultiTargetPlatform
+[2016.04.12-14.51.49:091][  0]LogTemp:Display: Loaded TP Android_PVRTCTargetPlatform
+[2016.04.12-14.51.49:147][  0]LogTemp:Display: Loaded TP HTML5TargetPlatform
+[2016.04.12-14.51.49:434][  0]LogTemp:Display: Loaded TP IOSTargetPlatform
+[2016.04.12-14.51.49:434][  0]LogTargetPlatformManager:Display: Building Assets For Windows
+[2016.04.12-14.51.51:073][  0]LogDerivedDataCache:Display: Max Cache Size: 512 MB
+[2016.04.12-14.51.51:117][  0]LogDerivedDataCache: Loaded boot cache 0.04s 41MB ../../../../ClearPath/DerivedDataCache/Boot.ddc.
+[2016.04.12-14.51.51:118][  0]LogDerivedDataCache:Display: Loaded Boot cache: ../../../../ClearPath/DerivedDataCache/Boot.ddc
+[2016.04.12-14.51.51:118][  0]LogDerivedDataCache: FDerivedDataBackendGraph:  Pak pak cache file ../../../../ClearPath/DerivedDataCache/DDC.ddp not found, will not use a pak cache.
+[2016.04.12-14.51.51:118][  0]LogDerivedDataCache: Unable to find inner node Pak for hierarchical cache Hierarchy.
+[2016.04.12-14.51.51:118][  0]LogDerivedDataCache: FDerivedDataBackendGraph:  EnginePak pak cache file ../../../Engine/DerivedDataCache/DDC.ddp not found, will not use a pak cache.
+[2016.04.12-14.51.51:118][  0]LogDerivedDataCache: Unable to find inner node EnginePak for hierarchical cache Hierarchy.
+[2016.04.12-14.51.51:131][  0]LogDerivedDataCache: Using Local data cache path ../../../Engine/DerivedDataCache: Writable
+[2016.04.12-14.51.51:131][  0]LogDerivedDataCache: Shared data cache path not found in *engine.ini, will not use an Shared cache.
+[2016.04.12-14.51.51:131][  0]LogDerivedDataCache: Unable to find inner node Shared for hierarchical cache Hierarchy.
+[2016.04.12-14.51.57:227][  0]LogInit: Selected Device Profile: [Windows]
+[2016.04.12-14.51.57:253][  0]LogContentStreaming: Texture pool size is 0.000000MB
+[2016.04.12-14.51.58:125][  0]LogMeshUtilities: No automatic mesh reduction module available
+[2016.04.12-14.51.58:126][  0]LogMeshUtilities: No automatic mesh merging module available
+[2016.04.12-14.51.59:756][  0]LogInit: WinSock: version 1.1 (2.2), MaxSocks=32767, MaxUdp=65467
+[2016.04.12-14.52.03:673][  0]UdpMessaging: Initializing bridge on interface 0.0.0.0:0 to multicast group 230.0.0.1:6666.
+[2016.04.12-14.52.04:252][  0]LogAssetRegistry: FAssetRegistry took 0.0201 seconds to start up
+[2016.04.12-14.52.05:385][  0]SourceControl: Info Source control is disabled
+[2016.04.12-14.52.05:387][  0]SourceControl: Info Source control is disabled
+[2016.04.12-14.52.05:438][  0]SourceControl: Info Source control is disabled
+[2016.04.12-14.52.05:485][  0]SourceControl: Info Source control is disabled
+[2016.04.12-14.52.06:378][  0]LogObj: 28636 objects as part of root set at end of initial load.
+[2016.04.12-14.52.06:378][  0]LogUObjectAllocator: 6101760 out of 0 bytes used by permanent object pool.
+[2016.04.12-14.52.06:851][  0]LogEngine: Initializing Engine...
+[2016.04.12-14.52.06:856][  0]LogHMD: Can't find Oculus library dev build: is proper Runtime installed? Version: 0.8.0.0
+[2016.04.12-14.52.06:872][  0]LogHMD: SteamVR failed to initialize.  Err: 110
+[2016.04.12-14.52.07:492][  0]LogAIModule: Creating AISystem for world NewWorld
+[2016.04.12-14.52.07:557][  0]LogInit: XAudio2 using 'Speakers (MUSILAND M-Sword Digital)' : 2 channels at 44.1 kHz using 32 bits per sample (channel mask 0x3)
+[2016.04.12-14.52.07:570][  0]LogInit: FAudioDevice initialized.
+[2016.04.12-14.52.07:591][  0]LogDerivedDataCache: Saved boot cache 0.02s 41MB ../../../../ClearPath/DerivedDataCache/Boot.ddc.
+[2016.04.12-14.52.07:598][  0]LogInit: Texture streaming: Enabled
+[2016.04.12-14.52.07:667][  0]LogInit: Transaction tracking system initialized
+[2016.04.12-14.52.07:953][  0]BlueprintLog: New page: Editor Load
+[2016.04.12-14.52.09:156][  0]LocalizationService: Info Localization service is disabled
+[2016.04.12-14.52.09:726][  0]LogConsoleResponse:Display: 
+[2016.04.12-14.52.10:543][  0]LogFileCache: Scanning file cache for directory 'K:/ClearPath/Content/' took 0.02s
+[2016.04.12-14.52.10:543][  0]LogCook:Display: Done creating registry. It took  0.00s.
+[2016.04.12-14.52.11:018][  0]SourceControl: Info Source control is disabled
+[2016.04.12-14.52.11:045][  0]Cmd: MAP LOAD FILE="../../../../ClearPath/Content/ClearPath/DefaultMap.umap" TEMPLATE=0 SHOWPROGRESS=1 FEATURELEVEL=3
+[2016.04.12-14.52.11:048][  0]LightingResults: New page: Lighting Build
+[2016.04.12-14.52.11:103][  0]MapCheck: New page: Map Check
+[2016.04.12-14.52.11:103][  0]LightingResults: New page: Lighting Build
+[2016.04.12-14.52.11:181][  0]LogParticles: Destroying 0 GPU particle simulations for FXSystem 0x000000A2082B1580
+[2016.04.12-14.52.11:985][  0]LogBlueprint:Warning: [Passenger] CreatePinForVariable: 'location' variable not found. Base class was probably changed.
+[2016.04.12-14.52.11:986][  0]LogBlueprint:Warning: [Passenger] CreatePinForVariable: 'maxSpeed' variable not found. Base class was probably changed.
+[2016.04.12-14.52.11:986][  0]LogBlueprint:Warning: [Passenger] CreatePinForVariable: 'maxSpeed' variable not found. Base class was probably changed.
+[2016.04.12-14.52.11:997][  0]LogBlueprint:Warning: [compiler Passenger] Warning Could not find a variable named "maxSpeed" in 'NavComponent'.
+Make sure 'NavComponent' has been compiled for  Set maxSpeed 
+[2016.04.12-14.52.11:998][  0]LogBlueprint:Warning: [compiler Passenger] Warning Could not find a variable named "location" in 'NavComponent'.
+Make sure 'NavComponent' has been compiled for  Get location 
+[2016.04.12-14.52.12:000][  0]LogBlueprint:Error: [compiler Passenger] Error The property associated with  Location  could not be found
+[2016.04.12-14.52.12:001][  0]LogBlueprint:Error: [compiler Passenger] Error The property associated with  Max Speed  could not be found
+[2016.04.12-14.52.12:012][  0]LogBlueprint:Warning: [compiler Passenger] Warning [0042.17] Compile of Passenger failed. 2 Fatal Issue(s) 2 Warning(s) [in 21 ms]
+[2016.04.12-14.52.12:012][  0]LogBlueprint:Warning: [compiler Passenger] Warning [0042.17] Compile of Passenger failed. 2 Fatal Issue(s) 3 Warning(s) [in 0 ms]
+[2016.04.12-14.52.12:013][  0]LogBlueprint:Warning: [compiler Passenger] Warning [0042.17] Compile of Passenger failed. 2 Fatal Issue(s) 4 Warning(s) [in 0 ms]
+[2016.04.12-14.52.12:015][  0]LogBlueprint:Warning: [Passenger] CreatePinForVariable: 'location' variable not found. Base class was probably changed.
+[2016.04.12-14.52.12:015][  0]LogBlueprint:Warning: [Passenger] CreatePinForVariable: 'maxSpeed' variable not found. Base class was probably changed.
+[2016.04.12-14.52.12:015][  0]LogBlueprint:Warning: [Passenger] CreatePinForVariable: 'maxSpeed' variable not found. Base class was probably changed.
+[2016.04.12-14.52.12:050][  0]LogBlueprint:Error: [compiler DefaultMap] Error Could not find a function named "SetTargetLocation" in 'NavComponent'.
+Make sure 'NavComponent' has been compiled for  Set Target Location 
+[2016.04.12-14.52.12:051][  0]LogBlueprint:Error: [compiler DefaultMap] Error Could not find a function named "SetTargetLocation" in 'NavComponent'.
+Make sure 'NavComponent' has been compiled for  Set Target Location 
+[2016.04.12-14.52.12:057][  0]LogBlueprint:Warning: [compiler DefaultMap] Warning [0042.22] Compile of DefaultMap failed. 2 Fatal Issue(s) 0 Warning(s) [in 10 ms]
+[2016.04.12-14.52.12:058][  0]LogBlueprint:Warning: [compiler DefaultMap] Warning [0042.22] Compile of DefaultMap failed. 2 Fatal Issue(s) 1 Warning(s) [in 0 ms]
+[2016.04.12-14.52.12:058][  0]LogBlueprint:Warning: [compiler DefaultMap] Warning [0042.22] Compile of DefaultMap failed. 2 Fatal Issue(s) 2 Warning(s) [in 0 ms]
+[2016.04.12-14.52.12:374][  0]LogAIModule: Creating AISystem for world DefaultMap
+[2016.04.12-14.52.12:582][  0]LogEditorServer: Finished looking for orphan Actors (0.000 secs)
+[2016.04.12-14.52.12:587][  0]Cmd: MAP CHECKDEP NOCLEARLOG
+[2016.04.12-14.52.12:678][  0]MapCheck: Info Map check complete: 0 Error(s), 0 Warning(s), took 90.584ms to complete.
+[2016.04.12-14.52.12:678][  0]LogFileHelpers: Loading map 'DefaultMap' took 1.646
+[2016.04.12-14.52.13:276][  0]LogCollectionManager: Loaded 0 collections in 0.004093 seconds
+[2016.04.12-14.52.13:440][  0]LogFileCache: Scanning file cache for directory 'K:/ClearPath/Saved/Collections/' took 0.01s
+[2016.04.12-14.52.13:440][  0]LogFileCache: Scanning file cache for directory 'K:/ClearPath/Content/Developers/WangShihai/Collections/' took 0.01s
+[2016.04.12-14.52.13:440][  0]LogFileCache: Scanning file cache for directory 'K:/ClearPath/Content/Collections/' took 0.01s
+[2016.04.12-14.52.13:440][  0]LogCollectionManager: Rebuilt the GUID cache for 0 collections in 0.000006 seconds
+[2016.04.12-14.52.13:477][  0]LogContentBrowser: Native class hierarchy populated in 0.0338 seconds. Added 1894 classes and 338 folders.
+[2016.04.12-14.52.13:516][  0]LogContentBrowser: Native class hierarchy updated for 'WidgetCarousel' in 0.0016 seconds. Added 0 classes and 0 folders.
+[2016.04.12-14.52.14:050][  0]LogContentBrowser: Native class hierarchy updated for 'AddContentDialog' in 0.0017 seconds. Added 0 classes and 0 folders.
+[2016.04.12-14.52.14:129][  0]LogContentBrowser: Native class hierarchy updated for 'SceneOutliner' in 0.0015 seconds. Added 1 classes and 2 folders.
+[2016.04.12-14.52.14:726][  0]LogCrashTracker: Crashtracker disabled due to settings.
+[2016.04.12-14.52.14:814][  0]LogUObjectGlobals:Warning: Failed to find object 'Class None.'
+[2016.04.12-14.52.14:850][  0]LogLoad: Full Startup: 45.01 seconds (BP compile: 0.49 seconds)
+[2016.04.12-14.52.15:221][  0]LogOcInput: Can't find Oculus library dev build: is proper Runtime installed? Version: 0.8.0.0
+[2016.04.12-14.52.15:399][  0]LogContentStreaming: Texture pool size now 1000 MB
+[2016.04.12-14.52.15:826][  0]LogRenderer: Reallocating scene render targets to support 988x544 (Frame:2).
+[2016.04.12-14.52.17:294][  5]LogAssetRegistry: Asset discovery search completed in 13.0545 seconds
+[2016.04.12-14.52.17:294][  5]LogCollectionManager: Rebuilt the object cache for 0 collections in 0.000001 seconds (found 0 objects)
+[2016.04.12-14.52.17:294][  5]LogCollectionManager: Fixed up redirectors for 0 collections in 0.000181 seconds (updated 0 objects)
+[2016.04.12-14.53.07:594][242]LogBlueprintUserMessages: Early PlayInEditor Detection: Level '/Game/ClearPath/DefaultMap.DefaultMap:PersistentLevel' has LevelScriptBlueprint '/Game/ClearPath/DefaultMap.DefaultMap:PersistentLevel.DefaultMap' with GeneratedClass '/Game/ClearPath/DefaultMap.DefaultMap_C' with ClassGeneratedBy '/Game/ClearPath/DefaultMap.DefaultMap:PersistentLevel.DefaultMap'
+[2016.04.12-14.53.07:594][242]BlueprintLog: New page: Pre-Play auto-recompile
+[2016.04.12-14.53.07:595][242]LogPlayLevel: [PlayLevel] Compiling DefaultMap before play...
+[2016.04.12-14.53.07:616][242]LogBlueprint:Error: [compiler DefaultMap] Error Could not find a function named "SetTargetLocation" in 'NavComponent'.
+Make sure 'NavComponent' has been compiled for  Set Target Location 
+[2016.04.12-14.53.07:617][242]LogBlueprint:Error: [compiler DefaultMap] Error Could not find a function named "SetTargetLocation" in 'NavComponent'.
+Make sure 'NavComponent' has been compiled for  Set Target Location 
+[2016.04.12-14.53.07:796][242]LogTexture:Display: Building textures: BadBlueprintSprite (BGRA8)
+[2016.04.12-14.53.07:949][242]LogBlueprint:Warning: [compiler DefaultMap] Warning [0098.11] Compile of DefaultMap failed. 2 Fatal Issue(s) 0 Warning(s) [in 348 ms]
+[2016.04.12-14.53.07:951][242]LogBlueprint:Warning: [compiler DefaultMap] Warning [0098.11] Compile of DefaultMap failed. 2 Fatal Issue(s) 1 Warning(s) [in 0 ms]
+[2016.04.12-14.53.07:951][242]LogBlueprint:Warning: [compiler DefaultMap] Warning [0098.11] Compile of DefaultMap failed. 2 Fatal Issue(s) 2 Warning(s) [in 0 ms]
+[2016.04.12-14.53.07:951][242]LogBlueprint:Warning: [compiler DefaultMap] Warning [0098.11] Compile of DefaultMap failed. 2 Fatal Issue(s) 3 Warning(s) [in 0 ms]
+[2016.04.12-14.53.07:952][242]LogBlueprint:Warning: [compiler DefaultMap] Warning [0098.11] Compile of DefaultMap failed. 2 Fatal Issue(s) 4 Warning(s) [in 0 ms]
+[2016.04.12-14.53.07:952][242]LogBlueprint:Warning: [compiler DefaultMap] Warning [0098.11] Compile of DefaultMap failed. 2 Fatal Issue(s) 5 Warning(s) [in 0 ms]
+[2016.04.12-14.53.07:955][242]LogPlayLevel: PlayLevel: Blueprint regeneration took 360 ms (1 blueprints)
+[2016.04.12-14.53.07:956][242]LogActorComponent: UnregisterComponent: (/Engine/Transient.Nav_GEN_VARIABLE) Not registered. Aborting.
+[2016.04.12-14.53.08:033][242]BlueprintLog: Info Blueprint DefaultMap failed to compile
+[2016.04.12-14.53.17:194][411]LogContentBrowser: Native class hierarchy updated for 'BlueprintGraph' in 0.0029 seconds. Added 107 classes and 0 folders.
+[2016.04.12-14.54.49:054][279]BlueprintLog: New page: Compile Passenger
+[2016.04.12-14.54.49:076][279]LogBlueprint:Warning: [compiler Passenger] Warning Could not find a variable named "location" in 'NavComponent'.
+Make sure 'NavComponent' has been compiled for  Get location 
+[2016.04.12-14.54.49:078][279]LogBlueprint:Error: [compiler Passenger] Error The property associated with  Location  could not be found
+[2016.04.12-14.54.49:433][279]LogActorComponent: UnregisterComponent: (/Engine/Transient.Nav_GEN_VARIABLE) Not registered. Aborting.
+[2016.04.12-14.54.49:549][279]LogBlueprint:Warning: [compiler Passenger] Warning [0199.71] Compile of Passenger failed. 1 Fatal Issue(s) 1 Warning(s) [in 494 ms]
+[2016.04.12-14.54.49:549][279]BlueprintEditorCompileResults:Warning: Warning Could not find a variable named "location" in 'NavComponent'.
+Make sure 'NavComponent' has been compiled for  Get location 
+[2016.04.12-14.54.49:549][279]BlueprintEditorCompileResults:Error: Error The property associated with  Location  could not be found
+[2016.04.12-14.54.49:550][279]BlueprintEditorCompileResults:Warning: Warning [0199.71] Compile of Passenger failed. 1 Fatal Issue(s) 1 Warning(s) [in 494 ms]
+[2016.04.12-14.54.50:184][295]Cmd: OBJ SAVEPACKAGE PACKAGE="/Game/ClearPath/Passenger" FILE="../../../../ClearPath/Content/ClearPath/Passenger.uasset" SILENT=true
+[2016.04.12-14.54.50:296][295]LogSavePackage: Save=84.527596ms
+[2016.04.12-14.54.50:297][295]LogSavePackage: Moving '../../../../ClearPath/Saved/Passenger6745023D4ED2E1912BEACE939AF85751.tmp' to '../../../../ClearPath/Content/ClearPath/Passenger.uasset'
+[2016.04.12-14.54.50:300][295]LogSavePackage: Total save time: 113.761328ms
+[2016.04.12-14.54.50:301][295]LogSavePackage:Display: Finished SavePackage ../../../../ClearPath/Content/ClearPath/Passenger.uasset
+[2016.04.12-14.57.33:911][ 51]Cmd: OBJ SAVEPACKAGE PACKAGE="/Game/ClearPath/Passenger" FILE="../../../../ClearPath/Content/ClearPath/Passenger.uasset" SILENT=true
+[2016.04.12-14.57.33:989][ 51]LogSavePackage: Save=75.315018ms
+[2016.04.12-14.57.33:990][ 51]LogSavePackage: Moving '../../../../ClearPath/Saved/Passenger92C3AF3D469595FBA4D50CB70259C74F.tmp' to '../../../../ClearPath/Content/ClearPath/Passenger.uasset'
+[2016.04.12-14.57.33:992][ 51]LogSavePackage: Total save time: 79.116814ms
+[2016.04.12-14.57.33:992][ 51]LogSavePackage:Display: Finished SavePackage ../../../../ClearPath/Content/ClearPath/Passenger.uasset
+[2016.04.12-14.57.38:604][253]Recompiling ClearPath...
+[2016.04.12-14.57.38:605][253]Building UnrealBuildTool...
+[2016.04.12-14.57.38:605][253]Building UnrealBuildTool in K:/UnrealEngine/...
+[2016.04.12-14.57.38:608][253]Running: C:\Windows\system32\cmd.exe /c "K:\UnrealEngine\Engine\Intermediate\Build\UnrealBuildTool\BuildUBT.bat"
+[2016.04.12-14.57.39:457][253]Launching UnrealBuildTool... [K:/UnrealEngine/Engine/Binaries/DotNET/UnrealBuildTool.exe ClearPath -ModuleWithSuffix ClearPath 7525 Win64 Debug -editorrecompile -canskiplink "K:/ClearPath/ClearPath.uproject"  -2015]
+[2016.04.12-14.57.39:459][253]Warning: Starting HotReload took  0.9s.
+[2016.04.12-14.58.14:510][359]CompilerResultsLog: New page: Compilation - Apr 13, 2016, 6:58:14 AM
+[2016.04.12-14.58.14:511][359]CompilerResultsLog: Info Creating makefile for hot reloading ClearPath (game project files are newer)
+[2016.04.12-14.58.14:511][359]CompilerResultsLog: Info Compiling game modules for hot reload
+[2016.04.12-14.58.14:511][359]CompilerResultsLog: Info Building UnrealHeaderTool...
+[2016.04.12-14.58.14:511][359]CompilerResultsLog: Info Target is up to date.
+[2016.04.12-14.58.14:511][359]CompilerResultsLog: Info Parsing headers for ClearPathEditor
+[2016.04.12-14.58.14:511][359]CompilerResultsLog: Info   Running UnrealHeaderTool "K:/ClearPath/ClearPath.uproject" "K:\ClearPath\Intermediate\Build\Win64\ClearPathEditor\Debug\UnrealHeaderTool.manifest" -LogCmds="loginit warning, logexit warning, logdatabase error"
+[2016.04.12-14.58.14:511][359]CompilerResultsLog: Info Reflection code generated for ClearPathEditor in 7.1612475 seconds
+[2016.04.12-14.58.14:512][359]CompilerResultsLog: Info Performing 4 actions (4 in parallel)
+[2016.04.12-14.58.14:512][359]CompilerResultsLog: Info ClearPath.generated.cpp
+[2016.04.12-14.58.14:512][359]CompilerResultsLog: Info NavComponent.cpp
+[2016.04.12-14.58.14:512][359]CompilerResultsLog: Info Navigator.cpp
+[2016.04.12-14.58.14:512][359]CompilerResultsLog: Info [4/4] Link UE4Editor-ClearPath-7525-Win64-Debug.dll
+[2016.04.12-14.58.14:512][359]CompilerResultsLog: Info    Creating library K:\ClearPath\Intermediate/Build/Win64\UE4Editor\Debug\UE4Editor-ClearPath-7525-Win64-Debug.lib and object K:\ClearPath\Intermediate/Build/Win64\UE4Editor\Debug\UE4Editor-ClearPath-7525-Win64-Debug.exp
+[2016.04.12-14.58.14:512][359]CompilerResultsLog: Info -------- End Detailed Actions Stats -----------------------------------------------------------
+[2016.04.12-14.58.14:512][359]CompilerResultsLog: Info Total build time: 34.79 seconds
+[2016.04.12-14.58.14:513][359]LogMainFrame: MainFrame: Module compiling took 35.917 seconds
+[2016.04.12-14.58.14:529][359]LogActorComponent: UnregisterComponent: (/Engine/Transient.Nav_GEN_VARIABLE) Not registered. Aborting.
+[2016.04.12-14.58.14:697][359]LogClass: Could not find existing class NavComponent in package /Script/ClearPath for HotReload, assuming new class
+[2016.04.12-14.58.14:697][359]LogClass: Function CreateNavigator is new.
+[2016.04.12-14.58.14:697][359]LogClass: Function GetNavLocation is new.
+[2016.04.12-14.58.14:697][359]LogClass: Function GetNavVelocity is new.
+[2016.04.12-14.58.14:705][359]LogHotReload: Re-instancing NavComponent after hot-reload.
+[2016.04.12-14.58.14:706][359]LogUObjectGlobals:Warning: Guid is in use by HOTRELOADED_NavComponent_0 /Game/ClearPath/DefaultMap.DefaultMap:PersistentLevel.Passenger_C_2.HOTRELOADED_NavComponent_1 and NavComponent /Game/ClearPath/DefaultMap.DefaultMap:PersistentLevel.Passenger_C_2.Nav, which should never happen in the editor but could happen at runtime with duplicate level loading or PIE
+[2016.04.12-14.58.14:706][359]LogUObjectGlobals:Warning: Guid is in use by HOTRELOADED_NavComponent_0 /Game/ClearPath/DefaultMap.DefaultMap:PersistentLevel.Passenger_C_3.HOTRELOADED_NavComponent_2 and NavComponent /Game/ClearPath/DefaultMap.DefaultMap:PersistentLevel.Passenger_C_3.Nav, which should never happen in the editor but could happen at runtime with duplicate level loading or PIE
+[2016.04.12-14.58.14:947][359]LogContentBrowser: Native class hierarchy updated for 'ClearPath' in 0.0015 seconds. Added 2 classes and 2 folders.
+[2016.04.12-14.58.14:961][359]Warning: HotReload successful (0 functions remapped  0 scriptstructs remapped)
+[2016.04.12-14.58.14:986][359]LogBlueprint:Warning: [compiler Passenger] Warning Could not find a variable named "location" in 'NavComponent'.
+Make sure 'NavComponent' has been compiled for  Get location 
+[2016.04.12-14.58.14:991][359]LogBlueprint:Error: [compiler Passenger] Error The property associated with  Location  could not be found
+[2016.04.12-14.58.15:383][359]LogBlueprint:Warning: [compiler Passenger] Warning [0405.54] Compile of Passenger failed. 1 Fatal Issue(s) 1 Warning(s) [in 412 ms]
+[2016.04.12-14.58.15:384][359]LogBlueprint:Warning: [compiler Passenger] Warning [0405.54] Compile of Passenger failed. 1 Fatal Issue(s) 2 Warning(s) [in 0 ms]
+[2016.04.12-14.58.15:384][359]LogBlueprint:Warning: [compiler Passenger] Warning [0405.54] Compile of Passenger failed. 1 Fatal Issue(s) 3 Warning(s) [in 0 ms]
+[2016.04.12-14.58.15:384][359]LogBlueprint:Warning: [compiler Passenger] Warning [0405.54] Compile of Passenger failed. 1 Fatal Issue(s) 4 Warning(s) [in 0 ms]
+[2016.04.12-14.58.15:393][359]LogBlueprint:Warning: [compiler Passenger] Warning [0405.55] Compile of Passenger failed. 1 Fatal Issue(s) 5 Warning(s) [in 8 ms]
+[2016.04.12-14.58.15:393][359]LogBlueprint:Warning: [compiler Passenger] Warning [0405.55] Compile of Passenger failed. 1 Fatal Issue(s) 6 Warning(s) [in 0 ms]
+[2016.04.12-14.58.15:410][359]LogBlueprint:Error: [compiler DefaultMap] Error Could not find a function named "SetTargetLocation" in 'NavComponent'.
+Make sure 'NavComponent' has been compiled for  Set Target Location 
+[2016.04.12-14.58.15:411][359]LogBlueprint:Error: [compiler DefaultMap] Error Could not find a function named "SetTargetLocation" in 'NavComponent'.
+Make sure 'NavComponent' has been compiled for  Set Target Location 
+[2016.04.12-14.58.15:808][359]LogBlueprint:Warning: [compiler DefaultMap] Warning [0405.97] Compile of DefaultMap failed. 2 Fatal Issue(s) 0 Warning(s) [in 410 ms]
+[2016.04.12-14.58.15:809][359]LogBlueprint:Warning: [compiler DefaultMap] Warning [0405.97] Compile of DefaultMap failed. 2 Fatal Issue(s) 1 Warning(s) [in 0 ms]
+[2016.04.12-14.58.15:809][359]LogBlueprint:Warning: [compiler DefaultMap] Warning [0405.97] Compile of DefaultMap failed. 2 Fatal Issue(s) 2 Warning(s) [in 0 ms]
+[2016.04.12-14.58.15:809][359]LogBlueprint:Warning: [compiler DefaultMap] Warning [0405.97] Compile of DefaultMap failed. 2 Fatal Issue(s) 3 Warning(s) [in 0 ms]
+[2016.04.12-14.58.15:811][359]LogBlueprint:Warning: [compiler DefaultMap] Warning [0405.97] Compile of DefaultMap failed. 2 Fatal Issue(s) 4 Warning(s) [in 1 ms]
+[2016.04.12-14.58.15:811][359]LogBlueprint:Warning: [compiler DefaultMap] Warning [0405.97] Compile of DefaultMap failed. 2 Fatal Issue(s) 5 Warning(s) [in 0 ms]
+[2016.04.12-14.58.17:098][359]LogContentBrowser: Native class hierarchy populated in 0.0271 seconds. Added 1895 classes and 340 folders.
+[2016.04.12-14.58.57:337][667]BlueprintLog: New page: Compile Passenger
+[2016.04.12-14.58.57:379][667]LogBlueprint:Error: [compiler DefaultMap] Error Could not find a function named "SetTargetLocation" in 'NavComponent'.
+Make sure 'NavComponent' has been compiled for  Set Target Location 
+[2016.04.12-14.58.57:380][667]LogBlueprint:Error: [compiler DefaultMap] Error Could not find a function named "SetTargetLocation" in 'NavComponent'.
+Make sure 'NavComponent' has been compiled for  Set Target Location 
+[2016.04.12-14.58.57:413][667]LogActorComponent: UnregisterComponent: (/Engine/Transient.Nav_GEN_VARIABLE) Not registered. Aborting.
+[2016.04.12-14.58.58:453][667]BlueprintEditorCompileResults: Info [0448.61] Compile of Passenger successful! [in 1,116 ms]
+[2016.04.12-14.58.58:958][698]Cmd: OBJ SAVEPACKAGE PACKAGE="/Game/ClearPath/Passenger" FILE="../../../../ClearPath/Content/ClearPath/Passenger.uasset" SILENT=true
+[2016.04.12-14.58.59:033][698]LogSavePackage: Save=72.225044ms
+[2016.04.12-14.58.59:034][698]LogSavePackage: Moving '../../../../ClearPath/Saved/PassengerB56AB690495E58EDFE7804BE31562A79.tmp' to '../../../../ClearPath/Content/ClearPath/Passenger.uasset'
+[2016.04.12-14.58.59:036][698]LogSavePackage: Total save time: 75.740054ms
+[2016.04.12-14.58.59:036][698]LogSavePackage:Display: Finished SavePackage ../../../../ClearPath/Content/ClearPath/Passenger.uasset
+[2016.04.12-14.59.11:533][373]BlueprintLog: New page: Compile DefaultMap
+[2016.04.12-14.59.11:548][373]LogBlueprint:Error: [compiler DefaultMap] Error Could not find a function named "SetTargetLocation" in 'NavComponent'.
+Make sure 'NavComponent' has been compiled for  Set Target Location 
+[2016.04.12-14.59.11:549][373]LogBlueprint:Error: [compiler DefaultMap] Error Could not find a function named "SetTargetLocation" in 'NavComponent'.
+Make sure 'NavComponent' has been compiled for  Set Target Location 
+[2016.04.12-14.59.11:983][373]LogActorComponent: UnregisterComponent: (/Engine/Transient.Nav_GEN_VARIABLE) Not registered. Aborting.
+[2016.04.12-14.59.12:125][373]LogBlueprint:Warning: [compiler DefaultMap] Warning [0462.28] Compile of DefaultMap failed. 2 Fatal Issue(s) 0 Warning(s) [in 592 ms]
+[2016.04.12-14.59.12:125][373]BlueprintEditorCompileResults:Error: Error Could not find a function named "SetTargetLocation" in 'NavComponent'.
+Make sure 'NavComponent' has been compiled for  Set Target Location 
+[2016.04.12-14.59.12:126][373]BlueprintEditorCompileResults:Error: Error Could not find a function named "SetTargetLocation" in 'NavComponent'.
+Make sure 'NavComponent' has been compiled for  Set Target Location 
+[2016.04.12-14.59.12:126][373]BlueprintEditorCompileResults:Warning: Warning [0462.28] Compile of DefaultMap failed. 2 Fatal Issue(s) 0 Warning(s) [in 592 ms]
+[2016.04.12-14.59.19:330][883]BlueprintLog: New page: Compile DefaultMap
+[2016.04.12-14.59.19:346][883]LogBlueprint:Error: [compiler DefaultMap] Error Could not find a function named "SetTargetLocation" in 'NavComponent'.
+Make sure 'NavComponent' has been compiled for  Set Target Location 
+[2016.04.12-14.59.19:347][883]LogBlueprint:Error: [compiler DefaultMap] Error Could not find a function named "SetTargetLocation" in 'NavComponent'.
+Make sure 'NavComponent' has been compiled for  Set Target Location 
+[2016.04.12-14.59.19:945][883]LogBlueprint:Warning: [compiler DefaultMap] Warning [0470.10] Compile of DefaultMap failed. 2 Fatal Issue(s) 0 Warning(s) [in 614 ms]
+[2016.04.12-14.59.19:946][883]BlueprintEditorCompileResults:Error: Error Could not find a function named "SetTargetLocation" in 'NavComponent'.
+Make sure 'NavComponent' has been compiled for  Set Target Location 
+[2016.04.12-14.59.19:946][883]BlueprintEditorCompileResults:Error: Error Could not find a function named "SetTargetLocation" in 'NavComponent'.
+Make sure 'NavComponent' has been compiled for  Set Target Location 
+[2016.04.12-14.59.19:946][883]BlueprintEditorCompileResults:Warning: Warning [0470.10] Compile of DefaultMap failed. 2 Fatal Issue(s) 0 Warning(s) [in 614 ms]
+[2016.04.12-14.59.27:566][411]BlueprintLog: New page: Compile DefaultMap
+[2016.04.12-14.59.27:995][411]BlueprintEditorCompileResults: Info [0478.15] Compile of DefaultMap successful! [in 429 ms]
+[2016.04.12-14.59.29:890][523]Recompiling ClearPath...
+[2016.04.12-14.59.29:891][523]Launching UnrealBuildTool... [K:/UnrealEngine/Engine/Binaries/DotNET/UnrealBuildTool.exe ClearPath -ModuleWithSuffix ClearPath 4808 Win64 Debug -editorrecompile -canskiplink "K:/ClearPath/ClearPath.uproject"  -2015]
+[2016.04.12-14.59.29:892][523]Warning: Starting HotReload took  0.0s.
+[2016.04.12-14.59.30:951][572]CompilerResultsLog: New page: Compilation - Apr 13, 2016, 6:59:30 AM
+[2016.04.12-14.59.30:952][572]CompilerResultsLog: Info Compiling game modules for hot reload
+[2016.04.12-14.59.30:952][572]CompilerResultsLog: Info Target is up to date.
+[2016.04.12-14.59.30:952][572]LogMainFrame: MainFrame: Module compiling took 1.068 seconds
+[2016.04.12-14.59.34:690][767]Cmd: OBJ SAVEPACKAGE PACKAGE="/Game/ClearPath/DefaultMap" FILE="../../../../ClearPath/Content/ClearPath/DefaultMap.umap" SILENT=true AUTOSAVING=false KEEPDIRTY=false
+[2016.04.12-14.59.35:254][767]LogSavePackage: Save=366.059937ms
+[2016.04.12-14.59.35:254][767]LogSavePackage: Moving '../../../../ClearPath/Saved/DefaultMapD09F30EB46EEAE0314053590BF2293D4.tmp' to '../../../../ClearPath/Content/ClearPath/DefaultMap.umap'
+[2016.04.12-14.59.35:257][767]LogSavePackage: Total save time: 400.618717ms
+[2016.04.12-14.59.35:257][767]LogSavePackage:Display: Finished SavePackage ../../../../ClearPath/Content/ClearPath/DefaultMap.umap
+[2016.04.12-15.00.08:999][ 23]BlueprintLog: New page: Compile Passenger
+[2016.04.12-15.00.09:284][ 23]LogActorComponent: UnregisterComponent: (/Engine/Transient.Nav_GEN_VARIABLE) Not registered. Aborting.
+[2016.04.12-15.00.09:444][ 23]BlueprintEditorCompileResults: Info [0519.60] Compile of Passenger successful! [in 445 ms]
+[2016.04.12-15.00.10:264][ 71]Cmd: OBJ SAVEPACKAGE PACKAGE="/Game/ClearPath/Passenger" FILE="../../../../ClearPath/Content/ClearPath/Passenger.uasset" SILENT=true
+[2016.04.12-15.00.10:351][ 71]LogSavePackage: Save=81.112198ms
+[2016.04.12-15.00.10:351][ 71]LogSavePackage: Moving '../../../../ClearPath/Saved/PassengerAC0E338649D5AB2884643F8A98CBAB6E.tmp' to '../../../../ClearPath/Content/ClearPath/Passenger.uasset'
+[2016.04.12-15.00.10:353][ 71]LogSavePackage: Total save time: 87.534860ms
+[2016.04.12-15.00.10:353][ 71]LogSavePackage:Display: Finished SavePackage ../../../../ClearPath/Content/ClearPath/Passenger.uasset
+[2016.04.12-15.00.56:768][388]LogActorComponent: UnregisterComponent: (/Engine/Transient.Nav_GEN_VARIABLE) Not registered. Aborting.
+[2016.04.12-15.01.03:262][854]LogActorComponent: UnregisterComponent: (/Engine/Transient.NavComponent_0) Not registered. Aborting.
+[2016.04.12-15.01.08:037][198]LogActorComponent: UnregisterComponent: (/Engine/Transient.NavComponent_1) Not registered. Aborting.
+[2016.04.12-15.01.11:511][416]LogActorComponent: UnregisterComponent: (/Engine/Transient.NavComponent_2) Not registered. Aborting.
+[2016.04.12-15.01.49:632][904]BlueprintLog: New page: Compile Passenger
+[2016.04.12-15.01.49:703][904]LogActorComponent: UnregisterComponent: (/Engine/Transient.NavComponent_3) Not registered. Aborting.
+[2016.04.12-15.01.50:467][904]BlueprintEditorCompileResults: Info [0620.63] Compile of Passenger successful! [in 834 ms]
+[2016.04.12-15.01.50:995][928]Cmd: OBJ SAVEPACKAGE PACKAGE="/Game/ClearPath/Passenger" FILE="../../../../ClearPath/Content/ClearPath/Passenger.uasset" SILENT=true
+[2016.04.12-15.01.51:107][928]LogSavePackage: Save=108.832336ms
+[2016.04.12-15.01.51:107][928]LogSavePackage: Moving '../../../../ClearPath/Saved/Passenger113055214675C6D8FAB4D78611C6C4A4.tmp' to '../../../../ClearPath/Content/ClearPath/Passenger.uasset'
+[2016.04.12-15.01.51:109][928]LogSavePackage: Total save time: 112.769369ms
+[2016.04.12-15.01.51:109][928]LogSavePackage:Display: Finished SavePackage ../../../../ClearPath/Content/ClearPath/Passenger.uasset
+[2016.04.12-15.02.21:870][146]BlueprintLog: New page: Compile DefaultMap
+[2016.04.12-15.02.22:108][146]LogActorComponent: UnregisterComponent: (/Engine/Transient.Nav_GEN_VARIABLE) Not registered. Aborting.
+[2016.04.12-15.02.22:257][146]BlueprintEditorCompileResults: Info [0652.42] Compile of DefaultMap successful! [in 386 ms]
+[2016.04.12-15.02.23:782][242]Cmd: OBJ SAVEPACKAGE PACKAGE="/Game/ClearPath/DefaultMap" FILE="../../../../ClearPath/Content/ClearPath/DefaultMap.umap" SILENT=true AUTOSAVING=false KEEPDIRTY=false
+[2016.04.12-15.02.24:310][242]LogSavePackage: Save=376.972351ms
+[2016.04.12-15.02.24:310][242]LogSavePackage: Moving '../../../../ClearPath/Saved/DefaultMapF06BF8A14442CCAF32A076B984C71E09.tmp' to '../../../../ClearPath/Content/ClearPath/DefaultMap.umap'
+[2016.04.12-15.02.24:312][242]LogSavePackage: Total save time: 380.024306ms
+[2016.04.12-15.02.24:312][242]LogSavePackage:Display: Finished SavePackage ../../../../ClearPath/Content/ClearPath/DefaultMap.umap
+[2016.04.12-15.02.24:837][265]LogBlueprintUserMessages: Early PlayInEditor Detection: Level '/Game/ClearPath/DefaultMap.DefaultMap:PersistentLevel' has LevelScriptBlueprint '/Game/ClearPath/DefaultMap.DefaultMap:PersistentLevel.DefaultMap' with GeneratedClass '/Game/ClearPath/DefaultMap.DefaultMap_C' with ClassGeneratedBy '/Game/ClearPath/DefaultMap.DefaultMap:PersistentLevel.DefaultMap'
+[2016.04.12-15.02.24:837][265]LogPlayLevel: PlayLevel: No blueprints needed recompiling
+[2016.04.12-15.02.24:837][265]PIE: New page: PIE session: DefaultMap (Apr 13, 2016, 7:02:24 AM)
+[2016.04.12-15.02.24:839][265]LogPlayLevel: Creating play world package: /Game/ClearPath/UEDPIE_0_DefaultMap
+[2016.04.12-15.02.24:852][265]LogPlayLevel: PIE: StaticDuplicateObject took: (0.012838s)
+[2016.04.12-15.02.24:854][265]LogAIModule: Creating AISystem for world DefaultMap
+[2016.04.12-15.02.24:854][265]LogPlayLevel: PIE: World Init took: (0.001210s)
+[2016.04.12-15.02.24:855][265]LogPlayLevel: PIE: Created PIE world by copying editor world from /Game/ClearPath/DefaultMap.DefaultMap to /Game/ClearPath/UEDPIE_0_DefaultMap.DefaultMap (0.015719s)
+[2016.04.12-15.02.25:025][265]LogInit: XAudio2 using 'Speakers (MUSILAND M-Sword Digital)' : 2 channels at 44.1 kHz using 32 bits per sample (channel mask 0x3)
+[2016.04.12-15.02.25:030][265]LogInit: FAudioDevice initialized.
+[2016.04.12-15.02.25:163][265]LogWorld: Game class is 'ClearPathGameMode'
+[2016.04.12-15.02.25:171][265]LogWorld: Bringing World /Game/ClearPath/UEDPIE_0_DefaultMap.DefaultMap up for play (max tick rate 0) at 2016.04.12-23.02.25
+[2016.04.12-15.02.25:178][265]LogWorld: Bringing up level for play took: 0.010489
+[2016.04.12-15.02.25:199][265]PIE: Info Play in editor start time for /Game/ClearPath/UEDPIE_0_DefaultMap -0.26
+[2016.04.12-15.02.25:200][265]LogBlueprintUserMessages: Late PlayInEditor Detection: Level '/Game/ClearPath/DefaultMap.DefaultMap:PersistentLevel' has LevelScriptBlueprint '/Game/ClearPath/DefaultMap.DefaultMap:PersistentLevel.DefaultMap' with GeneratedClass '/Game/ClearPath/DefaultMap.DefaultMap_C' with ClassGeneratedBy '/Game/ClearPath/DefaultMap.DefaultMap:PersistentLevel.DefaultMap'
+[2016.04.12-15.02.29:679][510]LogBlueprintUserMessages: Early EndPlayMap Detection: Level '/Game/ClearPath/DefaultMap.DefaultMap:PersistentLevel' has LevelScriptBlueprint '/Game/ClearPath/DefaultMap.DefaultMap:PersistentLevel.DefaultMap' with GeneratedClass '/Game/ClearPath/DefaultMap.DefaultMap_C' with ClassGeneratedBy '/Game/ClearPath/DefaultMap.DefaultMap:PersistentLevel.DefaultMap'
+[2016.04.12-15.02.29:789][510]LogBlueprintUserMessages: Late EndPlayMap Detection: Level '/Game/ClearPath/DefaultMap.DefaultMap:PersistentLevel' has LevelScriptBlueprint '/Game/ClearPath/DefaultMap.DefaultMap:PersistentLevel.DefaultMap' with GeneratedClass '/Game/ClearPath/DefaultMap.DefaultMap_C' with ClassGeneratedBy '/Game/ClearPath/DefaultMap.DefaultMap:PersistentLevel.DefaultMap'
+[2016.04.12-15.02.29:934][510]LogParticles: Destroying 0 GPU particle simulations for FXSystem 0x000000A24B0ED3A0
+[2016.04.12-15.03.09:568][960]LogEditorViewport: Clicking on Actor (LMB): Passenger_C (Passenger2)
+[2016.04.12-15.03.30:197][295]LogBlueprintUserMessages: Early PlayInEditor Detection: Level '/Game/ClearPath/DefaultMap.DefaultMap:PersistentLevel' has LevelScriptBlueprint '/Game/ClearPath/DefaultMap.DefaultMap:PersistentLevel.DefaultMap' with GeneratedClass '/Game/ClearPath/DefaultMap.DefaultMap_C' with ClassGeneratedBy '/Game/ClearPath/DefaultMap.DefaultMap:PersistentLevel.DefaultMap'
+[2016.04.12-15.03.30:198][295]LogPlayLevel: PlayLevel: No blueprints needed recompiling
+[2016.04.12-15.03.30:198][295]PIE: New page: PIE session: DefaultMap (Apr 13, 2016, 7:03:30 AM)
+[2016.04.12-15.03.30:198][295]LogPlayLevel: Creating play world package: /Game/ClearPath/UEDPIE_0_DefaultMap
+[2016.04.12-15.03.30:210][295]LogPlayLevel: PIE: StaticDuplicateObject took: (0.012228s)
+[2016.04.12-15.03.30:211][295]LogAIModule: Creating AISystem for world DefaultMap
+[2016.04.12-15.03.30:212][295]LogPlayLevel: PIE: World Init took: (0.001103s)
+[2016.04.12-15.03.30:212][295]LogPlayLevel: PIE: Created PIE world by copying editor world from /Game/ClearPath/DefaultMap.DefaultMap to /Game/ClearPath/UEDPIE_0_DefaultMap.DefaultMap (0.014202s)
+[2016.04.12-15.03.30:357][295]LogInit: XAudio2 using 'Speakers (MUSILAND M-Sword Digital)' : 2 channels at 44.1 kHz using 32 bits per sample (channel mask 0x3)
+[2016.04.12-15.03.30:365][295]LogInit: FAudioDevice initialized.
+[2016.04.12-15.03.30:465][295]LogWorld: Game class is 'ClearPathGameMode'
+[2016.04.12-15.03.30:469][295]LogWorld: Bringing World /Game/ClearPath/UEDPIE_0_DefaultMap.DefaultMap up for play (max tick rate 0) at 2016.04.12-23.03.30
+[2016.04.12-15.03.30:470][295]LogWorld: Bringing up level for play took: 0.003797
+[2016.04.12-15.03.30:475][295]PIE: Info Play in editor start time for /Game/ClearPath/UEDPIE_0_DefaultMap 1.016
+[2016.04.12-15.03.30:476][295]LogBlueprintUserMessages: Late PlayInEditor Detection: Level '/Game/ClearPath/DefaultMap.DefaultMap:PersistentLevel' has LevelScriptBlueprint '/Game/ClearPath/DefaultMap.DefaultMap:PersistentLevel.DefaultMap' with GeneratedClass '/Game/ClearPath/DefaultMap.DefaultMap_C' with ClassGeneratedBy '/Game/ClearPath/DefaultMap.DefaultMap:PersistentLevel.DefaultMap'
+[2016.04.12-15.04.05:383][374]LogBlueprintUserMessages: Early EndPlayMap Detection: Level '/Game/ClearPath/DefaultMap.DefaultMap:PersistentLevel' has LevelScriptBlueprint '/Game/ClearPath/DefaultMap.DefaultMap:PersistentLevel.DefaultMap' with GeneratedClass '/Game/ClearPath/DefaultMap.DefaultMap_C' with ClassGeneratedBy '/Game/ClearPath/DefaultMap.DefaultMap:PersistentLevel.DefaultMap'
+[2016.04.12-15.04.05:471][374]LogBlueprintUserMessages: Late EndPlayMap Detection: Level '/Game/ClearPath/DefaultMap.DefaultMap:PersistentLevel' has LevelScriptBlueprint '/Game/ClearPath/DefaultMap.DefaultMap:PersistentLevel.DefaultMap' with GeneratedClass '/Game/ClearPath/DefaultMap.DefaultMap_C' with ClassGeneratedBy '/Game/ClearPath/DefaultMap.DefaultMap:PersistentLevel.DefaultMap'
+[2016.04.12-15.04.05:685][375]LogParticles: Destroying 0 GPU particle simulations for FXSystem 0x000000A2492E6F20
+[2016.04.12-15.06.24:816][856]Recompiling ClearPath...
+[2016.04.12-15.06.24:816][856]Launching UnrealBuildTool... [K:/UnrealEngine/Engine/Binaries/DotNET/UnrealBuildTool.exe ClearPath -ModuleWithSuffix ClearPath 6642 Win64 Debug -editorrecompile -canskiplink "K:/ClearPath/ClearPath.uproject"  -2015]
+[2016.04.12-15.06.24:817][856]Warning: Starting HotReload took  0.0s.
+[2016.04.12-15.06.29:722][ 27]CompilerResultsLog: New page: Compilation - Apr 13, 2016, 7:06:29 AM
+[2016.04.12-15.06.29:723][ 27]CompilerResultsLog: Info Compiling game modules for hot reload
+[2016.04.12-15.06.29:723][ 27]CompilerResultsLog: Info Performing 4 actions (4 in parallel)
+[2016.04.12-15.06.29:723][ 27]CompilerResultsLog: Info NavComponent.cpp
+[2016.04.12-15.06.29:723][ 27]CompilerResultsLog: Info Navigator.cpp
+[2016.04.12-15.06.29:723][ 27]CompilerResultsLog: Info ClearPath.generated.cpp
+[2016.04.12-15.06.29:723][ 27]CompilerResultsLog: Info [4/4] Link UE4Editor-ClearPath-6642-Win64-Debug.dll
+[2016.04.12-15.06.29:723][ 27]CompilerResultsLog: Info    Creating library K:\ClearPath\Intermediate/Build/Win64\UE

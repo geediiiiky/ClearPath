@@ -9,8 +9,12 @@ namespace Directive
 class Navigator
 {
 public:
-	Navigator(const Directive::Vector & newTargetLocation, Directive::UnitType navRadius, Directive::UnitType navMaxSpeed);
+	Navigator(Directive::UnitType navRadius, Directive::UnitType navMaxSpeed, const Directive::Vector& currentLocation, const Directive::Vector& newTargetLocation);
+
 	void Update(Directive::UnitType deltaTime);
+
+	Directive::Vector GetVelocity() const { return velocity; }
+	Directive::Vector GetPosition() const { return position; }
 
 private:
 	// intrinsic
@@ -18,7 +22,7 @@ private:
 	Directive::UnitType maxSpeed = 0;
 
 	// extrinsic
-	Directive::Vector target;
-	Directive::Vector velocity;
-	Directive::Vector position;
+	Directive::Vector target{ 0 };
+	Directive::Vector velocity{ 0 };
+	Directive::Vector position{ 0 };
 };

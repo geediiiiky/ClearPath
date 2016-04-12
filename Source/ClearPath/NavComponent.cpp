@@ -29,9 +29,23 @@ void UNavComponent::TickComponent( float DeltaTime, ELevelTick TickType, FActorC
 	Super::TickComponent( DeltaTime, TickType, ThisTickFunction );
 
 	// get location from nav
+	if (nav)
+	{
+		nav->Update(DeltaTime);
+	}
 }
 
 void UNavComponent::CreateNavigator_Implementation(const FVector& newTargetLocation, float navRadius, float navMaxSpeed)
 {
-	nav = std::make_unique<Navigator>(newTargetLocation, navRadius, navMaxSpeed);
+	nav = std::make_unique<Navigator>(navRadius, navMaxSpeed, GetOwner()->GetActorLocation(), newTargetLocation);
+}
+
+FVector UNavComponent::GetNavLocation() const
+{
+	return nav->GetPosition();
+}
+
+FVector UNavComponent::GetNavVelocity() const
+{
+	return nav->GetVelocity();
 }

@@ -27,6 +27,12 @@ public:
 	UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "NavComponent")
 	void CreateNavigator(const FVector& newTargetLocation, float navRadius, float navMaxSpeed);
 
+	UFUNCTION(BlueprintCallable, Category = "NavComponent")
+	FVector GetNavLocation() const;
+
+	UFUNCTION(BlueprintCallable, Category = "NavComponent")
+	FVector GetNavVelocity() const;
+
 private:
 	std::unique_ptr<Navigator> nav;
 };
