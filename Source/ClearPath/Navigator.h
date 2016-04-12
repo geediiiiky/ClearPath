@@ -1,5 +1,7 @@
 #pragma once
 
+#include <functional>
+
 namespace Directive
 {
 	using UnitType = float;
@@ -15,9 +17,12 @@ public:
 
 	Directive::Vector GetVelocity() const { return velocity; }
 	Directive::Vector GetPosition() const { return position; }
+	
+	std::function<void(const FVector&, const FVector&, const FColor&, bool, float)> DrawDebugLine;
 
 private:
 	// intrinsic
+	bool showDebug = true;
 	Directive::UnitType radius = 0;
 	Directive::UnitType maxSpeed = 0;
 

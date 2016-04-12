@@ -373,4 +373,342 @@ Make sure 'NavComponent' has been compiled for  Set Target Location
 [2016.04.12-15.06.29:723][ 27]CompilerResultsLog: Info Navigator.cpp
 [2016.04.12-15.06.29:723][ 27]CompilerResultsLog: Info ClearPath.generated.cpp
 [2016.04.12-15.06.29:723][ 27]CompilerResultsLog: Info [4/4] Link UE4Editor-ClearPath-6642-Win64-Debug.dll
-[2016.04.12-15.06.29:723][ 27]CompilerResultsLog: Info    Creating library K:\ClearPath\Intermediate/Build/Win64\UE
+[2016.04.12-15.06.29:723][ 27]CompilerResultsLog: Info    Creating library K:\ClearPath\Intermediate/Build/Win64\UE4Editor\Debug\UE4Editor-ClearPath-6642-Win64-Debug.lib and object K:\ClearPath\Intermediate/Build/Win64\UE4Editor\Debug\UE4Editor-ClearPath-6642-Win64-Debug.exp
+[2016.04.12-15.06.29:723][ 27]CompilerResultsLog: Info -------- End Detailed Actions Stats -----------------------------------------------------------
+[2016.04.12-15.06.29:723][ 27]CompilerResultsLog: Info Total build time: 4.85 seconds
+[2016.04.12-15.06.29:723][ 27]LogMainFrame: MainFrame: Module compiling took 4.916 seconds
+[2016.04.12-15.06.29:957][ 27]LogContentBrowser: Native class hierarchy updated for 'ClearPath' in 0.0016 seconds. Added 2 classes and 2 folders.
+[2016.04.12-15.06.29:975][ 27]Warning: HotReload successful (3 functions remapped  0 scriptstructs remapped)
+[2016.04.12-15.06.31:376][ 27]LogContentBrowser: Native class hierarchy populated in 0.0270 seconds. Added 1895 classes and 340 folders.
+[2016.04.12-15.06.33:823][ 98]LogBlueprintUserMessages: Early PlayInEditor Detection: Level '/Game/ClearPath/DefaultMap.DefaultMap:PersistentLevel' has LevelScriptBlueprint '/Game/ClearPath/DefaultMap.DefaultMap:PersistentLevel.DefaultMap' with GeneratedClass '/Game/ClearPath/DefaultMap.DefaultMap_C' with ClassGeneratedBy '/Game/ClearPath/DefaultMap.DefaultMap:PersistentLevel.DefaultMap'
+[2016.04.12-15.06.33:823][ 98]LogPlayLevel: PlayLevel: No blueprints needed recompiling
+[2016.04.12-15.06.33:823][ 98]PIE: New page: PIE session: DefaultMap (Apr 13, 2016, 7:06:33 AM)
+[2016.04.12-15.06.33:823][ 98]LogPlayLevel: Creating play world package: /Game/ClearPath/UEDPIE_0_DefaultMap
+[2016.04.12-15.06.33:835][ 98]LogPlayLevel: PIE: StaticDuplicateObject took: (0.011764s)
+[2016.04.12-15.06.33:836][ 98]LogAIModule: Creating AISystem for world DefaultMap
+[2016.04.12-15.06.33:837][ 98]LogPlayLevel: PIE: World Init took: (0.001637s)
+[2016.04.12-15.06.33:838][ 98]LogPlayLevel: PIE: Created PIE world by copying editor world from /Game/ClearPath/DefaultMap.DefaultMap to /Game/ClearPath/UEDPIE_0_DefaultMap.DefaultMap (0.014379s)
+[2016.04.12-15.06.34:025][ 98]LogInit: XAudio2 using 'Speakers (MUSILAND M-Sword Digital)' : 2 channels at 44.1 kHz using 32 bits per sample (channel mask 0x3)
+[2016.04.12-15.06.34:028][ 98]LogInit: FAudioDevice initialized.
+[2016.04.12-15.06.34:107][ 98]LogWorld: Game class is 'ClearPathGameMode'
+[2016.04.12-15.06.34:112][ 98]LogWorld: Bringing World /Game/ClearPath/UEDPIE_0_DefaultMap.DefaultMap up for play (max tick rate 0) at 2016.04.12-23.06.34
+[2016.04.12-15.06.34:113][ 98]LogWorld: Bringing up level for play took: 0.003903
+[2016.04.12-15.06.34:116][ 98]PIE: Info Play in editor start time for /Game/ClearPath/UEDPIE_0_DefaultMap 0.657
+[2016.04.12-15.06.34:116][ 98]LogBlueprintUserMessages: Late PlayInEditor Detection: Level '/Game/ClearPath/DefaultMap.DefaultMap:PersistentLevel' has LevelScriptBlueprint '/Game/ClearPath/DefaultMap.DefaultMap:PersistentLevel.DefaultMap' with GeneratedClass '/Game/ClearPath/DefaultMap.DefaultMap_C' with ClassGeneratedBy '/Game/ClearPath/DefaultMap.DefaultMap:PersistentLevel.DefaultMap'
+[2016.04.12-15.06.41:217][465]LogBlueprintUserMessages: Early EndPlayMap Detection: Level '/Game/ClearPath/DefaultMap.DefaultMap:PersistentLevel' has LevelScriptBlueprint '/Game/ClearPath/DefaultMap.DefaultMap:PersistentLevel.DefaultMap' with GeneratedClass '/Game/ClearPath/DefaultMap.DefaultMap_C' with ClassGeneratedBy '/Game/ClearPath/DefaultMap.DefaultMap:PersistentLevel.DefaultMap'
+[2016.04.12-15.06.41:303][465]LogBlueprintUserMessages: Late EndPlayMap Detection: Level '/Game/ClearPath/DefaultMap.DefaultMap:PersistentLevel' has LevelScriptBlueprint '/Game/ClearPath/DefaultMap.DefaultMap:PersistentLevel.DefaultMap' with GeneratedClass '/Game/ClearPath/DefaultMap.DefaultMap_C' with ClassGeneratedBy '/Game/ClearPath/DefaultMap.DefaultMap:PersistentLevel.DefaultMap'
+[2016.04.12-15.06.41:449][465]LogParticles: Destroying 0 GPU particle simulations for FXSystem 0x000000A252AB0EA0
+[2016.04.12-15.22.03:154][988]Recompiling ClearPath...
+[2016.04.12-15.22.03:154][988]Launching UnrealBuildTool... [K:/UnrealEngine/Engine/Binaries/DotNET/UnrealBuildTool.exe ClearPath -ModuleWithSuffix ClearPath 3926 Win64 Debug -editorrecompile -canskiplink "K:/ClearPath/ClearPath.uproject"  -2015]
+[2016.04.12-15.22.03:157][988]Warning: Starting HotReload took  0.0s.
+[2016.04.12-15.22.08:383][ 93]CompilerResultsLog: New page: Compilation - Apr 13, 2016, 7:22:08 AM
+[2016.04.12-15.22.08:384][ 93]CompilerResultsLog: Info Compiling game modules for hot reload
+[2016.04.12-15.22.08:384][ 93]CompilerResultsLog: Info Parsing headers for ClearPathEditor
+[2016.04.12-15.22.08:384][ 93]CompilerResultsLog: Info   Running UnrealHeaderTool "K:/ClearPath/ClearPath.uproject" "K:\ClearPath\Intermediate\Build\Win64\ClearPathEditor\Debug\UnrealHeaderTool.manifest" -LogCmds="loginit warning, logexit warning, logdatabase error"
+[2016.04.12-15.22.08:385][ 93]CompilerResultsLog:Error: Error K:/ClearPath/Source/ClearPath/NavComponent.h(37)  : Unknown function specifier 'BlueprintImplementable'
+[2016.04.12-15.22.08:385][ 93]CompilerResultsLog:Error: Error Error: Failed to generate code for ClearPathEditor - error code: OtherCompilationError (5) 
+[2016.04.12-15.22.08:385][ 93]CompilerResultsLog: Info UnrealHeaderTool failed for target 'ClearPathEditor' (platform: Win64, module info: K:\ClearPath\Intermediate\Build\Win64\ClearPathEditor\Debug\UnrealHeaderTool.manifest).
+[2016.04.12-15.22.08:385][ 93]LogMainFrame: MainFrame: Module compiling took 5.239 seconds
+[2016.04.12-15.22.08:386][ 93]Warning: HotReload failed, recompile failed
+[2016.04.12-15.22.46:233][586]Recompiling ClearPath...
+[2016.04.12-15.22.46:233][586]Launching UnrealBuildTool... [K:/UnrealEngine/Engine/Binaries/DotNET/UnrealBuildTool.exe ClearPath -ModuleWithSuffix ClearPath 3913 Win64 Debug -editorrecompile -canskiplink "K:/ClearPath/ClearPath.uproject"  -2015]
+[2016.04.12-15.22.46:234][586]Warning: Starting HotReload took  0.0s.
+[2016.04.12-15.22.51:346][767]CompilerResultsLog: New page: Compilation - Apr 13, 2016, 7:22:51 AM
+[2016.04.12-15.22.51:347][767]CompilerResultsLog: Info Compiling game modules for hot reload
+[2016.04.12-15.22.51:347][767]CompilerResultsLog: Info Parsing headers for ClearPathEditor
+[2016.04.12-15.22.51:347][767]CompilerResultsLog: Info   Running UnrealHeaderTool "K:/ClearPath/ClearPath.uproject" "K:\ClearPath\Intermediate\Build\Win64\ClearPathEditor\Debug\UnrealHeaderTool.manifest" -LogCmds="loginit warning, logexit warning, logdatabase error"
+[2016.04.12-15.22.51:347][767]CompilerResultsLog:Error: Error K:/ClearPath/Source/ClearPath/NavComponent.h(37)  : Unrecognized type 'DrawDebugLine' - type must be a UCLASS, USTRUCT or UENUM
+[2016.04.12-15.22.51:347][767]CompilerResultsLog:Error: Error Error: Failed to generate code for ClearPathEditor - error code: OtherCompilationError (5) 
+[2016.04.12-15.22.51:347][767]CompilerResultsLog: Info UnrealHeaderTool failed for target 'ClearPathEditor' (platform: Win64, module info: K:\ClearPath\Intermediate\Build\Win64\ClearPathEditor\Debug\UnrealHeaderTool.manifest).
+[2016.04.12-15.22.51:348][767]LogMainFrame: MainFrame: Module compiling took 5.122 seconds
+[2016.04.12-15.22.51:348][767]Warning: HotReload failed, recompile failed
+[2016.04.12-15.23.39:799][606]Recompiling ClearPath...
+[2016.04.12-15.23.39:799][606]Launching UnrealBuildTool... [K:/UnrealEngine/Engine/Binaries/DotNET/UnrealBuildTool.exe ClearPath -ModuleWithSuffix ClearPath 9903 Win64 Debug -editorrecompile -canskiplink "K:/ClearPath/ClearPath.uproject"  -2015]
+[2016.04.12-15.23.39:800][606]Warning: Starting HotReload took  0.0s.
+[2016.04.12-15.23.44:682][780]CompilerResultsLog: New page: Compilation - Apr 13, 2016, 7:23:44 AM
+[2016.04.12-15.23.44:682][780]CompilerResultsLog: Info Compiling game modules for hot reload
+[2016.04.12-15.23.44:683][780]CompilerResultsLog: Info Parsing headers for ClearPathEditor
+[2016.04.12-15.23.44:683][780]CompilerResultsLog: Info   Running UnrealHeaderTool "K:/ClearPath/ClearPath.uproject" "K:\ClearPath\Intermediate\Build\Win64\ClearPathEditor\Debug\UnrealHeaderTool.manifest" -LogCmds="loginit warning, logexit warning, logdatabase error"
+[2016.04.12-15.23.44:683][780]CompilerResultsLog:Error: Error K:/ClearPath/Source/ClearPath/NavComponent.h(37)  : Unrecognized type 'DrawDebugLine' - type must be a UCLASS, USTRUCT or UENUM
+[2016.04.12-15.23.44:683][780]CompilerResultsLog:Error: Error Error: Failed to generate code for ClearPathEditor - error code: OtherCompilationError (5) 
+[2016.04.12-15.23.44:683][780]CompilerResultsLog: Info UnrealHeaderTool failed for target 'ClearPathEditor' (platform: Win64, module info: K:\ClearPath\Intermediate\Build\Win64\ClearPathEditor\Debug\UnrealHeaderTool.manifest).
+[2016.04.12-15.23.44:684][780]LogMainFrame: MainFrame: Module compiling took 4.893 seconds
+[2016.04.12-15.23.44:684][780]Warning: HotReload failed, recompile failed
+[2016.04.12-15.24.21:335][133]Recompiling ClearPath...
+[2016.04.12-15.24.21:335][133]Launching UnrealBuildTool... [K:/UnrealEngine/Engine/Binaries/DotNET/UnrealBuildTool.exe ClearPath -ModuleWithSuffix ClearPath 3374 Win64 Debug -editorrecompile -canskiplink "K:/ClearPath/ClearPath.uproject"  -2015]
+[2016.04.12-15.24.21:336][133]Warning: Starting HotReload took  0.0s.
+[2016.04.12-15.24.29:710][434]CompilerResultsLog: New page: Compilation - Apr 13, 2016, 7:24:29 AM
+[2016.04.12-15.24.29:711][434]CompilerResultsLog: Info Compiling game modules for hot reload
+[2016.04.12-15.24.29:711][434]CompilerResultsLog: Info Parsing headers for ClearPathEditor
+[2016.04.12-15.24.29:712][434]CompilerResultsLog: Info   Running UnrealHeaderTool "K:/ClearPath/ClearPath.uproject" "K:\ClearPath\Intermediate\Build\Win64\ClearPathEditor\Debug\UnrealHeaderTool.manifest" -LogCmds="loginit warning, logexit warning, logdatabase error"
+[2016.04.12-15.24.29:712][434]CompilerResultsLog: Info Reflection code generated for ClearPathEditor in 4.2516803 seconds
+[2016.04.12-15.24.29:712][434]CompilerResultsLog: Info Performing 4 actions (4 in parallel)
+[2016.04.12-15.24.29:712][434]CompilerResultsLog: Info NavComponent.cpp
+[2016.04.12-15.24.29:712][434]CompilerResultsLog: Info Navigator.cpp
+[2016.04.12-15.24.29:713][434]CompilerResultsLog: Info ClearPath.generated.cpp
+[2016.04.12-15.24.29:713][434]CompilerResultsLog:Error: Error K:\ClearPath\Source\ClearPath\NavComponent.cpp(41) : error C2039: '_1': is not a member of 'std'
+[2016.04.12-15.24.29:713][434]CompilerResultsLog: Info C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\INCLUDE\memory(1181): note: see declaration of 'std'
+[2016.04.12-15.24.29:713][434]CompilerResultsLog:Error: Error K:\ClearPath\Source\ClearPath\NavComponent.cpp(41) : error C2065: '_1': undeclared identifier
+[2016.04.12-15.24.29:713][434]CompilerResultsLog:Error: Error K:\ClearPath\Source\ClearPath\NavComponent.cpp(41) : error C2039: '_2': is not a member of 'std'
+[2016.04.12-15.24.29:713][434]CompilerResultsLog: Info C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\INCLUDE\memory(1181): note: see declaration of 'std'
+[2016.04.12-15.24.29:714][434]CompilerResultsLog:Error: Error K:\ClearPath\Source\ClearPath\NavComponent.cpp(41) : error C2065: '_2': undeclared identifier
+[2016.04.12-15.24.29:714][434]CompilerResultsLog:Error: Error K:\ClearPath\Source\ClearPath\NavComponent.cpp(41) : error C2039: '_3': is not a member of 'std'
+[2016.04.12-15.24.29:714][434]CompilerResultsLog: Info C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\INCLUDE\memory(1181): note: see declaration of 'std'
+[2016.04.12-15.24.29:714][434]CompilerResultsLog:Error: Error K:\ClearPath\Source\ClearPath\NavComponent.cpp(41) : error C2065: '_3': undeclared identifier
+[2016.04.12-15.24.29:714][434]CompilerResultsLog:Error: Error K:\ClearPath\Source\ClearPath\NavComponent.cpp(41) : error C2039: '_4': is not a member of 'std'
+[2016.04.12-15.24.29:714][434]CompilerResultsLog: Info C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\INCLUDE\memory(1181): note: see declaration of 'std'
+[2016.04.12-15.24.29:715][434]CompilerResultsLog:Error: Error K:\ClearPath\Source\ClearPath\NavComponent.cpp(41) : error C2065: '_4': undeclared identifier
+[2016.04.12-15.24.29:715][434]CompilerResultsLog:Error: Error K:\ClearPath\Source\ClearPath\NavComponent.cpp(41) : error C2039: '_5': is not a member of 'std'
+[2016.04.12-15.24.29:715][434]CompilerResultsLog: Info C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\INCLUDE\memory(1181): note: see declaration of 'std'
+[2016.04.12-15.24.29:715][434]CompilerResultsLog:Error: Error K:\ClearPath\Source\ClearPath\NavComponent.cpp(41) : error C2065: '_5': undeclared identifier
+[2016.04.12-15.24.29:715][434]CompilerResultsLog: Info -------- End Detailed Actions Stats -----------------------------------------------------------
+[2016.04.12-15.24.29:716][434]CompilerResultsLog: Info ERROR: UBT ERROR: Failed to produce item: K:\ClearPath\Binaries\Win64\UE4Editor-ClearPath-3374-Win64-Debug.dll
+[2016.04.12-15.24.29:716][434]CompilerResultsLog: Info Total build time: 8.34 seconds
+[2016.04.12-15.24.29:716][434]LogMainFrame: MainFrame: Module compiling took 8.388 seconds
+[2016.04.12-15.24.29:716][434]Warning: HotReload failed, recompile failed
+[2016.04.12-15.27.03:574][ 74]Recompiling ClearPath...
+[2016.04.12-15.27.03:574][ 74]Launching UnrealBuildTool... [K:/UnrealEngine/Engine/Binaries/DotNET/UnrealBuildTool.exe ClearPath -ModuleWithSuffix ClearPath 7135 Win64 Debug -editorrecompile -canskiplink "K:/ClearPath/ClearPath.uproject"  -2015]
+[2016.04.12-15.27.03:576][ 74]Warning: Starting HotReload took  0.0s.
+[2016.04.12-15.27.07:236][200]CompilerResultsLog: New page: Compilation - Apr 13, 2016, 7:27:07 AM
+[2016.04.12-15.27.07:236][200]CompilerResultsLog: Info Compiling game modules for hot reload
+[2016.04.12-15.27.07:236][200]CompilerResultsLog: Info Performing 4 actions (4 in parallel)
+[2016.04.12-15.27.07:237][200]CompilerResultsLog: Info NavComponent.cpp
+[2016.04.12-15.27.07:237][200]CompilerResultsLog: Info Navigator.cpp
+[2016.04.12-15.27.07:237][200]CompilerResultsLog: Info ClearPath.generated.cpp
+[2016.04.12-15.27.07:237][200]CompilerResultsLog:Error: Error K:\ClearPath\Source\ClearPath\NavComponent.cpp(44) : error C2059: syntax error: ')'
+[2016.04.12-15.27.07:237][200]CompilerResultsLog: Info -------- End Detailed Actions Stats -----------------------------------------------------------
+[2016.04.12-15.27.07:237][200]CompilerResultsLog: Info ERROR: UBT ERROR: Failed to produce item: K:\ClearPath\Binaries\Win64\UE4Editor-ClearPath-7135-Win64-Debug.dll
+[2016.04.12-15.27.07:237][200]CompilerResultsLog: Info Total build time: 3.59 seconds
+[2016.04.12-15.27.07:237][200]LogMainFrame: MainFrame: Module compiling took 3.671 seconds
+[2016.04.12-15.27.07:238][200]Warning: HotReload failed, recompile failed
+[2016.04.12-15.27.24:524][482]Recompiling ClearPath...
+[2016.04.12-15.27.24:524][482]Launching UnrealBuildTool... [K:/UnrealEngine/Engine/Binaries/DotNET/UnrealBuildTool.exe ClearPath -ModuleWithSuffix ClearPath 4225 Win64 Debug -editorrecompile -canskiplink "K:/ClearPath/ClearPath.uproject"  -2015]
+[2016.04.12-15.27.24:525][482]Warning: Starting HotReload took  0.0s.
+[2016.04.12-15.27.28:843][632]CompilerResultsLog: New page: Compilation - Apr 13, 2016, 7:27:28 AM
+[2016.04.12-15.27.28:844][632]CompilerResultsLog: Info Compiling game modules for hot reload
+[2016.04.12-15.27.28:844][632]CompilerResultsLog: Info Performing 2 actions (4 in parallel)
+[2016.04.12-15.27.28:844][632]CompilerResultsLog: Info NavComponent.cpp
+[2016.04.12-15.27.28:844][632]CompilerResultsLog: Info [2/2] Link UE4Editor-ClearPath-4225-Win64-Debug.dll
+[2016.04.12-15.27.28:844][632]CompilerResultsLog: Info    Creating library K:\ClearPath\Intermediate/Build/Win64\UE4Editor\Debug\UE4Editor-ClearPath-4225-Win64-Debug.lib and object K:\ClearPath\Intermediate/Build/Win64\UE4Editor\Debug\UE4Editor-ClearPath-4225-Win64-Debug.exp
+[2016.04.12-15.27.28:845][632]CompilerResultsLog: Info -------- End Detailed Actions Stats -----------------------------------------------------------
+[2016.04.12-15.27.28:845][632]CompilerResultsLog: Info Total build time: 4.27 seconds
+[2016.04.12-15.27.28:845][632]LogMainFrame: MainFrame: Module compiling took 4.328 seconds
+[2016.04.12-15.27.29:167][632]LogClass: Could not find existing class NavComponent in package /Script/ClearPath for HotReload, assuming new class
+[2016.04.12-15.27.29:167][632]LogClass: Function CreateNavigator is new.
+[2016.04.12-15.27.29:167][632]LogClass: Function GetNavLocation is new.
+[2016.04.12-15.27.29:168][632]LogClass: Function GetNavVelocity is new.
+[2016.04.12-15.27.29:178][632]LogHotReload: Re-instancing NavComponent after hot-reload.
+[2016.04.12-15.27.29:614][632]LogContentBrowser: Native class hierarchy updated for 'ClearPath' in 0.0015 seconds. Added 2 classes and 2 folders.
+[2016.04.12-15.27.29:637][632]Warning: HotReload successful (0 functions remapped  0 scriptstructs remapped)
+[2016.04.12-15.27.31:517][632]LogContentBrowser: Native class hierarchy populated in 0.0265 seconds. Added 1895 classes and 340 folders.
+[2016.04.12-15.27.33:773][710]LogActorComponent: UnregisterComponent: (/Engine/Transient.Nav_GEN_VARIABLE) Not registered. Aborting.
+[2016.04.12-15.27.34:467][710]LogWindowsTextInputMethodSystem:Display: IME system now deactivated.
+[2016.04.12-15.27.34:907][711]Cmd: QUIT_EDITOR
+[2016.04.12-15.27.35:852][711]LogExit: Preparing to exit.
+[2016.04.12-15.27.36:933][711]LogExit: Editor shut down
+[2016.04.12-15.27.36:934][711]LogExit: Transaction tracking system shut down
+[2016.04.12-15.27.36:947][711]LogParticles: Destroying 0 GPU particle simulations for FXSystem 0x000000A27BB02C00
+[2016.04.12-15.27.36:948][711]LogParticles: Destroying 0 GPU particle simulations for FXSystem 0x000000A21A213420
+[2016.04.12-15.27.36:948][711]LogParticles: Destroying 0 GPU particle simulations for FXSystem 0x000000A21A85FB00
+[2016.04.12-15.27.36:948][711]LogParticles: Destroying 0 GPU particle simulations for FXSystem 0x000000A21FA071A0
+[2016.04.12-15.27.36:951][711]LogParticles: Destroying 0 GPU particle simulations for FXSystem 0x000000A27BFCECA0
+[2016.04.12-15.27.36:967][711]LogParticles: Destroying 0 GPU particle simulations for FXSystem 0x000000A239971EE0
+[2016.04.12-15.27.38:451][711]LogExit: Object subsystem successfully closed.
+[2016.04.12-15.27.38:488][711]LogD3D11RHI: Shutdown
+[2016.04.12-15.27.38:489][711]LogD3D11RHI: CleanupD3DDevice
+[2016.04.12-15.27.38:557][711]LogD3D11RHI: ~FD3D11DynamicRHI
+[2016.04.12-15.27.38:610][711]LogModuleManager: Shutting down and abandoning module CookingStats (194)
+[2016.04.12-15.27.38:610][711]LogModuleManager: Shutting down and abandoning module BlueprintGraph (193)
+[2016.04.12-15.27.38:610][711]LogModuleManager: Shutting down and abandoning module CrashTracker (192)
+[2016.04.12-15.27.38:610][711]LogModuleManager: Shutting down and abandoning module SceneOutliner (191)
+[2016.04.12-15.27.38:611][711]LogModuleManager: Shutting down and abandoning module SuperSearch (190)
+[2016.04.12-15.27.38:611][711]LogModuleManager: Shutting down and abandoning module WidgetCarousel (189)
+[2016.04.12-15.27.38:611][711]LogModuleManager: Shutting down and abandoning module AddContentDialog (188)
+[2016.04.12-15.27.38:617][711]LogModuleManager: Shutting down and abandoning module EditorWidgets (187)
+[2016.04.12-15.27.38:617][711]LogModuleManager: Shutting down and abandoning module CollectionManager (186)
+[2016.04.12-15.27.38:618][711]LogModuleManager: Shutting down and abandoning module StatsViewer (185)
+[2016.04.12-15.27.38:619][711]LogModuleManager: Shutting down and abandoning module FoliageEdit (184)
+[2016.04.12-15.27.38:619][711]LogModuleManager: Shutting down and abandoning module LandscapeEditor (183)
+[2016.04.12-15.27.38:621][711]LogModuleManager: Shutting down and abandoning module ActorPickerMode (182)
+[2016.04.12-15.27.38:621][711]LogModuleManager: Shutting down and abandoning module GeometryMode (181)
+[2016.04.12-15.27.38:621][711]LogModuleManager: Shutting down and abandoning module TextureAlignMode (180)
+[2016.04.12-15.27.38:621][711]LogModuleManager: Shutting down and abandoning module BspMode (179)
+[2016.04.12-15.27.38:621][711]LogModuleManager: Shutting down and abandoning module PlacementMode (178)
+[2016.04.12-15.27.38:621][711]LogModuleManager: Shutting down and abandoning module AutomationWorker (177)
+[2016.04.12-15.27.38:621][711]LogModuleManager: Shutting down and abandoning module CharacterAI (176)
+[2016.04.12-15.27.38:621][711]LogModuleManager: Shutting down and abandoning module SmartSnapping (175)
+[2016.04.12-15.27.38:621][711]LogModuleManager: Shutting down and abandoning module ViewportSnapping (174)
+[2016.04.12-15.27.38:621][711]LogModuleManager: Shutting down and abandoning module LogVisualizer (173)
+[2016.04.12-15.27.38:622][711]LogModuleManager: Shutting down and abandoning module GameProjectGeneration (172)
+[2016.04.12-15.27.38:623][711]LogModuleManager: Shutting down and abandoning module IntroTutorials (171)
+[2016.04.12-15.27.38:625][711]LogModuleManager: Shutting down and abandoning module EditorLiveStreaming (170)
+[2016.04.12-15.27.38:625][711]LogModuleManager: Shutting down and abandoning module IOSPlatformEditor (169)
+[2016.04.12-15.27.38:625][711]LogModuleManager: Shutting down and abandoning module HTML5PlatformEditor (168)
+[2016.04.12-15.27.38:625][711]LogModuleManager: Shutting down and abandoning module AndroidDeviceDetection (167)
+[2016.04.12-15.27.39:465][711]LogModuleManager: Shutting down and abandoning module AndroidPlatformEditor (166)
+[2016.04.12-15.27.39:466][711]LogModuleManager: Shutting down and abandoning module IOSRuntimeSettings (165)
+[2016.04.12-15.27.39:466][711]LogModuleManager: Shutting down and abandoning module AndroidRuntimeSettings (164)
+[2016.04.12-15.27.39:466][711]LogModuleManager: Shutting down and abandoning module MergeActors (163)
+[2016.04.12-15.27.39:468][711]LogModuleManager: Shutting down and abandoning module SizeMap (162)
+[2016.04.12-15.27.39:468][711]LogModuleManager: Shutting down and abandoning module TreeMap (161)
+[2016.04.12-15.27.39:469][711]LogModuleManager: Shutting down and abandoning module ReferenceViewer (160)
+[2016.04.12-15.27.39:469][711]LogModuleManager: Shutting down and abandoning module LocalizationService (159)
+[2016.04.12-15.27.39:469][711]LogModuleManager: Shutting down and abandoning module LocalizationDashboard (158)
+[2016.04.12-15.27.39:469][711]LogModuleManager: Shutting down and abandoning module HardwareTargeting (157)
+[2016.04.12-15.27.39:469][711]LogModuleManager: Shutting down and abandoning module DeviceProfileEditor (156)
+[2016.04.12-15.27.39:469][711]LogModuleManager: Shutting down and abandoning module UndoHistory (155)
+[2016.04.12-15.27.39:470][711]LogModuleManager: Shutting down and abandoning module GameplayTagsEditor (154)
+[2016.04.12-15.27.39:470][711]LogModuleManager: Shutting down and abandoning module UserFeedback (153)
+[2016.04.12-15.27.39:470][711]LogModuleManager: Shutting down and abandoning module XmlParser (152)
+[2016.04.12-15.27.39:470][711]LogModuleManager: Shutting down and abandoning module Blutility (151)
+[2016.04.12-15.27.39:470][711]LogModuleManager: Shutting down and abandoning module ProjectTargetPlatformEditor (150)
+[2016.04.12-15.27.39:470][711]LogModuleManager: Shutting down and abandoning module ProjectSettingsViewer (149)
+[2016.04.12-15.27.39:470][711]LogModuleManager: Shutting down and abandoning module InputBindingEditor (148)
+[2016.04.12-15.27.39:470][711]LogModuleManager: Shutting down and abandoning module EditorSettingsViewer (147)
+[2016.04.12-15.27.39:470][711]LogModuleManager: Shutting down and abandoning module SettingsEditor (146)
+[2016.04.12-15.27.39:472][711]LogModuleManager: Shutting down and abandoning module ProjectLauncher (145)
+[2016.04.12-15.27.39:472][711]LogModuleManager: Shutting down and abandoning module SessionFrontend (144)
+[2016.04.12-15.27.39:472][711]LogModuleManager: Shutting down and abandoning module ProfilerClient (143)
+[2016.04.12-15.27.39:496][711]LogModuleManager: Shutting down and abandoning module TargetDeviceServices (142)
+[2016.04.12-15.27.39:497][711]LogModuleManager: Shutting down and abandoning module DeviceManager (141)
+[2016.04.12-15.27.39:497][711]LogModuleManager: Shutting down and abandoning module AutomationController (140)
+[2016.04.12-15.27.39:498][711]LogModuleManager: Shutting down and abandoning module AutomationWindow (139)
+[2016.04.12-15.27.39:500][711]LogModuleManager: Shutting down and abandoning module Layers (138)
+[2016.04.12-15.27.39:502][711]LogModuleManager: Shutting down and abandoning module ComponentVisualizers (137)
+[2016.04.12-15.27.39:502][711]LogModuleManager: Shutting down and abandoning module DetailCustomizations (136)
+[2016.04.12-15.27.39:503][711]LogModuleManager: Shutting down and abandoning module PackagesDialog (135)
+[2016.04.12-15.27.39:504][711]LogModuleManager: Shutting down and abandoning module Persona (134)
+[2016.04.12-15.27.39:505][711]LogModuleManager: Shutting down and abandoning module Kismet (133)
+[2016.04.12-15.27.39:505][711]LogModuleManager: Shutting down and abandoning module GraphEditor (132)
+[2016.04.12-15.27.39:505][711]LogModuleManager: Shutting down and abandoning module ClassViewer (131)
+[2016.04.12-15.27.39:505][711]LogModuleManager: Shutting down and abandoning module Toolbox (130)
+[2016.04.12-15.27.39:505][711]LogModuleManager: Shutting down and abandoning module ModuleUI (129)
+[2016.04.12-15.27.39:506][711]LogModuleManager: Shutting down and abandoning module MovieSceneTools (128)
+[2016.04.12-15.27.39:506][711]LogModuleManager: Shutting down and abandoning module OutputLog (127)
+[2016.04.12-15.27.39:506][711]LogModuleManager: Shutting down and abandoning module GammaUI (126)
+[2016.04.12-15.27.39:506][711]LogModuleManager: Shutting down and abandoning module Documentation (125)
+[2016.04.12-15.27.39:506][711]LogModuleManager: Shutting down and abandoning module GameLiveStreaming (124)
+[2016.04.12-15.27.39:506][711]LogModuleManager: Shutting down and abandoning module StreamingPauseRendering (123)
+[2016.04.12-15.27.39:507][711]LogModuleManager: Shutting down and abandoning module AITestSuite (122)
+[2016.04.12-15.27.39:507][711]LogModuleManager: Shutting down and abandoning module GameplayDebugger (121)
+[2016.04.12-15.27.39:507][711]LogModuleManager: Shutting down and abandoning module AIModule (120)
+[2016.04.12-15.27.39:507][711]LogModuleManager: Shutting down and abandoning module ProfilerService (119)
+[2016.04.12-15.27.39:655][711]LogModuleManager: Shutting down and abandoning module TaskGraph (118)
+[2016.04.12-15.27.39:657][711]LogModuleManager: Shutting down and abandoning module SlateRemote (117)
+[2016.04.12-15.27.39:657][711]LogModuleManager: Shutting down and abandoning module SteamVRController (116)
+[2016.04.12-15.27.39:657][711]LogModuleManager: Shutting down and abandoning module SteamVR (115)
+[2016.04.12-15.27.39:657][711]LogModuleManager: Shutting down and abandoning module ProceduralMeshComponent (114)
+[2016.04.12-15.27.39:657][711]LogModuleManager: Shutting down and abandoning module OculusLibrary (113)
+[2016.04.12-15.27.39:657][711]LogModuleManager: Shutting down and abandoning module OculusInput (112)
+[2016.04.12-15.27.39:658][711]LogModuleManager: Shutting down and abandoning module LeapMotionController (111)
+[2016.04.12-15.27.39:675][711]LogModuleManager: Shutting down and abandoning module CustomMeshComponent (110)
+[2016.04.12-15.27.39:675][711]LogModuleManager: Shutting down and abandoning module CableComponent (109)
+[2016.04.12-15.27.39:675][711]LogModuleManager: Shutting down and abandoning module ArchVisCharacter (108)
+[2016.04.12-15.27.39:676][711]LogModuleManager: Shutting down and abandoning module MessagingDebugger (107)
+[2016.04.12-15.27.39:678][711]LogModuleManager: Shutting down and abandoning module MediaPlayerEditor (106)
+[2016.04.12-15.27.39:678][711]LogModuleManager: Shutting down and abandoning module HTML5Networking (105)
+[2016.04.12-15.27.39:678][711]LogModuleManager: Shutting down and abandoning module SpeedTreeImporter (104)
+[2016.04.12-15.27.39:678][711]LogModuleManager: Shutting down and abandoning module PluginBrowser (103)
+[2016.04.12-15.27.39:679][711]LogModuleManager: Shutting down and abandoning module EpicSurvey (102)
+[2016.04.12-15.27.39:679][711]LogModuleManager: Shutting down and abandoning module DesktopPlatform (101)
+[2016.04.12-15.27.39:680][711]LogModuleManager: Shutting down and abandoning module VisualStudioSourceCodeAccess (100)
+[2016.04.12-15.27.39:680][711]LogModuleManager: Shutting down and abandoning module UObjectPlugin (99)
+[2016.04.12-15.27.39:680][711]LogModuleManager: Shutting down and abandoning module SubversionSourceControl (98)
+[2016.04.12-15.27.39:680][711]LogModuleManager: Shutting down and abandoning module PerforceSourceControl (97)
+[2016.04.12-15.27.39:681][711]LogModuleManager: Shutting down and abandoning module SourceControl (96)
+[2016.04.12-15.27.39:682][711]LogModuleManager: Shutting down and abandoning module GitSourceControl (95)
+[2016.04.12-15.27.39:683][711]LogModuleManager: Shutting down and abandoning module LightPropagationVolumeEditor (94)
+[2016.04.12-15.27.39:683][711]LogModuleManager: Shutting down and abandoning module PaperTiledImporter (93)
+[2016.04.12-15.27.39:683][711]LogModuleManager: Shutting down and abandoning module PaperSpriteSheetImporter (92)
+[2016.04.12-15.27.39:683][711]LogModuleManager: Shutting down and abandoning module MeshPaint (91)
+[2016.04.12-15.27.39:684][711]LogModuleManager: Shutting down and abandoning module SlateReflector (90)
+[2016.04.12-15.27.39:684][711]LogModuleManager: Shutting down and abandoning module HotReload (89)
+[2016.04.12-15.27.39:685][711]LogModuleManager: Shutting down and abandoning module MainFrame (88)
+[2016.04.12-15.27.39:685][711]LogModuleManager: Shutting down and abandoning module LevelEditor (87)
+[2016.04.12-15.27.39:688][711]LogModuleManager: Shutting down and abandoning module DirectoryWatcher (86)
+[2016.04.12-15.27.39:690][711]LogModuleManager: Shutting down and abandoning module AssetRegistry (85)
+[2016.04.12-15.27.39:807][711]LogModuleManager: Shutting down and abandoning module ContentBrowser (84)
+[2016.04.12-15.27.39:809][711]LogModuleManager: Shutting down and abandoning module Paper2DEditor (83)
+[2016.04.12-15.27.39:810][711]LogModuleManager: Shutting down and abandoning module ClearPath (82)
+[2016.04.12-15.27.39:810][711]LogModuleManager: Shutting down and abandoning module UdpMessaging (81)
+[2016.04.12-15.27.39:911][711]LogModuleManager: Shutting down and abandoning module LightPropagationVolumeRuntime (80)
+[2016.04.12-15.27.39:911][711]LogModuleManager: Shutting down and abandoning module Paper2D (79)
+[2016.04.12-15.27.39:911][711]LogModuleManager: Shutting down and abandoning module WindowsMoviePlayer (78)
+[2016.04.12-15.27.39:919][711]LogModuleManager: Shutting down and abandoning module Media (77)
+[2016.04.12-15.27.39:919][711]LogModuleManager: Shutting down and abandoning module WmfMedia (76)
+[2016.04.12-15.27.39:920][711]LogModuleManager: Shutting down and abandoning module OnlineBlueprintSupport (75)
+[2016.04.12-15.27.39:920][711]LogModuleManager: Shutting down and abandoning module GameplayTasksEditor (74)
+[2016.04.12-15.27.39:920][711]LogModuleManager: Shutting down and abandoning module PropertyEditor (73)
+[2016.04.12-15.27.39:920][711]LogModuleManager: Shutting down and abandoning module BehaviorTreeEditor (72)
+[2016.04.12-15.27.39:921][711]LogModuleManager: Shutting down and abandoning module FunctionalTesting (71)
+[2016.04.12-15.27.39:922][711]LogModuleManager: Shutting down and abandoning module CollisionAnalyzer (70)
+[2016.04.12-15.27.39:922][711]LogModuleManager: Shutting down and abandoning module WorkspaceMenuStructure (69)
+[2016.04.12-15.27.39:922][711]LogModuleManager: Shutting down and abandoning module MessageLog (68)
+[2016.04.12-15.27.39:922][711]LogModuleManager: Shutting down and abandoning module Sequencer (67)
+[2016.04.12-15.27.39:924][711]LogModuleManager: Shutting down and abandoning module AssetTools (66)
+[2016.04.12-15.27.39:927][711]LogModuleManager: Shutting down and abandoning module UMGEditor (65)
+[2016.04.12-15.27.39:929][711]LogModuleManager: Shutting down and abandoning module UMG (64)
+[2016.04.12-15.27.39:930][711]LogModuleManager: Shutting down and abandoning module Slate (63)
+[2016.04.12-15.27.39:930][711]LogModuleManager: Shutting down and abandoning module EditorStyle (62)
+[2016.04.12-15.27.39:937][711]LogModuleManager: Shutting down and abandoning module SessionServices (61)
+[2016.04.12-15.27.39:937][711]LogModuleManager: Shutting down and abandoning module SourceCodeAccess (60)
+[2016.04.12-15.27.39:937][711]LogModuleManager: Shutting down and abandoning module HeadMountedDisplay (59)
+[2016.04.12-15.27.39:937][711]LogModuleManager: Shutting down and abandoning module XAudio2 (58)
+[2016.04.12-15.27.39:937][711]LogModuleManager: Shutting down and abandoning module Networking (56)
+[2016.04.12-15.27.39:937][711]LogModuleManager: Shutting down and abandoning module Core (55)
+[2016.04.12-15.27.39:937][711]LogModuleManager: Shutting down and abandoning module KismetCompiler (54)
+[2016.04.12-15.27.39:937][711]LogModuleManager: Shutting down and abandoning module PhysXFormats (53)
+[2016.04.12-15.27.39:937][711]LogModuleManager: Shutting down and abandoning module MeshUtilities (52)
+[2016.04.12-15.27.39:938][711]LogModuleManager: Shutting down and abandoning module DerivedDataCache (51)
+[2016.04.12-15.27.39:974][711]LogDerivedDataCache: Shutdown
+[2016.04.12-15.27.39:974][711]LogModuleManager: Shutting down and abandoning module ShaderFormatOpenGL (50)
+[2016.04.12-15.27.39:975][711]LogModuleManager: Shutting down and abandoning module ShaderFormatD3D (49)
+[2016.04.12-15.27.39:976][711]LogModuleManager: Shutting down and abandoning module MetalShaderFormat (48)
+[2016.04.12-15.27.39:977][711]LogModuleManager: Shutting down and abandoning module TextureFormatUncompressed (47)
+[2016.04.12-15.27.39:977][711]LogModuleManager: Shutting down and abandoning module TextureFormatPVR (46)
+[2016.04.12-15.27.39:977][711]LogModuleManager: Shutting down and abandoning module TextureFormatIntelISPCTexComp (45)
+[2016.04.12-15.27.39:978][711]LogModuleManager: Shutting down and abandoning module TextureFormatDXT (44)
+[2016.04.12-15.27.39:978][711]LogModuleManager: Shutting down and abandoning module ImageWrapper (43)
+[2016.04.12-15.27.39:978][711]LogModuleManager: Shutting down and abandoning module TextureFormatASTC (42)
+[2016.04.12-15.27.39:978][711]LogModuleManager: Shutting down and abandoning module AudioFormatOpus (41)
+[2016.04.12-15.27.39:979][711]LogModuleManager: Shutting down and abandoning module AudioFormatOgg (40)
+[2016.04.12-15.27.39:979][711]LogModuleManager: Shutting down and abandoning module AudioFormatADPCM (39)
+[2016.04.12-15.27.39:979][711]LogModuleManager: Shutting down and abandoning module Messaging (38)
+[2016.04.12-15.27.39:979][711]LogModuleManager: Shutting down and abandoning module IOSTargetPlatform (37)
+[2016.04.12-15.27.39:979][711]LogModuleManager: Shutting down and abandoning module HTML5TargetPlatform (36)
+[2016.04.12-15.27.39:979][711]LogModuleManager: Shutting down and abandoning module Android_PVRTCTargetPlatform (35)
+[2016.04.12-15.27.39:979][711]LogModuleManager: Shutting down and abandoning module Android_MultiTargetPlatform (34)
+[2016.04.12-15.27.39:979][711]LogModuleManager: Shutting down and abandoning module Android_ETC2TargetPlatform (33)
+[2016.04.12-15.27.39:979][711]LogModuleManager: Shutting down and abandoning module Android_ETC1TargetPlatform (32)
+[2016.04.12-15.27.39:979][711]LogModuleManager: Shutting down and abandoning module Android_DXTTargetPlatform (31)
+[2016.04.12-15.27.39:979][711]LogModuleManager: Shutting down and abandoning module Android_ATCTargetPlatform (30)
+[2016.04.12-15.27.39:979][711]LogModuleManager: Shutting down and abandoning module Android_ASTCTargetPlatform (29)
+[2016.04.12-15.27.39:979][711]LogModuleManager: Shutting down and abandoning module AndroidTargetPlatform (28)
+[2016.04.12-15.27.39:979][711]LogModuleManager: Shutting down and abandoning module WindowsTargetPlatform (27)
+[2016.04.12-15.27.39:980][711]LogModuleManager: Shutting down and abandoning module WindowsServerTargetPlatform (26)
+[2016.04.12-15.27.39:980][711]LogModuleManager: Shutting down and abandoning module WindowsNoEditorTargetPlatform (25)
+[2016.04.12-15.27.39:980][711]LogModuleManager: Shutting down and abandoning module WindowsClientTargetPlatform (24)
+[2016.04.12-15.27.39:980][711]LogModuleManager: Shutting down and abandoning module AllDesktopTargetPlatform (23)
+[2016.04.12-15.27.39:980][711]LogModuleManager: Shutting down and abandoning module TargetPlatform (22)
+[2016.04.12-15.27.39:980][711]LogModuleManager: Shutting down and abandoning module InputCore (21)
+[2016.04.12-15.27.39:981][711]LogModuleManager: Shutting down and abandoning module Settings (20)
+[2016.04.12-15.27.39:981][711]LogModuleManager: Shutting down and abandoning module OnlineSubsystem (18)
+[2016.04.12-15.27.39:981][711]LogModuleManager: Shutting down and abandoning module HTTP (17)
+[2016.04.12-15.27.39:983][711]LogModuleManager: Shutting down and abandoning module OculusRift (16)
+[2016.04.12-15.27.39:984][711]LogModuleManager: Shutting down and abandoning module ExampleDeviceProfileSelector (15)
+[2016.04.12-15.27.39:984][711]LogModuleManager: Shutting down and abandoning module TextureCompressor (14)
+[2016.04.12-15.27.39:984][711]LogModuleManager: Shutting down and abandoning module ShaderCore (13)
+[2016.04.12-15.27.39:984][711]LogModuleManager: Shutting down and abandoning module Landscape (12)
+[2016.04.12-15.27.39:984][711]LogModuleManager: Shutting down and abandoning module SlateRHIRenderer (11)
+[2016.04.12-15.27.39:988][711]LogModuleManager: Shutting down and abandoning module OpenGLDrv (10)
+[2016.04.12-15.27.39:989][711]LogModuleManager: Shutting down and abandoning module D3D11RHI (9)
+[2016.04.12-15.27.39:989][711]LogModuleManager: Shutting down and abandoning module AnimGraphRuntime (8)
+[2016.04.12-15.27.39:989][711]LogModuleManager: Shutting down and abandoning module Renderer (7)
+[2016.04.12-15.27.39:989][711]LogModuleManager: Shutting down and abandoning module Engine (6)
+[2016.04.12-15.27.39:990][711]LogModuleManager: Shutting down and abandoning module CoreUObject (5)
+[2016.04.12-15.27.39:990][711]LogModuleManager: Shutting down and abandoning module NetworkFile (4)
+[2016.04.12-15.27.39:990][711]LogModuleManager: Shutting down and abandoning module StreamingFile (3)
+[2016.04.12-15.27.39:990][711]LogModuleManager: Shutting down and abandoning module SandboxFile (2)
+[2016.04.12-15.27.39:992][711]LogModuleManager: Shutting down and abandoning module PakFile (1)
+[2016.04.12-15.27.40:000][711]LogExit: Exiting.
+[2016.04.12-15.27.40:006][711]Log file closed, 04/12/16 23:27:40

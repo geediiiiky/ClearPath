@@ -17,4 +17,12 @@ void Navigator::Update(UnitType deltaTime)
 	velocity = maxSpeed * velocity.GetSafeNormal();
 	
 	position += velocity * deltaTime;
+
+	if (showDebug)
+	{
+		if (DrawDebugLine)
+		{
+			DrawDebugLine(position, target, FColor::Red, false, deltaTime);
+		}
+	}
 }
