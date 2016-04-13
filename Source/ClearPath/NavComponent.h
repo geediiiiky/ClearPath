@@ -33,9 +33,6 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "NavComponent")
 	FVector GetNavVelocity() const;
 
-	UFUNCTION(BlueprintImplementableEvent, Category = "NavComponent")
-	void DrawDebugLine(const FVector& start, const FVector& end, FLinearColor color, bool persistent, float lifetime);
-
 private:
 	std::unique_ptr<Navigator> nav;
 };

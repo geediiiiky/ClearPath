@@ -19,6 +19,7 @@ public:
 	Directive::Vector GetPosition() const { return position; }
 	
 	std::function<void(const FVector&, const FVector&, const FColor&, bool, float)> DrawDebugLine;
+	std::function<void(const FVector&, const FVector&, const FColor&, bool, float)> DrawDebugBox;
 
 private:
 	// intrinsic
@@ -30,4 +31,6 @@ private:
 	Directive::Vector target{ 0 };
 	Directive::Vector velocity{ 0 };
 	Directive::Vector position{ 0 };
+
+	bool arrived = false;
 };

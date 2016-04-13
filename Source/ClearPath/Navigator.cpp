@@ -13,10 +13,22 @@ Navigator::Navigator(Directive::UnitType navRadius, Directive::UnitType navMaxSp
 
 void Navigator::Update(UnitType deltaTime)
 {
-	velocity = target - position;
-	velocity = maxSpeed * velocity.GetSafeNormal();
-	
-	position += velocity * deltaTime;
+	if (!arrived)
+	{
+		auto toDestination = target - position;
+		if (toDestination.SizeSquared2D() <= maxSpeed * maxSpeed * deltaTime * deltaTime)
+		{
+			velocity = toDestination / deltaTime;
+			position = target;
+
+			arrived = true;
+		}
+		else
+		{
+			velocity = maxSpeed * toDestination.GetSafeNormal();
+			position += velocity * deltaTime;
+		}
+	}
 
 	if (showDebug)
 	{

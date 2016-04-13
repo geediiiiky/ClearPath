@@ -38,9 +38,15 @@ void UNavComponent::TickComponent( float DeltaTime, ELevelTick TickType, FActorC
 void UNavComponent::CreateNavigator_Implementation(const FVector& newTargetLocation, float navRadius, float navMaxSpeed)
 {
 	nav = std::make_unique<Navigator>(navRadius, navMaxSpeed, GetOwner()->GetActorLocation(), newTargetLocation);
+
 	nav->DrawDebugLine = [this](const FVector& start, const FVector& end, const FColor& color, bool persistent, float lifetime)
 	{
-		DrawDebugLine(start, end, FLinearColor(color), persistent, lifetime);
+		DrawDebugLine(GetWorld(), start, end, color, persistent, lifetime);
+	};
+
+	nav->DrawDebugBox = [this](const FVector& center, const FVector& extent, const FColor& color, bool persistent, float lifetime)
+	{
+		DrawDebugBox(GetWorld(), center, extent, color, persistent, lifetime);
 	};
 }
 
