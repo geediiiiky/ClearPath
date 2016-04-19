@@ -34,5 +34,5 @@ public:
 	FVector GetNavVelocity() const;
 
 private:
-	std::unique_ptr<Navigator> nav;
+	std::shared_ptr<Navigator> nav;
 };
