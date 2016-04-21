@@ -73,5 +73,7 @@ private:
 	Directive::Vector velocity{ 0 };
 	Directive::Vector position{ 0 };
 
+	FColor debugColor;
+
 	bool arrived = false;
 };

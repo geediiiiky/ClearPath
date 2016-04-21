@@ -13,7 +13,7 @@ Navigator::Navigator(Directive::UnitType navRadius, Directive::UnitType navMaxSp
 	, maxSpeed(navMaxSpeed)
 	, position(currentLocation)
 {
-	
+	debugColor = FColor(FMath::Rand() % 255, FMath::Rand() % 255, FMath::Rand() % 255);
 }
 
 void Navigator::Update(UnitType deltaTime)
@@ -33,14 +33,16 @@ void Navigator::Update(UnitType deltaTime)
 		}
 
 		auto otherRadius = other->radius;
-		auto ohterPosition = other->position;
+		auto otherPosition = other->position;
 		auto otherVelocity = other->velocity;
 
-		auto relativePosition = ohterPosition - this->position;
+		auto relativePosition = otherPosition - this->position;
+		auto relativePositionDir = relativePosition.GetSafeNormal();
 		auto relativeVelocity = this->velocity - otherVelocity;
 		auto combinedRadius = otherRadius + this->radius;
 		auto combinedRadiusSquared = combinedRadius * combinedRadius;
 		auto distanceSquared = relativePosition.SizeSquared2D();
+		auto distance = FMath::Sqrt(relativePosition.SizeSquared2D());
 
 		const auto leg = FMath::Sqrt(distanceSquared - combinedRadiusSquared);
 
@@ -50,8 +52,16 @@ void Navigator::Update(UnitType deltaTime)
 		auto rightDir = Vector(relativePosition.X * leg + relativePosition.Y * combinedRadius, -relativePosition.X * combinedRadius + relativePosition.Y * leg, 0) / distanceSquared;
 		rightDir = rightDir.GetSafeNormal();
 
-		DrawLine(position, position + leftDir * leg * 2, FColor::Red, false, deltaTime);
-		DrawLine(position, position + rightDir * leg * 2, FColor::Red, false, deltaTime);
+		DrawLine(position, position + leftDir * leg * 2, debugColor, false, 0.15f);
+		DrawLine(position, position + rightDir * leg * 2, debugColor, false, 0.15f);
+
+		// cut off
+		Vector M = relativePosition - combinedRadius * relativePositionDir + position;
+		auto halfEdge = FMath::Tan(FMath::Asin(combinedRadius / distance)) * (distance - combinedRadius);
+		Vector edgeLeftEnd = M + halfEdge * FVector(-relativePositionDir.Y, relativePositionDir.X, 0);
+		Vector edgeRightEnd = M + halfEdge * FVector(relativePositionDir.Y, -relativePositionDir.X, 0);
+
+		DrawLine(edgeRightEnd, edgeLeftEnd, debugColor, false, 1.f);
 	}
 
 
@@ -69,7 +79,7 @@ void Navigator::Update(UnitType deltaTime)
 		position += velocity * deltaTime;
 	}
 	
-	DrawLine(position, target, FColor::Red, false, deltaTime);
+	//DrawLine(position, target, FColor::White, false, deltaTime);
 }
 
 void Navigator::DrawLine(const FVector& start, const FVector& end, const FColor& color, bool persistent, float lifetime) const
@@ -78,7 +88,7 @@ void Navigator::DrawLine(const FVector& start, const FVector& end, const FColor&
 	{
 		if (DrawDebugLine)
 		{
-			DrawDebugLine(start, end, color, persistent, lifetime);
+			DrawDebugLine(start + Vector(0,0,100), end + Vector(0, 0, 100), color, persistent, lifetime);
 		}
 	}
 }

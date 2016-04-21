@@ -37,7 +37,7 @@ void UNavComponent::TickComponent( float DeltaTime, ELevelTick TickType, FActorC
 
 void UNavComponent::CreateNavigator_Implementation(const FVector& newTargetLocation, float navRadius, float navMaxSpeed)
 {
-	Navigator::Create(navRadius, navMaxSpeed, GetOwner()->GetActorLocation(), newTargetLocation);
+	nav = Navigator::Create(navRadius, navMaxSpeed, GetOwner()->GetActorLocation(), newTargetLocation);
 
 	nav->DrawDebugLine = [this](const FVector& start, const FVector& end, const FColor& color, bool persistent, float lifetime)
 	{
@@ -52,10 +52,10 @@ void UNavComponent::CreateNavigator_Implementation(const FVector& newTargetLocat
 
 FVector UNavComponent::GetNavLocation() const
 {
-	return nav->GetPosition();
+	return nav ? nav->GetPosition() : FVector(0);
 }
 
 FVector UNavComponent::GetNavVelocity() const
 {
-	return nav->GetVelocity();
+	return nav ? nav->GetVelocity() : FVector(0);
 }
