@@ -176,12 +176,11 @@ Directive::Vector Navigator::CalcBestVelocity(const std::vector<Directive::Vecto
     auto maxDotProduct(-1);
     Directive::Vector newVelocity(0);
 
-    const Directive::Vector relativeVerticalVel(-velocity.Y, velocity.X, 0);
     for (const auto& vel : validVelocities)
     {
         if (SatifiesConsistentVelocityOrientation(vel))
         {
-            auto dotProduct = (velocity | vel);
+            auto dotProduct = (desiredVel | vel);
             if (dotProduct > maxDotProduct)
             {
                 maxDotProduct = dotProduct;
