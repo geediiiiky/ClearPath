@@ -8,8 +8,14 @@
 
 void AClearPathGameMode::Tick(float DeltaSeconds)
 {
-    NavigatorQuerier::Instance()->Update(DeltaSeconds);
-    NavigatorQuerier::Instance()->Update2(DeltaSeconds);
+	time += DeltaSeconds;
+	const auto fixedDT = 0.01f;
+	while (time > fixedDT)
+	{
+		time -= fixedDT;
+		NavigatorQuerier::Instance()->Update(fixedDT);
+		NavigatorQuerier::Instance()->Update2(fixedDT);
+	}
     
    
     Super::Tick(DeltaSeconds);

@@ -2,6 +2,7 @@
 #include "Navigator.h"
 
 #include <vector>
+#include <algorithm>
 
 using namespace Directive;
 
@@ -76,6 +77,12 @@ void Navigator::Update(UnitType deltaTime)
     else
     {
         std::vector<Directive::Vector> validVelocities = CalcValidVelocitiesOnBE();
+
+		for (auto v : validVelocities)
+		{
+			DrawLine(position + Vector(0, 0, 20), position + v + Vector(0, 0, 20), FColor::Green, false, deltaTime);
+		}
+
         nextVelocity = CalcBestVelocity(validVelocities);
     }
     
@@ -206,8 +213,13 @@ bool Navigator::SatifiesConsistentVelocityOrientation(const Directive::Vector& n
         const auto relativeVelocity = this->velocity - other->velocity;
         const auto relativePosition = other->position - this->position;
         const Vector relativePositionVertical(relativePosition.Y, -relativePosition.X, 0);
+
+		DrawLine(position, other->position, FColor::Blue, false, 0.02);
+		DrawLine(position, position + relativePositionVertical, FColor::Blue, false, 0.02);
         
-        if ((relativePositionVertical | relativeVelocity) * (newVelocity | relativePositionVertical) < 0)
+		const auto oldSign = (relativePositionVertical | relativeVelocity) >= 0;
+		const auto newSign = (newVelocity | relativePositionVertical) >= 0;
+        if (oldSign != newSign)
         {
             return false;
         }
@@ -269,7 +281,7 @@ std::vector<Segment> Navigator::CalcBoundaryEdgesAgainst(const Navigator& other)
     const auto distance = FMath::Sqrt(relativePosition.SizeSquared2D());
     
     const auto velocityOffset = (myDesiredVelocity + otherVelocity) / 2;
-    const Directive::UnitType invLookForwardTime = 0.25;  // 2 sec
+    const Directive::UnitType invLookForwardTime = 0.25;  // 1/n sec
     
     if (distance > combinedRadius)
     {
@@ -312,7 +324,7 @@ void Navigator::DrawLine(const FVector& start, const FVector& end, const FColor&
 	{
 		if (DrawDebugLine)
 		{
-			DrawDebugLine(start + Vector(0,0,100), end + Vector(0, 0, 100), color, persistent, 0.05);
+			DrawDebugLine(start + Vector(0,0,100), end + Vector(0, 0, 100), color, persistent, 0.02);
 		}
 	}
 }

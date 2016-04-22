@@ -16,4 +16,5 @@ class CLEARPATH_API AClearPathGameMode : public AGameMode
 	
 	void Tick(float DeltaSeconds) override;
 	
+	float time = 0;
 };
