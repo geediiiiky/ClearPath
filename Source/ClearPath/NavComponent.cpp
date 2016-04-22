@@ -29,10 +29,10 @@ void UNavComponent::TickComponent( float DeltaTime, ELevelTick TickType, FActorC
 	Super::TickComponent( DeltaTime, TickType, ThisTickFunction );
 
 	// get location from nav
-	if (nav)
-	{
-		nav->Update(DeltaTime);
-	}
+//	if (nav)
+//	{
+//		nav->Update(DeltaTime);
+//	}
 }
 
 void UNavComponent::CreateNavigator_Implementation(const FVector& newTargetLocation, float navRadius, float navMaxSpeed)
@@ -41,12 +41,12 @@ void UNavComponent::CreateNavigator_Implementation(const FVector& newTargetLocat
 
 	nav->DrawDebugLine = [this](const FVector& start, const FVector& end, const FColor& color, bool persistent, float lifetime)
 	{
-		DrawDebugLine(GetWorld(), start, end, color, persistent, lifetime);
+		DrawDebugLine(GetOwner()->GetWorld(), start, end, color, persistent, lifetime, 0, 5.f);
 	};
 
 	nav->DrawDebugBox = [this](const FVector& center, const FVector& extent, const FColor& color, bool persistent, float lifetime)
 	{
-		DrawDebugBox(GetWorld(), center, extent, color, persistent, lifetime);
+		DrawDebugBox(GetOwner()->GetWorld(), center, extent, color, persistent, lifetime);
 	};
 }
 
