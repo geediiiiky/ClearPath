@@ -35,18 +35,26 @@ void UNavComponent::TickComponent( float DeltaTime, ELevelTick TickType, FActorC
 //	}
 }
 
+static TAutoConsoleVariable<int> CVarDrawDebugs(TEXT("DrawDebugLines"), 1, TEXT("Whether or not draw debug lines"));
+
 void UNavComponent::CreateNavigator_Implementation(const FVector& newTargetLocation, float navRadius, float navMaxSpeed)
 {
 	nav = Navigator::Create(navRadius, navMaxSpeed, GetOwner()->GetActorLocation(), newTargetLocation);
 
 	nav->DrawDebugLine = [this](const FVector& start, const FVector& end, const FColor& color, bool persistent, float lifetime)
 	{
-		DrawDebugLine(GetOwner()->GetWorld(), start, end, color, persistent, lifetime, 0, 5.f);
+        if (CVarDrawDebugs.GetValueOnGameThread() != 0)
+        {
+            DrawDebugLine(GetOwner()->GetWorld(), start, end, color, persistent, lifetime, 0, 5.f);
+        }
 	};
 
 	nav->DrawDebugBox = [this](const FVector& center, const FVector& extent, const FColor& color, bool persistent, float lifetime)
 	{
-		DrawDebugBox(GetOwner()->GetWorld(), center, extent, color, persistent, lifetime);
+        if (CVarDrawDebugs.GetValueOnGameThread() != 0)
+        {
+            DrawDebugBox(GetOwner()->GetWorld(), center, extent, color, persistent, lifetime);
+        }
 	};
 }
 

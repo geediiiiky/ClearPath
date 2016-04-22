@@ -5,11 +5,6 @@
 
 using namespace Directive;
 
-void NavigatorQuerier::Unregister(Navigator* nav)
-{
-    navs.erase(std::remove_if(navs.begin(), navs.end(), [nav](auto navPtr){ return navPtr.lock().get() == nav; }), navs.end());
-}
-
 void NavigatorQuerier::Update(Directive::UnitType deltaTime)
 {
     navs.erase(std::remove_if(navs.begin(), navs.end(), [](auto navPtr){ return navPtr.lock().get() == nullptr; }), navs.end());
@@ -28,8 +23,6 @@ void NavigatorQuerier::Update2(Directive::UnitType deltaTime)
     }
 }
 
-
-
 Navigator::Navigator(Directive::UnitType navRadius, Directive::UnitType navMaxSpeed, const Directive::Vector& currentLocation, const Directive::Vector& newTargetLocation)
 	: radius(navRadius)
 	, maxSpeed(navMaxSpeed)
@@ -37,11 +30,6 @@ Navigator::Navigator(Directive::UnitType navRadius, Directive::UnitType navMaxSp
 	, position(currentLocation)
 {
 	debugColor = FColor(FMath::Rand() % 255, FMath::Rand() % 255, FMath::Rand() % 255);
-}
-
-Navigator::~Navigator()
-{
-    NavigatorQuerier::Instance()->Unregister(this);
 }
 
 void Navigator::Update(UnitType deltaTime)
@@ -52,20 +40,10 @@ void Navigator::Update(UnitType deltaTime)
 	}
     
     // calculate the desired velocity
-    desiredVel = velocity;
-    auto toDestination = target - position;
-    if (toDestination.SizeSquared2D() <= maxSpeed * maxSpeed * deltaTime * deltaTime)
-    {
-        desiredVel = toDestination / deltaTime;
-    }
-    else
-    {
-        desiredVel = maxSpeed * toDestination.GetSafeNormal();
-    }
+    desiredVel = CalcDesiredVelocity(deltaTime);
 
     // get all BEs
     boundaryEdges.clear();
-    
 	auto querier = NavigatorQuerier::Instance();
 	for (auto otherWeakPtr : querier->navs)
 	{
@@ -87,27 +65,7 @@ void Navigator::Update(UnitType deltaTime)
         boundaryEdges.emplace_back(std::move(segments));
 	}
     
-    // test if there will be collision at all
-    bool willCollide = false;
-    for (const auto& beCollection : boundaryEdges)
-    {
-        bool in = true;
-        for (const auto& be : beCollection)
-        {
-            if ((be.GetNormal() | (desiredVel - be.GetPoint1())) <= 0)
-            {
-                in = false;
-                break;
-            }
-        }
-        
-        // in BE of this navigator
-        if (in)
-        {
-            willCollide = true;
-            break;
-        }
-    }
+    bool willCollide = TestWillCollide();
     
     DrawLine(position, position + desiredVel, willCollide ? FColor::Red : FColor::White, false, deltaTime);
     
@@ -115,92 +73,148 @@ void Navigator::Update(UnitType deltaTime)
     {
         nextVelocity = desiredVel;
     }
-    
-    std::vector<Directive::Vector> validVelocities;
-    if (willCollide)
+    else
     {
-        // find the intersection point on the boundary
-        // calculate the potential new velocities
-        for (const auto& beCollection : boundaryEdges)
+        std::vector<Directive::Vector> validVelocities = CalcValidVelocitiesOnBE();
+        nextVelocity = CalcBestVelocity(validVelocities);
+    }
+    
+    DrawLine(position + Vector(0,0,10), position + nextVelocity + Vector(0,0,10), FColor::White, false, deltaTime);
+}
+
+Directive::Vector Navigator::CalcDesiredVelocity(UnitType deltaTime) const
+{
+    Vector desiredV(0);
+    auto toDestination = target - position;
+    if (toDestination.SizeSquared2D() <= maxSpeed * maxSpeed * deltaTime * deltaTime)
+    {
+        desiredV = toDestination / deltaTime;
+    }
+    else
+    {
+        desiredV = maxSpeed * toDestination.GetSafeNormal();
+    }
+    
+    return desiredV;
+}
+
+bool Navigator::TestWillCollide() const
+{
+    bool willCollide = false;
+    for (const auto& beCollection : boundaryEdges)
+    {
+        bool inSide = true;
+        for (const auto& boundaryEdge : beCollection)
         {
-            bool in = true;
-            for (const auto& be : beCollection)
+            if ((boundaryEdge.GetNormal() | (desiredVel - boundaryEdge.GetPoint1())) <= 0)
             {
-                const auto dotProduct = (be.GetPoint1() | be.GetDir());
-                const auto discriminant = FMath::Square(dotProduct) + FMath::Square(maxSpeed) - (be.GetPoint1().SizeSquared2D());
-                
-                if (discriminant < 0)
-                {
-                    // no intersection against this segment
-                    continue;
-                }
-                
-                const auto sqrtDiscriminant = FMath::Sqrt(discriminant);
-                float tLeft = -dotProduct - sqrtDiscriminant;
-                float tRight = -dotProduct + sqrtDiscriminant;
-                
-                if (be.GetPoint1().IsNearlyZero() == false && be.GetPoint1().Size2D() < maxSpeed * maxSpeed)
-                {
-                    validVelocities.emplace_back(be.GetPoint1());
-                }
-                
-                if (!be.IsRay() && be.GetPoint2().IsNearlyZero() == false && be.GetPoint2().Size2D() < maxSpeed * maxSpeed)
-                {
-                    validVelocities.emplace_back(be.GetPoint2());
-                }
-                
-                if (tLeft >= 0 && (be.IsRay() || tLeft <= be.GetLength()))
-                {
-                    validVelocities.emplace_back(be.GetPoint1() + tLeft * be.GetDir());
-                }
-                
-                if (tRight >= 0 && (be.IsRay() || tRight <= be.GetLength()))
-                {
-                    validVelocities.emplace_back(be.GetPoint1() + tRight * be.GetDir());
-                }
+                inSide = false;
+                break;
             }
         }
         
-        // pick the proper new velocity
-        if (validVelocities.size() == 0)
+        if (inSide)
         {
-            // no valid adjust, relax the constraints or slow down the speed and try again.
+            willCollide = true;
+            break;
         }
-        else
+    }
+
+    return willCollide;
+}
+
+std::vector<Vector> Navigator::CalcValidVelocitiesOnBE() const
+{
+    std::vector<Vector> validVelocities;
+    // find the intersection point on the boundary
+    // calculate the potential new velocities
+    for (const auto& beCollection : boundaryEdges)
+    {
+        bool in = true;
+        for (const auto& boundary : beCollection)
         {
-            // among all the valid velocities find one closest to the current velocity
-            auto maxDotProduct(0);
-            nextVelocity = Directive::Vector(0);
-            bool found = false;
-            const Directive::Vector relativeVerticalVel(-velocity.Y, velocity.X, 0);
-            for (const auto& vel : validVelocities)
+            const auto dotProduct = (boundary.GetPoint1() | boundary.GetDir());
+            const auto discriminant = FMath::Square(dotProduct) + FMath::Square(maxSpeed) - (boundary.GetPoint1().SizeSquared2D());
+            
+            if (discriminant < 0)
             {
-                // TODO: make sure that (relativeVelocity | relativePosition.Vertical) has the same signal as (newVelocity | relativePosition.Vertical)
-                if ((relativeVerticalVel | vel) * (velocity | relativeVerticalVel) >= 0)
-                {
-                    auto dotProduct = (velocity | vel);
-                    if (dotProduct > maxDotProduct)
-                    {
-                        maxDotProduct = dotProduct;
-                        nextVelocity = vel;
-                        found = true;
-                        break;
-                    }
-                }
+                // no intersection against this segment
+                continue;
             }
             
-            if (found)
+            const auto sqrtDiscriminant = FMath::Sqrt(discriminant);
+            float tLeft = -dotProduct - sqrtDiscriminant;
+            float tRight = -dotProduct + sqrtDiscriminant;
+            
+            if (boundary.GetPoint1().IsNearlyZero() == false && boundary.GetPoint1().Size2D() < maxSpeed * maxSpeed)
             {
-                DrawLine(position + FVector(0,0,10), position + FVector(0,0,10) + nextVelocity, FColor::White, false, deltaTime);
+                validVelocities.emplace_back(boundary.GetPoint1());
             }
-            else
+            
+            if (!boundary.IsRay() && boundary.GetPoint2().IsNearlyZero() == false && boundary.GetPoint2().Size2D() < maxSpeed * maxSpeed)
             {
-                DrawLine(position + FVector(0,0,10), position + FVector(0,0,10) + nextVelocity, FColor::Green, false, deltaTime);
+                validVelocities.emplace_back(boundary.GetPoint2());
+            }
+            
+            if (tLeft >= 0 && (boundary.IsRay() || tLeft <= boundary.GetLength()))
+            {
+                validVelocities.emplace_back(boundary.GetPoint1() + tLeft * boundary.GetDir());
+            }
+            
+            if (tRight >= 0 && (boundary.IsRay() || tRight <= boundary.GetLength()))
+            {
+                validVelocities.emplace_back(boundary.GetPoint1() + tRight * boundary.GetDir());
             }
         }
     }
     
-    
+    return validVelocities;
+}
+
+Directive::Vector Navigator::CalcBestVelocity(const std::vector<Directive::Vector>& validVelocities) const
+{
+    auto maxDotProduct(-1);
+    Directive::Vector newVelocity(0);
+
+    const Directive::Vector relativeVerticalVel(-velocity.Y, velocity.X, 0);
+    for (const auto& vel : validVelocities)
+    {
+        if (SatifiesConsistentVelocityOrientation(vel))
+        {
+            auto dotProduct = (velocity | vel);
+            if (dotProduct > maxDotProduct)
+            {
+                maxDotProduct = dotProduct;
+                newVelocity = vel;
+            }
+        }
+    }
+
+    return newVelocity;
+}
+
+bool Navigator::SatifiesConsistentVelocityOrientation(const Directive::Vector& newVelocity) const
+{
+    auto querier = NavigatorQuerier::Instance();
+    for (auto otherWeakPtr : querier->navs)
+    {
+        auto other = otherWeakPtr.lock();
+        if (!other || other.get() == this)
+        {
+            continue;
+        }
+        
+        const auto relativeVelocity = this->velocity - other->velocity;
+        const auto relativePosition = other->position - this->position;
+        const Vector relativePositionVertical(relativePosition.Y, -relativePosition.X, 0);
+        
+        if ((relativePositionVertical | relativeVelocity) * (newVelocity | relativePositionVertical) < 0)
+        {
+            return false;
+        }
+    }
+
+    return true;
 }
 
 void Navigator::Update2(UnitType deltaTime)
@@ -227,7 +241,9 @@ void Navigator::Update2(UnitType deltaTime)
     velocity = nextVelocity;
     position += velocity * deltaTime;
     
-    if (velocity.SizeSquared2D() < 0.81 * maxSpeed * maxSpeed && (position - target).SizeSquared2D() <= maxSpeed * maxSpeed * 0.25)
+    auto velocitySquare = velocity.SizeSquared2D();
+    auto distanceSquare = (position - target).SizeSquared2D();
+    if (velocitySquare < 0.81 * maxSpeed * maxSpeed && distanceSquare <= 9 * radius * radius)
     {
         arrived = true;
     }
@@ -258,6 +274,15 @@ std::vector<Segment> Navigator::CalcBoundaryEdgesAgainst(const Navigator& other)
     
     if (distance > combinedRadius)
     {
+        // calc cut off edge first
+        Vector M = (relativePosition - combinedRadius * relativePositionDir) * invLookForwardTime + velocityOffset;
+        auto halfEdge = FMath::Tan(FMath::Asin(combinedRadius / distance)) * (distance - combinedRadius)  * invLookForwardTime;
+        Vector edgeLeftEnd = M + halfEdge * FVector(-relativePositionDir.Y, relativePositionDir.X, 0);
+        Vector edgeRightEnd = M + halfEdge * FVector(relativePositionDir.Y, -relativePositionDir.X, 0);
+        
+        segments.emplace_back(Segment::CreateSegment(edgeLeftEnd, edgeRightEnd, Segment::NormalDir::Left));
+
+        // then two legs. the rays starts from the cut off edge ends
         const auto leg = FMath::Sqrt(distanceSquared - combinedRadiusSquared);
         
         auto leftDir = Vector(relativePosition.X * leg - relativePosition.Y * combinedRadius, relativePosition.X * combinedRadius + relativePosition.Y * leg, 0) / distanceSquared;
@@ -266,16 +291,9 @@ std::vector<Segment> Navigator::CalcBoundaryEdgesAgainst(const Navigator& other)
         auto rightDir = Vector(relativePosition.X * leg + relativePosition.Y * combinedRadius, -relativePosition.X * combinedRadius + relativePosition.Y * leg, 0) / distanceSquared;
         rightDir = rightDir.GetSafeNormal();
         
-        segments.emplace_back(Segment::CreateRay(velocityOffset, leftDir, Segment::NormalDir::Right));
-        segments.emplace_back(Segment::CreateRay(velocityOffset, rightDir, Segment::NormalDir::Left));
+        segments.emplace_back(Segment::CreateRay(edgeLeftEnd, leftDir, Segment::NormalDir::Right));
+        segments.emplace_back(Segment::CreateRay(edgeRightEnd, rightDir, Segment::NormalDir::Left));
         
-        // cut off
-        Vector M = (relativePosition - combinedRadius * relativePositionDir) * invLookForwardTime + velocityOffset;
-        auto halfEdge = FMath::Tan(FMath::Asin(combinedRadius / distance)) * (distance - combinedRadius)  * invLookForwardTime;
-        Vector edgeLeftEnd = M + halfEdge * FVector(-relativePositionDir.Y, relativePositionDir.X, 0);
-        Vector edgeRightEnd = M + halfEdge * FVector(relativePositionDir.Y, -relativePositionDir.X, 0);
-        
-        segments.emplace_back(Segment::CreateSegment(edgeLeftEnd, edgeRightEnd, Segment::NormalDir::Left));
     }
     else
     {

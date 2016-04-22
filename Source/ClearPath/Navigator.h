@@ -19,8 +19,6 @@ struct NavigatorQuerier
 		navs.push_back(nav);
 	}
 
-    void Unregister(Navigator* nav);
-    
 	static NavigatorQuerier* Instance()
 	{
 		static NavigatorQuerier instance;
@@ -96,9 +94,7 @@ private:
 	Navigator(Directive::UnitType navRadius, Directive::UnitType navMaxSpeed, const Directive::Vector& currentLocation, const Directive::Vector& newTargetLocation);
 
 public:
-    ~Navigator();
-    
-	void Update(Directive::UnitType deltaTime);
+    void Update(Directive::UnitType deltaTime);
     void Update2(Directive::UnitType deltaTime);
 
 	Directive::Vector GetVelocity() const { return velocity; }
@@ -116,7 +112,12 @@ public:
 	}
 
 private:
+    Directive::Vector CalcDesiredVelocity(Directive::UnitType deltaTime) const;
     std::vector<Segment> CalcBoundaryEdgesAgainst(const Navigator& other) const;
+    bool TestWillCollide() const;
+    std::vector<Directive::Vector> CalcValidVelocitiesOnBE() const;
+    Directive::Vector CalcBestVelocity(const std::vector<Directive::Vector>& validVelocities) const;
+    bool SatifiesConsistentVelocityOrientation(const Directive::Vector& newVelocity) const;
     
 	void DrawLine(const FVector& start, const FVector& end, const FColor& color, bool persistent, float lifetime) const;
 
