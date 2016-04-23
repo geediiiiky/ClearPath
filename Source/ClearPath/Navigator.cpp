@@ -66,6 +66,18 @@ void Navigator::Update(UnitType deltaTime)
         boundaryEdges.emplace_back(std::move(segments));
 	}
     
+    auto intersections = CalcIntersections();
+    for (const auto& pcr : intersections)
+    {
+        for (const auto& seg : pcr)
+        {
+            for (const auto& point : seg)
+            {
+                DrawBox(position + point, Vector(10, 10, 10), debugColor, false, 0.1);
+            }
+        }
+    }
+    
     bool willCollide = TestWillCollide(desiredVel);
     
     DrawLine(position, position + desiredVel, willCollide ? FColor::Red : FColor::White, false, deltaTime);
@@ -78,10 +90,10 @@ void Navigator::Update(UnitType deltaTime)
     {
         std::vector<Directive::Vector> validVelocities = CalcValidVelocitiesOnBE();
 
-		for (auto v : validVelocities)
-		{
-			DrawLine(position + Vector(0, 0, 20), position + v + Vector(0, 0, 20), FColor::Green, false, deltaTime);
-		}
+//		for (auto v : validVelocities)
+//		{
+//			DrawLine(position + Vector(0, 0, 20), position + v + Vector(0, 0, 20), FColor::Green, false, deltaTime);
+//		}
 
         nextVelocity = CalcBestVelocity(validVelocities);
     }
@@ -133,6 +145,81 @@ bool Navigator::IsWithinPCR(const Directive::Vector& testVelocity, const std::ve
     }
 
     return inside;
+}
+
+std::vector<std::vector<Navigator::SegmentIntersectionPoints>> Navigator::CalcIntersections() const
+{
+    std::vector<std::vector<SegmentIntersectionPoints>> result;
+    for (const auto& pcr : boundaryEdges)
+    {
+        std::vector<SegmentIntersectionPoints> pcrIntersections;
+        for (const auto& seg : pcr)
+        {
+            auto endPoint = seg.GetPoint1();
+            auto comp = [endPoint](const Vector& lhs, const Vector& rhs) -> bool { return (lhs - endPoint).SizeSquared2D() < (rhs - endPoint).SizeSquared2D(); };
+            pcrIntersections.emplace_back(SegmentIntersectionPoints(comp));
+        }
+        
+        result.emplace_back(std::move(pcrIntersections));
+    }
+    
+    for (auto pcrIndex = 0; pcrIndex < boundaryEdges.size(); ++pcrIndex)
+    {
+        const auto& pcr = boundaryEdges[pcrIndex];
+        for (auto segIndex = 0; segIndex < pcr.size(); ++segIndex)
+        {
+            const auto& seg = pcr[segIndex];
+            
+            result[pcrIndex][segIndex].insert(seg.GetPoint1());
+            if (seg.IsRay() == false)
+            {
+                result[pcrIndex][segIndex].insert(seg.GetPoint2());
+            }
+            
+            for (auto otherPcrIndex = pcrIndex + 1; otherPcrIndex < boundaryEdges.size(); ++otherPcrIndex)
+            {
+                const auto& otherPcr = boundaryEdges[otherPcrIndex];
+                for (auto otherSegIndex = 0; otherSegIndex < otherPcr.size(); ++otherSegIndex)
+                {
+                    const auto& otherSeg = otherPcr[otherSegIndex];
+                    Vector intersection(0);
+                    if (CalcIntersection(seg, otherSeg, intersection))
+                    {
+                        result[pcrIndex][segIndex].insert(intersection);
+                        result[otherPcrIndex][otherSegIndex].insert(intersection);
+                    }
+                }
+            }
+        }
+    }
+    
+    return result;
+}
+
+bool Navigator::CalcIntersection(const Segment& seg1, const Segment& seg2, Vector& intersection) const
+{
+    const FVector2D dir1(seg1.GetDir());
+    const FVector2D dir2(seg2.GetDir());
+    const auto crossProduct = dir1 ^ dir2;
+    
+    if (crossProduct == 0)
+    {
+        // parallel, or even collinear
+        return false;
+    }
+    
+    const FVector2D offset(seg2.GetPoint1() - seg1.GetPoint1());
+    Directive::UnitType t1 = (offset ^ dir2) / crossProduct;
+    Directive::UnitType t2 = (offset ^ dir1) / crossProduct;
+    
+    if ((t1 >= 0 && (seg1.IsRay() || t1 <= seg1.GetLength()))
+        && (t2 >= 0 && (seg2.IsRay() || t2 <= seg2.GetLength())))
+    {
+        intersection = seg1.GetPoint1() + t1 * seg1.GetDir();
+        return true;
+    }
+    
+    return false;
 }
 
 std::vector<Vector> Navigator::CalcValidVelocitiesOnBE() const
@@ -220,9 +307,6 @@ bool Navigator::SatifiesConsistentVelocityOrientation(const Directive::Vector& n
         const auto apex = (this->velocity + other->velocity) / 2;
         const Vector relativePositionVertical(relativePosition.Y, -relativePosition.X, 0);
 
-		DrawLine(position, other->position, FColor::Blue, false, 0.02);
-		DrawLine(position, position + relativePositionVertical, FColor::Blue, false, 0.02);
-        
 		const auto oldSign = (relativePositionVertical | relativeVelocity) >= 0;
 		const auto newSign = ((newVelocity - apex) | relativePositionVertical) >= 0;
         if (oldSign != newSign)
@@ -333,4 +417,15 @@ void Navigator::DrawLine(const FVector& start, const FVector& end, const FColor&
 			DrawDebugLine(start + Vector(0,0,100), end + Vector(0, 0, 100), color, persistent, 0.1);
 		}
 	}
+}
+
+void Navigator::DrawBox(const FVector& center, const FVector& extent, const FColor& color, bool persistent, float lifetime) const
+{
+    if (showDebug)
+    {
+        if (DrawDebugBox)
+        {
+            DrawDebugBox(center + Vector(0,0,100), extent, color, persistent, 0.1);
+        }
+    }
 }

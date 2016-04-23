@@ -43,7 +43,7 @@ void UNavComponent::CreateNavigator_Implementation(const FVector& newTargetLocat
 
 	nav->DrawDebugLine = [this](const FVector& start, const FVector& end, const FColor& color, bool persistent, float lifetime)
 	{
-        if (CVarDrawDebugs.GetValueOnGameThread() != 0)
+        if (CVarDrawDebugs.GetValueOnGameThread() != 0 && drawDebug)
         {
             DrawDebugLine(GetOwner()->GetWorld(), start, end, color, persistent, lifetime, 0, 5.f);
         }
@@ -51,7 +51,7 @@ void UNavComponent::CreateNavigator_Implementation(const FVector& newTargetLocat
 
 	nav->DrawDebugBox = [this](const FVector& center, const FVector& extent, const FColor& color, bool persistent, float lifetime)
 	{
-        if (CVarDrawDebugs.GetValueOnGameThread() != 0)
+        if (CVarDrawDebugs.GetValueOnGameThread() != 0 && drawDebug)
         {
             DrawDebugBox(GetOwner()->GetWorld(), center, extent, color, persistent, lifetime);
         }

@@ -32,6 +32,9 @@ public:
 
 	UFUNCTION(BlueprintCallable, Category = "NavComponent")
 	FVector GetNavVelocity() const;
+    
+    UPROPERTY(EditAnywhere)
+    bool drawDebug = false;
 
 private:
 	std::shared_ptr<Navigator> nav;

@@ -3,6 +3,8 @@
 #include <functional>
 #include <memory>
 #include <vector>
+#include <set>
+
 namespace Directive
 {
 	using UnitType = float;
@@ -114,6 +116,9 @@ public:
 private:
     Directive::Vector CalcDesiredVelocity(Directive::UnitType deltaTime) const;
     std::vector<Segment> CalcBoundaryEdgesAgainst(const Navigator& other) const;
+    using SegmentIntersectionPoints = std::set<Directive::Vector, std::function<bool(const Directive::Vector&, const Directive::Vector&)>>;
+    std::vector<std::vector<SegmentIntersectionPoints>> CalcIntersections() const;
+    bool CalcIntersection(const Segment& seg1, const Segment& seg2, Directive::Vector& intersection) const;
     bool IsWithinPCR(const Directive::Vector& testVelocity, const std::vector<Segment>& PCR) const;   // potentially colliding region
     bool TestWillCollide(const Directive::Vector& testVelocity) const;
     std::vector<Directive::Vector> CalcValidVelocitiesOnBE() const;
@@ -121,6 +126,7 @@ private:
     bool SatifiesConsistentVelocityOrientation(const Directive::Vector& newVelocity) const;
     
 	void DrawLine(const FVector& start, const FVector& end, const FColor& color, bool persistent, float lifetime) const;
+    void DrawBox(const FVector& center, const FVector& extent, const FColor& color, bool persistent, float lifetime) const;
 
 private:
 	// intrinsic
