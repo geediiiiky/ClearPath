@@ -114,7 +114,8 @@ public:
 private:
     Directive::Vector CalcDesiredVelocity(Directive::UnitType deltaTime) const;
     std::vector<Segment> CalcBoundaryEdgesAgainst(const Navigator& other) const;
-    bool TestWillCollide() const;
+    bool IsWithinPCR(const Directive::Vector& testVelocity, const std::vector<Segment>& PCR) const;   // potentially colliding region
+    bool TestWillCollide(const Directive::Vector& testVelocity) const;
     std::vector<Directive::Vector> CalcValidVelocitiesOnBE() const;
     Directive::Vector CalcBestVelocity(const std::vector<Directive::Vector>& validVelocities) const;
     bool SatifiesConsistentVelocityOrientation(const Directive::Vector& newVelocity) const;

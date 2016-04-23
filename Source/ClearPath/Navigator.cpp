@@ -66,7 +66,7 @@ void Navigator::Update(UnitType deltaTime)
         boundaryEdges.emplace_back(std::move(segments));
 	}
     
-    bool willCollide = TestWillCollide();
+    bool willCollide = TestWillCollide(desiredVel);
     
     DrawLine(position, position + desiredVel, willCollide ? FColor::Red : FColor::White, false, deltaTime);
     
@@ -105,29 +105,34 @@ Directive::Vector Navigator::CalcDesiredVelocity(UnitType deltaTime) const
     return desiredV;
 }
 
-bool Navigator::TestWillCollide() const
+bool Navigator::TestWillCollide(const Vector& testVelocity) const
 {
     bool willCollide = false;
-    for (const auto& beCollection : boundaryEdges)
+    for (const auto& pcr : boundaryEdges)
     {
-        bool inSide = true;
-        for (const auto& boundaryEdge : beCollection)
-        {
-            if ((boundaryEdge.GetNormal() | (desiredVel - boundaryEdge.GetPoint1())) <= 0)
-            {
-                inSide = false;
-                break;
-            }
-        }
-        
-        if (inSide)
+        if (IsWithinPCR(testVelocity, pcr))
         {
             willCollide = true;
             break;
         }
     }
-
+    
     return willCollide;
+}
+
+bool Navigator::IsWithinPCR(const Directive::Vector& testVelocity, const std::vector<Segment>& PCR) const
+{
+    bool inside = true;
+    for (const auto& boundaryEdge : PCR)
+    {
+        if ((boundaryEdge.GetNormal() | (testVelocity - boundaryEdge.GetPoint1())) <= 0)
+        {
+            inside = false;
+            break;
+        }
+    }
+
+    return inside;
 }
 
 std::vector<Vector> Navigator::CalcValidVelocitiesOnBE() const
