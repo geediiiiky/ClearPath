@@ -67,13 +67,37 @@ void Navigator::Update(UnitType deltaTime)
 	}
     
     auto intersections = CalcIntersections();
+    
+    struct BEIntersection
+    {
+        Vector point;
+        bool inside = false;
+    };
+    
     for (const auto& pcr : intersections)
     {
         for (const auto& seg : pcr)
         {
+            std::vector<BEIntersection> points;
             for (const auto& point : seg)
             {
-                DrawBox(position + point, Vector(10, 10, 10), debugColor, false, 0.1);
+                bool inside = false;
+                for (const auto& pcr : boundaryEdges)
+                {
+                    inside = IsWithinPCR(point, pcr);
+                    if (inside)
+                    {
+                        inside = IsWithinPCR(point, pcr);
+                        break;
+                    }
+                }
+                
+                points.emplace_back(BEIntersection{point, inside});
+            }
+            
+            for (const auto& point : points)
+            {
+                DrawBox(point.point + position, Vector(10,10,10), point.inside ? FColor::Red : FColor::Blue, false, 0.2);
             }
         }
     }
@@ -137,7 +161,8 @@ bool Navigator::IsWithinPCR(const Directive::Vector& testVelocity, const std::ve
     bool inside = true;
     for (const auto& boundaryEdge : PCR)
     {
-        if ((boundaryEdge.GetNormal() | (testVelocity - boundaryEdge.GetPoint1())) <= 0)
+        auto dotProduct = (boundaryEdge.GetNormal() | (testVelocity - boundaryEdge.GetPoint1()));
+        if (dotProduct <= KINDA_SMALL_NUMBER)
         {
             inside = false;
             break;
