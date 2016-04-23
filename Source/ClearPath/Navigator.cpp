@@ -71,7 +71,7 @@ void Navigator::Update(UnitType deltaTime)
     struct BEIntersection
     {
         Vector point;
-        bool inside = false;
+        bool inside;
     };
     
     for (const auto& pcr : intersections)
