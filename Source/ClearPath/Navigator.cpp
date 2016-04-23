@@ -153,12 +153,12 @@ std::vector<Vector> Navigator::CalcValidVelocitiesOnBE() const
             float tLeft = -dotProduct - sqrtDiscriminant;
             float tRight = -dotProduct + sqrtDiscriminant;
             
-            if (boundary.GetPoint1().IsNearlyZero() == false && boundary.GetPoint1().Size2D() < maxSpeed * maxSpeed)
+            if (boundary.GetPoint1().IsNearlyZero() == false && boundary.GetPoint1().SizeSquared2D() < maxSpeed * maxSpeed)
             {
                 validVelocities.emplace_back(boundary.GetPoint1());
             }
             
-            if (!boundary.IsRay() && boundary.GetPoint2().IsNearlyZero() == false && boundary.GetPoint2().Size2D() < maxSpeed * maxSpeed)
+            if (!boundary.IsRay() && boundary.GetPoint2().IsNearlyZero() == false && boundary.GetPoint2().SizeSquared2D() < maxSpeed * maxSpeed)
             {
                 validVelocities.emplace_back(boundary.GetPoint2());
             }
@@ -212,13 +212,14 @@ bool Navigator::SatifiesConsistentVelocityOrientation(const Directive::Vector& n
         
         const auto relativeVelocity = this->velocity - other->velocity;
         const auto relativePosition = other->position - this->position;
+        const auto apex = (this->velocity + other->velocity) / 2;
         const Vector relativePositionVertical(relativePosition.Y, -relativePosition.X, 0);
 
 		DrawLine(position, other->position, FColor::Blue, false, 0.02);
 		DrawLine(position, position + relativePositionVertical, FColor::Blue, false, 0.02);
         
 		const auto oldSign = (relativePositionVertical | relativeVelocity) >= 0;
-		const auto newSign = (newVelocity | relativePositionVertical) >= 0;
+		const auto newSign = ((newVelocity - apex) | relativePositionVertical) >= 0;
         if (oldSign != newSign)
         {
             return false;
@@ -266,7 +267,7 @@ std::vector<Segment> Navigator::CalcBoundaryEdgesAgainst(const Navigator& other)
     
     const auto myRadius = this->radius;
     const auto myPosition = this->position;
-    const auto myDesiredVelocity = this->desiredVel;
+    const auto myDesiredVelocity = this->velocity;
     
     const auto otherRadius = other.radius;
     const auto otherPosition = other.position;
@@ -324,7 +325,7 @@ void Navigator::DrawLine(const FVector& start, const FVector& end, const FColor&
 	{
 		if (DrawDebugLine)
 		{
-			DrawDebugLine(start + Vector(0,0,100), end + Vector(0, 0, 100), color, persistent, 0.02);
+			DrawDebugLine(start + Vector(0,0,100), end + Vector(0, 0, 100), color, persistent, 0.1);
 		}
 	}
 }
