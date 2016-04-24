@@ -376,9 +376,9 @@ bool Navigator::SatifiesConsistentVelocityOrientation(const Directive::Vector& n
         const auto apex = (this->velocity + other->velocity) / 2;
         const Vector relativePositionVertical(relativePosition.Y, -relativePosition.X, 0);
 
-		const auto oldSign = (relativePositionVertical | relativeVelocity) >= 0;
-		const auto newSign = ((newVelocity - apex) | relativePositionVertical) >= 0;
-        if (oldSign != newSign)
+		const auto part1 = (relativePositionVertical | relativeVelocity);
+		const auto part2 = ((newVelocity - apex) | relativePositionVertical);
+        if (part1 * part2 / relativePositionVertical.SizeSquared2D() < -KINDA_SMALL_NUMBER )
         {
             return false;
         }
@@ -405,6 +405,7 @@ void Navigator::Update2(UnitType deltaTime)
 	
     if (arrived)
     {
+		velocity = Vector::ZeroVector;
         return;
     }
     
