@@ -33,7 +33,7 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "NavComponent")
 	FVector GetNavVelocity() const;
     
-    UPROPERTY(EditAnywhere)
+    UPROPERTY(EditAnywhere, BlueprintReadwrite)
     bool drawDebug = false;
 
 private:

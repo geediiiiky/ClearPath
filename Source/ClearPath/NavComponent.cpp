@@ -45,7 +45,7 @@ void UNavComponent::CreateNavigator_Implementation(const FVector& newTargetLocat
 	{
         if (CVarDrawDebugs.GetValueOnGameThread() != 0 && drawDebug)
         {
-            DrawDebugLine(GetOwner()->GetWorld(), start, end, color, persistent, lifetime, 0, 5.f);
+            DrawDebugLine(GetOwner()->GetWorld(), start, end, color, persistent, lifetime, 0, 1.f);
         }
 	};
 

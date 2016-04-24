@@ -117,11 +117,23 @@ private:
     Directive::Vector CalcDesiredVelocity(Directive::UnitType deltaTime) const;
     std::vector<Segment> CalcBoundaryEdgesAgainst(const Navigator& other) const;
     using SegmentIntersectionPoints = std::set<Directive::Vector, std::function<bool(const Directive::Vector&, const Directive::Vector&)>>;
-    std::vector<std::vector<SegmentIntersectionPoints>> CalcIntersections() const;
+    std::vector<std::vector<SegmentIntersectionPoints>> CalcBEIntersections() const;    // calculate Boundary Edges intersections against each other
     bool CalcIntersection(const Segment& seg1, const Segment& seg2, Directive::Vector& intersection) const;
+    struct ClassifiedBEIntersection
+    {
+        Directive::Vector point;
+        bool inside;
+    };
+    struct ClassifiedBEIntersectionsOnSegement
+    {
+        Directive::Vector dir;
+        std::vector<ClassifiedBEIntersection> intersections;
+    };
+    std::vector<ClassifiedBEIntersectionsOnSegement> ClassifyIntersecions(const std::vector<std::vector<SegmentIntersectionPoints>>& intersections) const;// Classify BE intersections as inside or outside
+    std::vector<Segment> ClassifyInsideSegments(const std::vector<ClassifiedBEIntersectionsOnSegement>& intersections) const;// Classify BE segments and find all inside sgements
     bool IsWithinPCR(const Directive::Vector& testVelocity, const std::vector<Segment>& PCR) const;   // potentially colliding region
     bool TestWillCollide(const Directive::Vector& testVelocity) const;
-    std::vector<Directive::Vector> CalcValidVelocitiesOnBE() const;
+    std::vector<Directive::Vector> CalcValidVelocitiesOnSegments(const std::vector<Segment>& segments) const;
     Directive::Vector CalcBestVelocity(const std::vector<Directive::Vector>& validVelocities) const;
     bool SatifiesConsistentVelocityOrientation(const Directive::Vector& newVelocity) const;
     

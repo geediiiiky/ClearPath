@@ -66,42 +66,6 @@ void Navigator::Update(UnitType deltaTime)
         boundaryEdges.emplace_back(std::move(segments));
 	}
     
-    auto intersections = CalcIntersections();
-    
-    struct BEIntersection
-    {
-        Vector point;
-        bool inside;
-    };
-    
-    for (const auto& pcr : intersections)
-    {
-        for (const auto& seg : pcr)
-        {
-            std::vector<BEIntersection> points;
-            for (const auto& point : seg)
-            {
-                bool inside = false;
-                for (const auto& pcr : boundaryEdges)
-                {
-                    inside = IsWithinPCR(point, pcr);
-                    if (inside)
-                    {
-                        inside = IsWithinPCR(point, pcr);
-                        break;
-                    }
-                }
-                
-                points.emplace_back(BEIntersection{point, inside});
-            }
-            
-            for (const auto& point : points)
-            {
-                DrawBox(point.point + position, Vector(10,10,10), point.inside ? FColor::Red : FColor::Blue, false, 0.2);
-            }
-        }
-    }
-    
     bool willCollide = TestWillCollide(desiredVel);
     
     DrawLine(position, position + desiredVel, willCollide ? FColor::Red : FColor::White, false, deltaTime);
@@ -112,7 +76,18 @@ void Navigator::Update(UnitType deltaTime)
     }
     else
     {
-        std::vector<Directive::Vector> validVelocities = CalcValidVelocitiesOnBE();
+        auto intersections = CalcBEIntersections();
+        auto classifiedIntersections = ClassifyIntersecions(intersections);
+        auto classifiedSegments = ClassifyInsideSegments(classifiedIntersections);
+        for (const auto& seg : classifiedSegments)
+        {
+            seg.Draw([this](const auto& p1, const auto& p2)
+            {
+                DrawLine(p1 + position + FVector(0, 0, 100), p2 + position + FVector(0, 0, 100), FColor::Blue, false, 0.02);
+            });
+        }
+        
+        std::vector<Directive::Vector> validVelocities = CalcValidVelocitiesOnSegments(classifiedSegments);
 
 //		for (auto v : validVelocities)
 //		{
@@ -172,7 +147,7 @@ bool Navigator::IsWithinPCR(const Directive::Vector& testVelocity, const std::ve
     return inside;
 }
 
-std::vector<std::vector<Navigator::SegmentIntersectionPoints>> Navigator::CalcIntersections() const
+std::vector<std::vector<Navigator::SegmentIntersectionPoints>> Navigator::CalcBEIntersections() const
 {
     std::vector<std::vector<SegmentIntersectionPoints>> result;
     for (const auto& pcr : boundaryEdges)
@@ -247,48 +222,117 @@ bool Navigator::CalcIntersection(const Segment& seg1, const Segment& seg2, Vecto
     return false;
 }
 
-std::vector<Vector> Navigator::CalcValidVelocitiesOnBE() const
+std::vector<Navigator::ClassifiedBEIntersectionsOnSegement> Navigator::ClassifyIntersecions(const std::vector<std::vector<SegmentIntersectionPoints>>& intersections) const
+{
+    std::vector<ClassifiedBEIntersectionsOnSegement> results;
+    for (auto pcrIndex = 0; pcrIndex < intersections.size(); ++pcrIndex)
+    {
+        for (auto segIndex = 0; segIndex < intersections.at(pcrIndex).size(); ++segIndex)
+        {
+            const auto& intersectionsOnSeg = intersections.at(pcrIndex).at(segIndex);
+            
+            ClassifiedBEIntersectionsOnSegement points;
+            points.dir = boundaryEdges.at(pcrIndex).at(segIndex).GetDir();
+            for (const auto& point : intersectionsOnSeg)
+            {
+                bool inside = false;
+                for (const auto& pcr : boundaryEdges)
+                {
+                    inside = IsWithinPCR(point, pcr);
+                    if (inside)
+                    {
+                        break;
+                    }
+                }
+                
+                points.intersections.emplace_back(ClassifiedBEIntersection{point, inside});
+            }
+            
+            for (const auto& point : points.intersections)
+            {
+                DrawBox(point.point + position, Vector(5,5,5), point.inside ? FColor::Red : FColor::Blue, false, 0.2);
+            }
+            
+            results.emplace_back(std::move(points));
+        }
+    }
+    
+    return results;
+}
+
+std::vector<Segment> Navigator::ClassifyInsideSegments(const std::vector<Navigator::ClassifiedBEIntersectionsOnSegement>& intersections) const
+{
+    std::vector<Segment> result;
+    for (const auto& intersectionsOnSeg : intersections)
+    {
+        if (intersectionsOnSeg.intersections.size() == 0)
+        {
+            continue;   // no intersections on this segment, which should never happen
+        }
+        else
+        {
+            bool previousWasOutside = false;
+            for (auto i = 1; i < intersectionsOnSeg.intersections.size(); ++i)
+            {
+                if (!previousWasOutside && intersectionsOnSeg.intersections.at(i - 1).inside == false && intersectionsOnSeg.intersections.at(i).inside == false)
+                {
+                    previousWasOutside = true;
+                    result.emplace_back(Segment::CreateSegment(intersectionsOnSeg.intersections.at(i-1).point, intersectionsOnSeg.intersections.at(i).point, Segment::NormalDir::Left));
+                }
+                else
+                {
+                    previousWasOutside = false;
+                }
+            }
+            
+            if (!previousWasOutside && intersectionsOnSeg.intersections.back().inside == false)
+            {
+                result.emplace_back(Segment::CreateRay(intersectionsOnSeg.intersections.back().point, intersectionsOnSeg.dir, Segment::NormalDir::Left));
+            }
+        }
+    }
+    
+    return result;
+}
+
+std::vector<Vector> Navigator::CalcValidVelocitiesOnSegments(const std::vector<Segment>& segments) const
 {
     std::vector<Vector> validVelocities;
     // find the intersection point on the boundary
     // calculate the potential new velocities
-    for (const auto& beCollection : boundaryEdges)
+    for (const auto& seg : segments)
     {
-        bool in = true;
-        for (const auto& boundary : beCollection)
+        const auto dotProduct = (seg.GetPoint1() | seg.GetDir());
+        const auto discriminant = FMath::Square(dotProduct) + FMath::Square(maxSpeed) - (seg.GetPoint1().SizeSquared2D());
+        
+        if (discriminant < 0)
         {
-            const auto dotProduct = (boundary.GetPoint1() | boundary.GetDir());
-            const auto discriminant = FMath::Square(dotProduct) + FMath::Square(maxSpeed) - (boundary.GetPoint1().SizeSquared2D());
-            
-            if (discriminant < 0)
-            {
-                // no intersection against this segment
-                continue;
-            }
-            
-            const auto sqrtDiscriminant = FMath::Sqrt(discriminant);
-            float tLeft = -dotProduct - sqrtDiscriminant;
-            float tRight = -dotProduct + sqrtDiscriminant;
-            
-            if (boundary.GetPoint1().IsNearlyZero() == false && boundary.GetPoint1().SizeSquared2D() < maxSpeed * maxSpeed)
-            {
-                validVelocities.emplace_back(boundary.GetPoint1());
-            }
-            
-            if (!boundary.IsRay() && boundary.GetPoint2().IsNearlyZero() == false && boundary.GetPoint2().SizeSquared2D() < maxSpeed * maxSpeed)
-            {
-                validVelocities.emplace_back(boundary.GetPoint2());
-            }
-            
-            if (tLeft >= 0 && (boundary.IsRay() || tLeft <= boundary.GetLength()))
-            {
-                validVelocities.emplace_back(boundary.GetPoint1() + tLeft * boundary.GetDir());
-            }
-            
-            if (tRight >= 0 && (boundary.IsRay() || tRight <= boundary.GetLength()))
-            {
-                validVelocities.emplace_back(boundary.GetPoint1() + tRight * boundary.GetDir());
-            }
+            // no intersection against this segment
+            continue;
+        }
+        
+        const auto sqrtDiscriminant = FMath::Sqrt(discriminant);
+        float tLeft = -dotProduct - sqrtDiscriminant;
+        float tRight = -dotProduct + sqrtDiscriminant;
+        
+        if (seg.GetPoint1().IsNearlyZero() == false && seg.GetPoint1().SizeSquared2D() < maxSpeed * maxSpeed)
+        {
+            validVelocities.emplace_back(seg.GetPoint1());
+        }
+        
+        if (!seg.IsRay() && seg.GetPoint2().IsNearlyZero() == false && seg.GetPoint2().SizeSquared2D() < maxSpeed * maxSpeed)
+        {
+            validVelocities.emplace_back(seg.GetPoint2());
+        }
+        
+        if (tLeft >= 0 && (seg.IsRay() || tLeft <= seg.GetLength()))
+        {
+            validVelocities.emplace_back(seg.GetPoint1() + tLeft * seg.GetDir());
+        }
+        
+        if (tRight >= 0 && (seg.IsRay() || tRight <= seg.GetLength()))
+        {
+            validVelocities.emplace_back(seg.GetPoint1() + tRight * seg.GetDir());
         }
     }
     
