@@ -16,9 +16,24 @@ DECLARE_CYCLE_STAT(TEXT("InsertingIntersection"),STAT_InsertingIntersection,STAT
 DECLARE_CYCLE_STAT(TEXT("IsWithinPCR"),STAT_IsWithinPCR,STATGROUP_AVOIDANCE);
 DECLARE_CYCLE_STAT(TEXT("IsWithinPCRTest"),STAT_IsWithinPCRTest,STATGROUP_AVOIDANCE);
 
-
-
 using namespace Directive;
+
+inline Vector GetApex(const Vector& myVelocity, const Vector& otherVelocity)
+{
+    auto mySize = myVelocity.Size2D();
+    auto otherSize = otherVelocity.Size2D();
+    if (mySize + otherSize == 0)
+    {
+        return Vector::ZeroVector;
+    }
+    auto alpha = mySize / (otherSize + mySize);
+//    return (myVelocity * alpha + otherVelocity * (1 - alpha));
+    
+    return (myVelocity + otherVelocity) / 2;
+}
+
+
+
 
 void NavigatorQuerier::Update(Directive::UnitType deltaTime)
 {
@@ -67,6 +82,21 @@ void Navigator::Update(UnitType deltaTime)
 		return;
 	}
     
+    auto p = this->position;
+    auto comparator = [p](std::shared_ptr<Navigator> nav1, std::shared_ptr<Navigator> nav2){ return (nav1->position - p).SizeSquared2D() < (nav2->position - p).SizeSquared2D(); };
+    std::set<std::shared_ptr<Navigator>, decltype(comparator)> nearests(comparator);
+    for (auto otherWeakPtr : NavigatorQuerier::Instance()->navs)
+    {
+        auto other = otherWeakPtr.lock();
+        if (other && other.get() != this)
+        {
+            nearests.insert(other);
+            if (nearests.size() > 3)
+            {
+                nearests.erase(std::prev(nearests.end()));
+            }
+        }
+    }
     
     SCOPE_CYCLE_COUNTER(STATGROUP_AVOIDANCE_Update);
     
@@ -76,9 +106,9 @@ void Navigator::Update(UnitType deltaTime)
     // get all BEs
     boundaryEdges.clear();
 	auto querier = NavigatorQuerier::Instance();
-	for (auto otherWeakPtr : querier->navs)
+	for (auto other : nearests)
 	{
-		auto other = otherWeakPtr.lock();
+		//auto other = otherWeakPtr.lock();
 		if (!other || other.get() == this)
 		{
 			continue;
@@ -119,22 +149,33 @@ void Navigator::Update(UnitType deltaTime)
         
         std::vector<Directive::Vector> validVelocities = CalcValidVelocitiesOnSegments(classifiedSegments);
 
-//		for (auto v : validVelocities)
-//		{
-//			DrawLine(position + Vector(0, 0, 20), position + v + Vector(0, 0, 20), FColor::Green, false, deltaTime);
-//		}
+		for (auto v : validVelocities)
+		{
+			DrawLine(position + Vector(0, 0, 400), position + v + Vector(0, 0, 20), FColor::Green, false, 0.02);
+            DrawBox(position + v + Vector(0, 0, 20), Vector(10), FColor::Green, false, 0.02);
+		}
 
         nextVelocity = CalcBestVelocity(validVelocities);
+        
+        DrawBox(position + nextVelocity + Vector(0, 0, 20), Vector(12), FColor::Yellow, false, 0.02);
     }
     
     DrawLine(position + Vector(0,0,10), position + nextVelocity + Vector(0,0,10), FColor::White, false, deltaTime);
     
+
+    auto velocitySquare = velocity.SizeSquared2D();
+    auto distanceSquare = (position - target).SizeSquared2D();
+
+    auto dotDesiredVelocity = (desiredVel | velocity);
+    if (dotDesiredVelocity * dotDesiredVelocity / desiredVel.SizeSquared2D() / velocity.SizeSquared2D() <= 0.1 && distanceSquare <= 9 * radius * radius)
+    {
+        velocity = Vector::ZeroVector;
+    }
+    
     velocity = nextVelocity;
     position += velocity * deltaTime;
     
-    auto velocitySquare = velocity.SizeSquared2D();
-    auto distanceSquare = (position - target).SizeSquared2D();
-    if (velocitySquare < 0.81 * maxSpeed * maxSpeed && distanceSquare <= 9 * radius * radius)
+    if (distanceSquare <= 0.01 * radius * radius)
     {
         arrived = true;
     }
@@ -409,23 +450,35 @@ Directive::Vector Navigator::CalcBestVelocity(const std::vector<Directive::Vecto
     SCOPE_CYCLE_COUNTER(STAT_CalcBestVelocity);
 
     
-    auto maxDotProduct(std::numeric_limits<UnitType>::min());
-    Directive::Vector newVelocity(0);
+    auto maxDotProduct(std::numeric_limits<UnitType>::lowest());
+    Directive::Vector bestVelocity(0);
+    
+    auto smallestSpeed(std::numeric_limits<UnitType>::max());
+    Directive::Vector smallestVelocity(0);
 
+    auto found = false;
     for (const auto& vel : validVelocities)
     {
         if (SatifiesConsistentVelocityOrientation(vel))
         {
-            auto dotProduct = (desiredVel | vel);
+            auto dotProduct = (velocity | vel);
             if (dotProduct > maxDotProduct)
             {
                 maxDotProduct = dotProduct;
-                newVelocity = vel;
+                bestVelocity = vel;
+                found = true;
+            }
+            
+            auto speed = vel.SizeSquared2D();
+            if (speed < smallestSpeed)
+            {
+                smallestSpeed = speed;
+                smallestVelocity = vel;
             }
         }
     }
 
-    return newVelocity;
+    return found ? bestVelocity : smallestVelocity;
 }
 
 bool Navigator::SatifiesConsistentVelocityOrientation(const Directive::Vector& newVelocity) const
@@ -447,7 +500,7 @@ bool Navigator::SatifiesConsistentVelocityOrientation(const Directive::Vector& n
             continue;
         }
         
-        const auto apex = (this->velocity + other->velocity) / 2;
+        const auto apex = GetApex(this->velocity, other->velocity);
         if (apex.IsNearlyZero())
         {
             continue;
@@ -527,7 +580,7 @@ std::vector<Segment> Navigator::CalcBoundaryEdgesAgainst(const Navigator& other)
     const auto distanceSquared = relativePosition.SizeSquared2D();
     const auto distance = FMath::Sqrt(relativePosition.SizeSquared2D());
     
-    const auto velocityOffset = (myDesiredVelocity + otherVelocity) / 2;
+    const auto velocityOffset = GetApex(myDesiredVelocity, otherVelocity);
     const Directive::UnitType invLookForwardTime = 0.25;  // 1/n sec
     
     if (distance > combinedRadius)
