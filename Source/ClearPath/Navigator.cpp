@@ -162,30 +162,40 @@ void Navigator::Update(UnitType deltaTime)
     
     DrawLine(position + Vector(0,0,10), position + nextVelocity + Vector(0,0,10), FColor::White, false, deltaTime);
     
+	velocity = nextVelocity;
+	position += velocity * deltaTime;
 
     auto velocitySquare = velocity.SizeSquared2D();
     auto distanceSquare = (position - target).SizeSquared2D();
 
+	bool targetOccupied = false;
+	for (auto other : nearests)
+	{
+		if ((other->position - target).SizeSquared2D() <= other->radius * other->radius)
+		{
+			targetOccupied = true;
+			break;
+		}
+	}
+
+	if (distanceSquare <= 0.01 * radius * radius)
+	{
+		arrived = true;
+	}
+
     auto dotDesiredVelocity = (desiredVel | velocity);
-    if (dotDesiredVelocity * dotDesiredVelocity / desiredVel.SizeSquared2D() / velocity.SizeSquared2D() <= 0.1 && distanceSquare <= 9 * radius * radius)
-    {
-        velocity = Vector::ZeroVector;
-    }
-    
-    velocity = nextVelocity;
-    position += velocity * deltaTime;
-    
-    if (distanceSquare <= 0.01 * radius * radius)
+	auto a = dotDesiredVelocity * dotDesiredVelocity / desiredVel.SizeSquared2D() / velocity.SizeSquared2D();
+    if (targetOccupied && a <= 0.1 && distanceSquare <= 9 * radius * radius)
     {
         arrived = true;
     }
-
 }
 
 Directive::Vector Navigator::CalcDesiredVelocity(UnitType deltaTime) const
 {
     Vector desiredV(0);
     auto toDestination = target - position;
+	toDestination.Z = 0;
     if (toDestination.SizeSquared2D() <= maxSpeed * maxSpeed * deltaTime * deltaTime)
     {
         desiredV = toDestination / deltaTime;
@@ -461,7 +471,7 @@ Directive::Vector Navigator::CalcBestVelocity(const std::vector<Directive::Vecto
     {
         if (SatifiesConsistentVelocityOrientation(vel))
         {
-            auto dotProduct = (velocity | vel);
+            auto dotProduct = (desiredVel | vel);
             if (dotProduct > maxDotProduct)
             {
                 maxDotProduct = dotProduct;
