@@ -4,10 +4,36 @@
 #include <vector>
 #include <algorithm>
 
+DECLARE_CYCLE_STAT(TEXT("Update"),STATGROUP_AVOIDANCE_Update,STATGROUP_AVOIDANCE);
+DECLARE_CYCLE_STAT(TEXT("CalcBoundaryEdges"),STAT_CalcBoundaryEdges,STATGROUP_AVOIDANCE);
+DECLARE_CYCLE_STAT(TEXT("CalcBEIntersections"),STAT_CalcBEIntersections,STATGROUP_AVOIDANCE);
+DECLARE_CYCLE_STAT(TEXT("CalcIntersection"),STAT_CalcIntersection,STATGROUP_AVOIDANCE);
+DECLARE_CYCLE_STAT(TEXT("ClassifyIntersecions"),STAT_ClassifyIntersecions,STATGROUP_AVOIDANCE);
+DECLARE_CYCLE_STAT(TEXT("ClassifyInsideSegments"),STAT_ClassifyInsideSegments,STATGROUP_AVOIDANCE);
+DECLARE_CYCLE_STAT(TEXT("CalcValidVelocitiesOnSegments"),STAT_CalcValidVelocitiesOnSegments,STATGROUP_AVOIDANCE);
+DECLARE_CYCLE_STAT(TEXT("CalcBestVelocity"),STAT_CalcBestVelocity,STATGROUP_AVOIDANCE);
+DECLARE_CYCLE_STAT(TEXT("InsertingIntersection"),STAT_InsertingIntersection,STATGROUP_AVOIDANCE);
+DECLARE_CYCLE_STAT(TEXT("IsWithinPCR"),STAT_IsWithinPCR,STATGROUP_AVOIDANCE);
+DECLARE_CYCLE_STAT(TEXT("IsWithinPCRTest"),STAT_IsWithinPCRTest,STATGROUP_AVOIDANCE);
+
+
+
 using namespace Directive;
 
 void NavigatorQuerier::Update(Directive::UnitType deltaTime)
 {
+//    {
+//        SCOPE_CYCLE_COUNTER(STAT_IsWithinPCRTest);
+//        for (auto count = 0; count < 200000; ++count)
+//        {
+//            auto dot = FVector(1,2,0) | FVector(3, 4, 6);
+//            if (dot < 0)
+//            {
+//                
+//            }
+//        }
+//    }
+    
     navs.erase(std::remove_if(navs.begin(), navs.end(), [](auto navPtr){ return navPtr.lock().get() == nullptr; }), navs.end());
     
     for (auto nav : navs)
@@ -37,8 +63,12 @@ void Navigator::Update(UnitType deltaTime)
 {
 	if (arrived)
 	{
+        velocity = Vector(0);
 		return;
 	}
+    
+    
+    SCOPE_CYCLE_COUNTER(STATGROUP_AVOIDANCE_Update);
     
     // calculate the desired velocity
     desiredVel = CalcDesiredVelocity(deltaTime);
@@ -98,6 +128,17 @@ void Navigator::Update(UnitType deltaTime)
     }
     
     DrawLine(position + Vector(0,0,10), position + nextVelocity + Vector(0,0,10), FColor::White, false, deltaTime);
+    
+    velocity = nextVelocity;
+    position += velocity * deltaTime;
+    
+    auto velocitySquare = velocity.SizeSquared2D();
+    auto distanceSquare = (position - target).SizeSquared2D();
+    if (velocitySquare < 0.81 * maxSpeed * maxSpeed && distanceSquare <= 9 * radius * radius)
+    {
+        arrived = true;
+    }
+
 }
 
 Directive::Vector Navigator::CalcDesiredVelocity(UnitType deltaTime) const
@@ -133,6 +174,9 @@ bool Navigator::TestWillCollide(const Vector& testVelocity) const
 
 bool Navigator::IsWithinPCR(const Directive::Vector& testVelocity, const std::vector<Segment>& PCR) const
 {
+    SCOPE_CYCLE_COUNTER(STAT_IsWithinPCR);
+    
+    
     bool inside = true;
     for (const auto& boundaryEdge : PCR)
     {
@@ -143,12 +187,14 @@ bool Navigator::IsWithinPCR(const Directive::Vector& testVelocity, const std::ve
             break;
         }
     }
-
+    
     return inside;
 }
 
 std::vector<std::vector<Navigator::SegmentIntersectionPoints>> Navigator::CalcBEIntersections() const
 {
+    SCOPE_CYCLE_COUNTER(STAT_CalcBEIntersections);
+    
     std::vector<std::vector<SegmentIntersectionPoints>> result;
     for (const auto& pcr : boundaryEdges)
     {
@@ -170,9 +216,14 @@ std::vector<std::vector<Navigator::SegmentIntersectionPoints>> Navigator::CalcBE
         {
             const auto& seg = pcr[segIndex];
             
-            result[pcrIndex][segIndex].insert(seg.GetPoint1());
+            {
+                SCOPE_CYCLE_COUNTER(STAT_InsertingIntersection);
+                result[pcrIndex][segIndex].insert(seg.GetPoint1());
+            }
+            
             if (seg.IsRay() == false)
             {
+                SCOPE_CYCLE_COUNTER(STAT_InsertingIntersection);
                 result[pcrIndex][segIndex].insert(seg.GetPoint2());
             }
             
@@ -185,6 +236,8 @@ std::vector<std::vector<Navigator::SegmentIntersectionPoints>> Navigator::CalcBE
                     Vector intersection(0);
                     if (CalcIntersection(seg, otherSeg, intersection))
                     {
+                        SCOPE_CYCLE_COUNTER(STAT_InsertingIntersection);
+                        
                         result[pcrIndex][segIndex].insert(intersection);
                         result[otherPcrIndex][otherSegIndex].insert(intersection);
                     }
@@ -198,6 +251,9 @@ std::vector<std::vector<Navigator::SegmentIntersectionPoints>> Navigator::CalcBE
 
 bool Navigator::CalcIntersection(const Segment& seg1, const Segment& seg2, Vector& intersection) const
 {
+    SCOPE_CYCLE_COUNTER(STAT_CalcIntersection);
+    
+    
     const FVector2D dir1(seg1.GetDir());
     const FVector2D dir2(seg2.GetDir());
     const auto crossProduct = dir1 ^ dir2;
@@ -224,6 +280,10 @@ bool Navigator::CalcIntersection(const Segment& seg1, const Segment& seg2, Vecto
 
 std::vector<Navigator::ClassifiedBEIntersectionsOnSegement> Navigator::ClassifyIntersecions(const std::vector<std::vector<SegmentIntersectionPoints>>& intersections) const
 {
+    
+    SCOPE_CYCLE_COUNTER(STAT_ClassifyIntersecions);
+    
+
     std::vector<ClassifiedBEIntersectionsOnSegement> results;
     for (auto pcrIndex = 0; pcrIndex < intersections.size(); ++pcrIndex)
     {
@@ -262,6 +322,8 @@ std::vector<Navigator::ClassifiedBEIntersectionsOnSegement> Navigator::ClassifyI
 
 std::vector<Segment> Navigator::ClassifyInsideSegments(const std::vector<Navigator::ClassifiedBEIntersectionsOnSegement>& intersections) const
 {
+    SCOPE_CYCLE_COUNTER(STAT_ClassifyInsideSegments);
+
     std::vector<Segment> result;
     for (const auto& intersectionsOnSeg : intersections)
     {
@@ -297,6 +359,9 @@ std::vector<Segment> Navigator::ClassifyInsideSegments(const std::vector<Navigat
 
 std::vector<Vector> Navigator::CalcValidVelocitiesOnSegments(const std::vector<Segment>& segments) const
 {
+    SCOPE_CYCLE_COUNTER(STAT_CalcValidVelocitiesOnSegments);
+
+    
     std::vector<Vector> validVelocities;
     // find the intersection point on the boundary
     // calculate the potential new velocities
@@ -341,7 +406,10 @@ std::vector<Vector> Navigator::CalcValidVelocitiesOnSegments(const std::vector<S
 
 Directive::Vector Navigator::CalcBestVelocity(const std::vector<Directive::Vector>& validVelocities) const
 {
-    auto maxDotProduct(-1);
+    SCOPE_CYCLE_COUNTER(STAT_CalcBestVelocity);
+
+    
+    auto maxDotProduct(std::numeric_limits<UnitType>::min());
     Directive::Vector newVelocity(0);
 
     for (const auto& vel : validVelocities)
@@ -362,6 +430,8 @@ Directive::Vector Navigator::CalcBestVelocity(const std::vector<Directive::Vecto
 
 bool Navigator::SatifiesConsistentVelocityOrientation(const Directive::Vector& newVelocity) const
 {
+    return true;
+    
     auto querier = NavigatorQuerier::Instance();
     for (auto otherWeakPtr : querier->navs)
     {
@@ -372,13 +442,28 @@ bool Navigator::SatifiesConsistentVelocityOrientation(const Directive::Vector& n
         }
         
         const auto relativeVelocity = this->velocity - other->velocity;
-        const auto relativePosition = other->position - this->position;
+        if (relativeVelocity.IsNearlyZero())
+        {
+            continue;
+        }
+        
         const auto apex = (this->velocity + other->velocity) / 2;
+        if (apex.IsNearlyZero())
+        {
+            continue;
+        }
+        
+        const auto relativePosition = other->position - this->position;
         const Vector relativePositionVertical(relativePosition.Y, -relativePosition.X, 0);
 
-		const auto oldSign = (relativePositionVertical | relativeVelocity) >= 0;
-		const auto newSign = ((newVelocity - apex) | relativePositionVertical) >= 0;
-        if (oldSign != newSign)
+		const auto part1 = (relativePositionVertical | relativeVelocity);
+		const auto part2 = ((newVelocity - apex) | relativePositionVertical);
+        if (FMath::Abs(part1) <= KINDA_SMALL_NUMBER || FMath::Abs(part2) <= KINDA_SMALL_NUMBER)
+        {
+            continue;
+        }
+        
+        if (part1 * part2 / relativePositionVertical.SizeSquared2D() < -KINDA_SMALL_NUMBER)
         {
             return false;
         }
@@ -408,19 +493,22 @@ void Navigator::Update2(UnitType deltaTime)
         return;
     }
     
-    velocity = nextVelocity;
-    position += velocity * deltaTime;
-    
-    auto velocitySquare = velocity.SizeSquared2D();
-    auto distanceSquare = (position - target).SizeSquared2D();
-    if (velocitySquare < 0.81 * maxSpeed * maxSpeed && distanceSquare <= 9 * radius * radius)
-    {
-        arrived = true;
-    }
+//    velocity = nextVelocity;
+//    position += velocity * deltaTime;
+//    
+//    auto velocitySquare = velocity.SizeSquared2D();
+//    auto distanceSquare = (position - target).SizeSquared2D();
+//    if (velocitySquare < 0.81 * maxSpeed * maxSpeed && distanceSquare <= 9 * radius * radius)
+//    {
+//        arrived = true;
+//    }
 }
 
 std::vector<Segment> Navigator::CalcBoundaryEdgesAgainst(const Navigator& other) const
 {
+    SCOPE_CYCLE_COUNTER(STAT_CalcBoundaryEdges);
+
+    
     std::vector<Segment> segments;
     
     const auto myRadius = this->radius;
