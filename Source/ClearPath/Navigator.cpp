@@ -37,31 +37,11 @@ inline Vector GetApex(const Vector& myVelocity, const Vector& otherVelocity)
 
 void NavigatorQuerier::Update(Directive::UnitType deltaTime)
 {
-//    {
-//        SCOPE_CYCLE_COUNTER(STAT_IsWithinPCRTest);
-//        for (auto count = 0; count < 200000; ++count)
-//        {
-//            auto dot = FVector(1,2,0) | FVector(3, 4, 6);
-//            if (dot < 0)
-//            {
-//                
-//            }
-//        }
-//    }
-    
     navs.erase(std::remove_if(navs.begin(), navs.end(), [](auto navPtr){ return navPtr.lock().get() == nullptr; }), navs.end());
     
     for (auto nav : navs)
     {
         nav.lock()->Update(deltaTime);
-    }
-}
-
-void NavigatorQuerier::Update2(Directive::UnitType deltaTime)
-{
-    for (auto nav : navs)
-    {
-        nav.lock()->Update2(deltaTime);
     }
 }
 
@@ -128,7 +108,7 @@ void Navigator::Update(UnitType deltaTime)
     
     bool willCollide = TestWillCollide(desiredVel);
     
-    DrawLine(position, position + desiredVel, willCollide ? FColor::Red : FColor::White, false, deltaTime);
+    DrawLine(position+Vector(0,0,300), position + desiredVel+Vector(0,0,300), willCollide ? FColor::Red : FColor::White, false, deltaTime);
     
     if (!willCollide)
     {
@@ -171,7 +151,7 @@ void Navigator::Update(UnitType deltaTime)
 	bool targetOccupied = false;
 	for (auto other : nearests)
 	{
-		if ((other->position - target).SizeSquared2D() <= other->radius * other->radius)
+        if ((other->position - target).SizeSquared2D() <= FMath::Square(other->radius + this->radius))
 		{
 			targetOccupied = true;
 			break;
@@ -184,8 +164,8 @@ void Navigator::Update(UnitType deltaTime)
 	}
 
     auto dotDesiredVelocity = (desiredVel | velocity);
-	auto a = dotDesiredVelocity * dotDesiredVelocity / desiredVel.SizeSquared2D() / velocity.SizeSquared2D();
-    if (targetOccupied && a <= 0.1 && distanceSquare <= 9 * radius * radius)
+	auto cosineAngleSquare = dotDesiredVelocity * dotDesiredVelocity / desiredVel.SizeSquared2D() / velocity.SizeSquared2D();
+    if (targetOccupied && cosineAngleSquare <= 0.5 && distanceSquare <= 9 * radius * radius)
     {
         arrived = true;
     }
@@ -535,36 +515,10 @@ bool Navigator::SatifiesConsistentVelocityOrientation(const Directive::Vector& n
     return true;
 }
 
-void Navigator::Update2(UnitType deltaTime)
+void Navigator::SetNewTargetLocation(const Directive::Vector newTarget)
 {
-//	auto toDestination = target - position;
-//	if (toDestination.SizeSquared2D() <= maxSpeed * maxSpeed * deltaTime * deltaTime)
-//	{
-//		velocity = toDestination / deltaTime;
-//		position = target;
-//
-//		arrived = true;
-//	}
-//	else
-//	{
-//		velocity = maxSpeed * toDestination.GetSafeNormal();
-//		position += velocity * deltaTime;
-//	}
-	
-    if (arrived)
-    {
-        return;
-    }
-    
-//    velocity = nextVelocity;
-//    position += velocity * deltaTime;
-//    
-//    auto velocitySquare = velocity.SizeSquared2D();
-//    auto distanceSquare = (position - target).SizeSquared2D();
-//    if (velocitySquare < 0.81 * maxSpeed * maxSpeed && distanceSquare <= 9 * radius * radius)
-//    {
-//        arrived = true;
-//    }
+    target = newTarget;
+    arrived = false;
 }
 
 std::vector<Segment> Navigator::CalcBoundaryEdgesAgainst(const Navigator& other) const

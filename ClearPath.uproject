@@ -12,5 +12,10 @@
 				"Engine"
 			]
 		}
+	],
+	"TargetPlatforms": [
+		"IOS",
+		"MacNoEditor",
+		"Android"
 	]
 }

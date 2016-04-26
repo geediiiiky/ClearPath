@@ -58,6 +58,11 @@ void UNavComponent::CreateNavigator_Implementation(const FVector& newTargetLocat
 	};
 }
 
+void UNavComponent::SetNavigatorLocation(const FVector& newTargetLocation)
+{
+    nav->SetNewTargetLocation(newTargetLocation);
+}
+
 FVector UNavComponent::GetNavLocation() const
 {
 	return nav ? nav->GetPosition() : FVector(0);

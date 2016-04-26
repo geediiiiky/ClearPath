@@ -97,7 +97,7 @@ private:
 
 public:
     void Update(Directive::UnitType deltaTime);
-    void Update2(Directive::UnitType deltaTime);
+    void SetNewTargetLocation(const Directive::Vector newTarget);
 
 	Directive::Vector GetVelocity() const { return velocity; }
 	Directive::Vector GetPosition() const { return position; }

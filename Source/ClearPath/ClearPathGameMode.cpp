@@ -14,7 +14,6 @@ void AClearPathGameMode::Tick(float DeltaSeconds)
 	{
 		time -= fixedDT;
 		NavigatorQuerier::Instance()->Update(fixedDT);
-		NavigatorQuerier::Instance()->Update2(fixedDT);
 	}
     
    
