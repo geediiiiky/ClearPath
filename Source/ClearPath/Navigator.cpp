@@ -56,7 +56,7 @@ Navigator::Navigator(Directive::UnitType navRadius, Directive::UnitType navMaxSp
 
 void Navigator::Update(UnitType deltaTime)
 {
-	if (arrived)
+	if (arrived || maxSpeed <= 0)
 	{
         velocity = Vector(0);
 		return;
@@ -76,6 +76,11 @@ void Navigator::Update(UnitType deltaTime)
                 nearests.erase(std::prev(nearests.end()));
             }
         }
+    }
+    
+    for (auto other:nearests)
+    {
+        DrawLine(position, other->position, FColor::Cyan, false, 0.02);
     }
     
     SCOPE_CYCLE_COUNTER(STATGROUP_AVOIDANCE_Update);
@@ -326,15 +331,7 @@ std::vector<Navigator::ClassifiedBEIntersectionsOnSegement> Navigator::ClassifyI
             points.dir = boundaryEdges.at(pcrIndex).at(segIndex).GetDir();
             for (const auto& point : intersectionsOnSeg)
             {
-                bool inside = false;
-                for (const auto& pcr : boundaryEdges)
-                {
-                    inside = IsWithinPCR(point, pcr);
-                    if (inside)
-                    {
-                        break;
-                    }
-                }
+                bool inside = TestWillCollide(point);
                 
                 points.intersections.emplace_back(ClassifiedBEIntersection{point, inside});
             }
@@ -378,9 +375,14 @@ std::vector<Segment> Navigator::ClassifyInsideSegments(const std::vector<Navigat
                 }
             }
             
-            if (!previousWasOutside && intersectionsOnSeg.intersections.back().inside == false)
+            const auto& lastIntersection = intersectionsOnSeg.intersections.back();
+            if (!previousWasOutside && lastIntersection.inside == false)
             {
-                result.emplace_back(Segment::CreateRay(intersectionsOnSeg.intersections.back().point, intersectionsOnSeg.dir, Segment::NormalDir::Left));
+                auto anyPointOnRay = lastIntersection.point + 100 * intersectionsOnSeg.dir;
+                if(!TestWillCollide(anyPointOnRay))
+                {
+                    result.emplace_back(Segment::CreateRay(lastIntersection.point, intersectionsOnSeg.dir, Segment::NormalDir::Left));
+                }
             }
         }
     }
@@ -413,22 +415,38 @@ std::vector<Vector> Navigator::CalcValidVelocitiesOnSegments(const std::vector<S
         
         if (seg.GetPoint1().IsNearlyZero() == false && seg.GetPoint1().SizeSquared2D() < maxSpeed * maxSpeed)
         {
-            validVelocities.emplace_back(seg.GetPoint1());
+            auto newVelocity = seg.GetPoint1();
+            if (newVelocity.SizeSquared2D() > maxSpeed * maxSpeed / 64)
+            {
+                validVelocities.emplace_back(seg.GetPoint1());
+            }
         }
         
         if (!seg.IsRay() && seg.GetPoint2().IsNearlyZero() == false && seg.GetPoint2().SizeSquared2D() < maxSpeed * maxSpeed)
         {
-            validVelocities.emplace_back(seg.GetPoint2());
+            auto newVelocity = seg.GetPoint2();
+            if (newVelocity.SizeSquared2D() > maxSpeed * maxSpeed / 64)
+            {
+                validVelocities.emplace_back(seg.GetPoint2());
+            }
         }
         
         if (tLeft >= 0 && (seg.IsRay() || tLeft <= seg.GetLength()))
         {
-            validVelocities.emplace_back(seg.GetPoint1() + tLeft * seg.GetDir());
+            auto newVelocity = seg.GetPoint1() + tLeft * seg.GetDir();
+            if (newVelocity.SizeSquared2D() > maxSpeed * maxSpeed / 64)
+            {
+                validVelocities.emplace_back(newVelocity);
+            }
         }
         
         if (tRight >= 0 && (seg.IsRay() || tRight <= seg.GetLength()))
         {
-            validVelocities.emplace_back(seg.GetPoint1() + tRight * seg.GetDir());
+            auto newVelocity = seg.GetPoint1() + tRight * seg.GetDir();
+            if (newVelocity.SizeSquared2D() > maxSpeed * maxSpeed / 64)
+            {
+                validVelocities.emplace_back(newVelocity);
+            }
         }
     }
     
@@ -451,7 +469,13 @@ Directive::Vector Navigator::CalcBestVelocity(const std::vector<Directive::Vecto
     {
         if (SatifiesConsistentVelocityOrientation(vel))
         {
-            auto dotProduct = (desiredVel | vel);
+            // make sure that the new velocity doesn't turn around from previous velocity
+            const auto dotVelocity = (velocity | vel);
+            const auto dotDesiredVel = (desiredVel | vel);
+            
+            const auto alpha = 0.5; // 0 full current velocity, 1 full desired velocity
+            const auto dotProduct = dotDesiredVel * alpha + (1 - alpha) * dotVelocity;
+            
             if (dotProduct > maxDotProduct)
             {
                 maxDotProduct = dotProduct;
@@ -468,7 +492,9 @@ Directive::Vector Navigator::CalcBestVelocity(const std::vector<Directive::Vecto
         }
     }
 
-    return found ? bestVelocity : smallestVelocity;
+    DrawDebugLine(position + Vector(0,0,100), position + bestVelocity + Vector(0, 0, 100), FColor::Red, false, 5);
+    return bestVelocity;
+    //return found ? bestVelocity : smallestVelocity;
 }
 
 bool Navigator::SatifiesConsistentVelocityOrientation(const Directive::Vector& newVelocity) const
@@ -549,13 +575,28 @@ std::vector<Segment> Navigator::CalcBoundaryEdgesAgainst(const Navigator& other)
     
     if (distance > combinedRadius)
     {
-        // calc cut off edge first
-        Vector M = (relativePosition - combinedRadius * relativePositionDir) * invLookForwardTime + velocityOffset;
-        auto halfEdge = FMath::Tan(FMath::Asin(combinedRadius / distance)) * (distance - combinedRadius)  * invLookForwardTime;
-        Vector edgeLeftEnd = M + halfEdge * FVector(-relativePositionDir.Y, relativePositionDir.X, 0);
-        Vector edgeRightEnd = M + halfEdge * FVector(relativePositionDir.Y, -relativePositionDir.X, 0);
+        Vector edgeLeftEnd = velocityOffset;
+        Vector edgeRightEnd = velocityOffset;
         
-        segments.emplace_back(Segment::CreateSegment(edgeLeftEnd, edgeRightEnd, Segment::NormalDir::Left));
+        // calc cut off edge first
+        auto lookTime = invLookForwardTime;
+        for (int tries = 0; tries < 4; ++tries)
+        {
+            const auto freeSpace = (distance - combinedRadius) * lookTime;
+            if (freeSpace < maxSpeed / 16)
+            {
+                // I don't want my speed to be too small
+                lookTime *= 2;
+                continue;
+            }
+            Vector M = (relativePosition - combinedRadius * relativePositionDir) * lookTime + velocityOffset;
+            auto halfEdge = FMath::Tan(FMath::Asin(combinedRadius / distance)) * (distance - combinedRadius)  * lookTime;
+            edgeLeftEnd = M + halfEdge * FVector(-relativePositionDir.Y, relativePositionDir.X, 0);
+            edgeRightEnd = M + halfEdge * FVector(relativePositionDir.Y, -relativePositionDir.X, 0);
+            
+            segments.emplace_back(Segment::CreateSegment(edgeLeftEnd, edgeRightEnd, Segment::NormalDir::Left));
+            break;
+        }
 
         // then two legs. the rays starts from the cut off edge ends
         const auto leg = FMath::Sqrt(distanceSquared - combinedRadiusSquared);
@@ -572,11 +613,24 @@ std::vector<Segment> Navigator::CalcBoundaryEdgesAgainst(const Navigator& other)
     }
     else
     {
-        FVector leftDir(-relativePositionDir.Y, relativePositionDir.X, 0);
-        FVector rightDir(relativePositionDir.Y, -relativePositionDir.X, 0);
+        Vector leftDir(-relativePositionDir.Y, relativePositionDir.X, 0);
+        Vector rightDir(relativePositionDir.Y, -relativePositionDir.X, 0);
+        if (relativePositionDir.IsNearlyZero())
+        {
+            auto sumVelocityDir = (this->desiredVel + otherVelocity).GetSafeNormal2D();
+            leftDir = Vector(-sumVelocityDir.Y, sumVelocityDir.X, 0);
+            rightDir = Vector(sumVelocityDir.Y, -sumVelocityDir.X, 0);
+        }
         
-        segments.emplace_back(Segment::CreateRay(velocityOffset, leftDir, Segment::NormalDir::Right));
-        segments.emplace_back(Segment::CreateRay(velocityOffset, rightDir, Segment::NormalDir::Left));
+        if (!leftDir.IsNearlyZero())
+        {
+            segments.emplace_back(Segment::CreateRay(velocityOffset, leftDir, Segment::NormalDir::Right));
+        }
+        
+        if (!rightDir.IsNearlyZero())
+        {
+            segments.emplace_back(Segment::CreateRay(velocityOffset, rightDir, Segment::NormalDir::Left));
+        }
     }
     
     return segments;
@@ -599,7 +653,7 @@ void Navigator::DrawBox(const FVector& center, const FVector& extent, const FCol
     {
         if (DrawDebugBox)
         {
-            DrawDebugBox(center + Vector(0,0,100), extent, color, persistent, 0.1);
+            DrawDebugBox(center + Vector(0,0,100), extent, color, persistent, 0);
         }
     }
 }
