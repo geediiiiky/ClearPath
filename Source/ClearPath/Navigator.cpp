@@ -571,7 +571,7 @@ std::vector<Segment> Navigator::CalcBoundaryEdgesAgainst(const Navigator& other)
     const auto distance = FMath::Sqrt(relativePosition.SizeSquared2D());
     
     const auto velocityOffset = GetApex(myDesiredVelocity, otherVelocity);
-    const Directive::UnitType invLookForwardTime = 0.25;  // 1/n sec
+    const Directive::UnitType invLookForwardTime = 4;  // 1/n sec
     
     if (distance > combinedRadius)
     {
